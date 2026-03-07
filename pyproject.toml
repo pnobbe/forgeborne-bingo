@@ -1,0 +1,12 @@
+[project]
+name = "forgeborne-bingo"
+version = "0.1.0"
+description = "Team generator for Forgeborne bingo participants"
+requires-python = ">=3.12"
+dependencies = [
+    "python-dateutil>=2.9.0",
+    "requests>=2.32.0",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgeborne Bingo Teams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Forgeborne Bingo</p>
+      <h1>Team Draft Board</h1>
+      <p class="hero-copy">
+        A static GitHub Pages view of the latest balanced bingo teams, generated from Wise Old Man data.
+      </p>
+      <div class="hero-meta" id="hero-meta"></div>
+    </header>
+
+    <main>
+      <section class="panel summary-panel">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Event Snapshot</h2>
+        </div>
+        <div class="stats-grid" id="stats-grid"></div>
+      </section>
+
+      <section class="panel rules-panel">
+        <div>
+          <p class="section-label">Weighting</p>
+          <h2>Scoring Rules</h2>
+        </div>
+        <div class="rules-grid">
+          <div class="rule-card">
+            <h3>Base Weight</h3>
+            <ul id="base-rules"></ul>
+          </div>
+          <div class="rule-card">
+            <h3>Recent Gain Bonus</h3>
+            <ul id="decay-rules"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="teams-section">
+        <div class="teams-header">
+          <div>
+            <p class="section-label">Teams</p>
+            <h2>Current Lineup</h2>
+          </div>
+        </div>
+        <div class="teams-grid" id="teams-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="team-template">
+    <article class="team-card">
+      <div class="team-card__header">
+        <div>
+          <p class="team-label"></p>
+          <h3 class="team-name"></h3>
+        </div>
+        <div class="team-total"></div>
+      </div>
+      <div class="team-roster"></div>
+    </article>
+  </template>
+
+  <template id="player-template">
+    <div class="player-row">
+      <div>
+        <p class="player-name"></p>
+        <p class="player-subline"></p>
+      </div>
+      <dl class="player-metrics">
+        <div>
+          <dt>Base</dt>
+          <dd class="metric-base"></dd>
+        </div>
+        <div>
+          <dt>Bonus</dt>
+          <dd class="metric-bonus"></dd>
+        </div>
+        <div>
+          <dt>Total</dt>
+          <dd class="metric-total"></dd>
+        </div>
+      </dl>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
