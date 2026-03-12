@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="sara-bg" x1="400" y1="0" x2="400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1B34"/>
+      <stop offset="0.52" stop-color="#18335C"/>
+      <stop offset="1" stop-color="#09121F"/>
+    </linearGradient>
+    <radialGradient id="sara-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 120) rotate(90) scale(220 360)">
+      <stop stop-color="#DCEBFF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#DCEBFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#sara-bg)"/>
+  <rect width="800" height="520" fill="url(#sara-glow)"/>
+  <path d="M115 0H181L331 520H265L115 0Z" fill="#8AB7F5" fill-opacity="0.14"/>
+  <path d="M685 0H619L469 520H535L685 0Z" fill="#8AB7F5" fill-opacity="0.14"/>
+  <path d="M400 58L444 143H420V331H380V143H356L400 58Z" fill="#F7E2A0" fill-opacity="0.86"/>
+  <path d="M282 201C329 169 365 157 400 155C370 188 352 226 339 282L282 201Z" fill="#EEF7FF" fill-opacity="0.56"/>
+  <path d="M518 201C471 169 435 157 400 155C430 188 448 226 461 282L518 201Z" fill="#EEF7FF" fill-opacity="0.56"/>
+  <path d="M88 78H712" stroke="#F2DA96" stroke-opacity="0.26" stroke-width="2"/>
+  <path d="M120 112H680" stroke="#A2C7FF" stroke-opacity="0.16" stroke-width="1"/>
+  <path d="M154 444H646" stroke="#F2DA96" stroke-opacity="0.18" stroke-width="2"/>
+  <circle cx="400" cy="143" r="23" fill="#8AB7F5" fill-opacity="0.54" stroke="#FFF6DB" stroke-opacity="0.7" stroke-width="3"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="zamo-bg" x1="400" y1="0" x2="400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#250B10"/>
+      <stop offset="0.52" stop-color="#511319"/>
+      <stop offset="1" stop-color="#130608"/>
+    </linearGradient>
+    <radialGradient id="zamo-fire" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(402 168) rotate(90) scale(250 300)">
+      <stop stop-color="#FF9D7F" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#FF9D7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#zamo-bg)"/>
+  <rect width="800" height="520" fill="url(#zamo-fire)"/>
+  <path d="M95 470L274 0H338L188 470H95Z" fill="#9D1F22" fill-opacity="0.18"/>
+  <path d="M705 470L526 0H462L612 470H705Z" fill="#9D1F22" fill-opacity="0.18"/>
+  <path d="M400 69L482 150L445 216L481 370L400 309L319 370L355 216L318 150L400 69Z" fill="#D74B39" fill-opacity="0.72"/>
+  <path d="M349 177L400 234L451 177" stroke="#FFE3D5" stroke-opacity="0.74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M322 414L400 287L478 414" stroke="#2E090D" stroke-opacity="0.68" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M141 118L270 216" stroke="#FFB39D" stroke-opacity="0.12" stroke-width="2"/>
+  <path d="M659 118L530 216" stroke="#FFB39D" stroke-opacity="0.12" stroke-width="2"/>
+</svg>

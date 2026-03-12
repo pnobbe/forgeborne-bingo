@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="zamo-core" x1="32" y1="12" x2="32" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD8C8"/>
+      <stop offset="0.38" stop-color="#E96448"/>
+      <stop offset="1" stop-color="#6E1216"/>
+    </linearGradient>
+  </defs>
+  <path d="M19 18.2L32 12L45 18.2L38.7 27L43.4 44.7L32 37.4L20.6 44.7L25.3 27L19 18.2Z" fill="url(#zamo-core)"/>
+  <path d="M24.4 21.8L32 29.5L39.6 21.8" stroke="#FFE2D7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25.1 41.8L32 32.2L38.9 41.8" stroke="#24070C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.2 18.2L22.4 28.8" stroke="#A61B1D" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M45.8 18.2L41.6 28.8" stroke="#A61B1D" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

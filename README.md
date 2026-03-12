@@ -1,6 +1,6 @@
-# Forgeborne Bingo Team Generator
+# Forgeborne Bingo
 
-Generate balanced OSRS bingo teams from a plain text participant list using Wise Old Man stats.
+Generate balanced OSRS bingo teams from a plain text participant list and publish the static event site.
 
 ## Setup
 
@@ -21,43 +21,91 @@ Put one player name on each line.
 Run with defaults:
 
 ```bash
-~/.local/bin/uv run python generate_teams.py
+~/.local/bin/uv run python scripts/generate_teams.py
 ```
 
 Common options:
 
 ```bash
-~/.local/bin/uv run python generate_teams.py --team-size 5
-~/.local/bin/uv run python generate_teams.py --participants participants.txt --output custom_teams.md
-~/.local/bin/uv run python generate_teams.py --output teams_output.md --json-output docs/data/teams.json
+~/.local/bin/uv run python scripts/generate_teams.py --team-size 5
+~/.local/bin/uv run python scripts/generate_teams.py --participants participants.txt --output custom_teams.md
+~/.local/bin/uv run python scripts/generate_teams.py --json-output public/data/teams.json
 ```
 
 ## Command Options
 
-- `--team-size`: maximum number of players per team, default `4`
+- `--team-size`: target players per team, default `8`
 - `--participants`: path to a participant text file; defaults to `@participants.txt`, then `participants.txt`
-- `--output`: path to the generated Markdown file, default `teams_output.md`
-- `--json-output`: path to the generated JSON file for the static site, default `docs/data/teams.json`
+- `--output`: optional path to a generated Markdown report
+- `--json-output`: path to the generated JSON file for the static site, default `public/data/teams.json`
 
 ## Output
 
-The script prints teams to the terminal, writes a Markdown report, and can also write JSON for the static site.
+The script prints teams to the terminal and writes JSON for the static site. Markdown export is optional.
+
+The CLI entrypoint remains `scripts/generate_teams.py`, while the generator internals live in supporting `scripts/teamgen_*.py` modules.
 
 ## GitHub Pages Site
 
-The repository includes a static site in `docs/index.html` that reads team data from `docs/data/teams.json`.
-GitHub Pages can serve the `docs/` directory directly.
+The repository includes a static site in `public/index.html` that reads team data from `public/data/teams.json`.
+GitHub Pages deploys the `public/` directory as the published site artifact.
 
 Refresh the site data with:
 
 ```bash
-~/.local/bin/uv run python generate_teams.py --output teams_output.md --json-output docs/data/teams.json
+~/.local/bin/uv run python scripts/generate_teams.py --json-output public/data/teams.json
 ```
 
-Then enable GitHub Pages in the repository settings using the `main` branch and the `/docs` folder.
+The included GitHub Actions workflow handles Pages deployment automatically.
+
+The site supports direct tab links:
+
+- `?tab=teams`
+- `?tab=participants`
+
+Example:
+
+```text
+https://<user>.github.io/<repo>/?tab=participants
+```
+
+## Local Preview
+
+Because the site loads `public/data/teams.json` with `fetch`, preview it through a local web server instead of opening the HTML file directly.
+
+From the repository root:
+
+```bash
+./scripts/dev
+```
+
+Equivalent long form:
+
+```bash
+~/.local/bin/uv run python scripts/preview_site.py
+```
+
+Then open:
+
+```text
+http://localhost:8000/
+http://localhost:8000/?tab=participants
+```
+
+You can choose a different port with:
+
+```bash
+./scripts/dev --port 9000
+```
+
+This preview server includes hot reload for changes in `public/`.
+It does not automatically rerun the Python generator when `participants.txt`, `scripts/generate_teams.py`, or the supporting `scripts/teamgen_*.py` modules change; rerun the generator manually or start preview with `--regenerate` when needed.
 
 ## Notes
 
 - API responses are cached in `cache.json` for 1 hour
 - Usernames with spaces are supported
-- Recent gains receive extra bonus weight based on the configured decay multipliers in `generate_teams.py`
+- Team balancing uses `rating = (ehb_gained + lifetime_ehb / 10) + ((ehp_gained + lifetime_ehp / 10) / 3)`
+- Rating uses one shared lifetime divisor and one clear skilling divisor so the math stays easier to explain
+- `--team-size` behaves like a target/base size; resulting teams stay within one player of each other, then a swap pass tightens rating spread without changing team counts
+- `cache.json` is local cache state and should not be treated as a canonical project artifact

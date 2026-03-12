@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="weightRing" x1="24" y1="3" x2="24" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD08A"/>
+      <stop offset="1" stop-color="#A24C1D"/>
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="20.5" fill="#22130F" stroke="url(#weightRing)" stroke-width="3"/>
+  <path d="M24 12L29 20H19L24 12Z" fill="#FFD996"/>
+  <path d="M24 36L19 28H29L24 36Z" fill="#FF9A3D"/>
+  <rect x="22" y="18" width="4" height="12" rx="2" fill="#7A3417"/>
+  <path d="M14 17L18 24L14 31" stroke="#FFD996" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 17L30 24L34 31" stroke="#FFD996" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

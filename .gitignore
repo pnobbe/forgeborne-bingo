@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+cache.json
+teams_output.md

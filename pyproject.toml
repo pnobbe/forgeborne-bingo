@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Team generator for Forgeborne bingo participants"
 requires-python = ">=3.12"
 dependencies = [
+    "livereload>=2.7.1",
+    "pillow>=12.1.1",
     "python-dateutil>=2.9.0",
     "requests>=2.32.0",
 ]

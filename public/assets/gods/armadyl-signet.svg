@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="arma-core" x1="32" y1="16" x2="32" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FDFF"/>
+      <stop offset="0.45" stop-color="#C9E7F5"/>
+      <stop offset="1" stop-color="#6F9FB8"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 34.6C17.1 22.7 24.2 17.2 32 16.1C27.8 21.8 25.7 28.1 25.1 35.4L12 34.6Z" fill="#EFF9FF" opacity="0.92"/>
+  <path d="M52 34.6C46.9 22.7 39.8 17.2 32 16.1C36.2 21.8 38.3 28.1 38.9 35.4L52 34.6Z" fill="#EFF9FF" opacity="0.92"/>
+  <path d="M20 39.3L28.4 34.3L25.8 45.8L20 39.3Z" fill="#D4EEF9"/>
+  <path d="M44 39.3L35.6 34.3L38.2 45.8L44 39.3Z" fill="#D4EEF9"/>
+  <path d="M32 17.1L36.6 26.8L32 49L27.4 26.8L32 17.1Z" fill="url(#arma-core)"/>
+  <path d="M27.2 28.9L32 24.6L36.8 28.9" stroke="#FFE7A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

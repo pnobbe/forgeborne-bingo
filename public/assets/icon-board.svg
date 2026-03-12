@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="boardGold" x1="32" y1="9" x2="32" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6E6B7"/>
+      <stop offset="0.52" stop-color="#D6BC72"/>
+      <stop offset="1" stop-color="#8C6834"/>
+    </linearGradient>
+  </defs>
+  <path d="M13 13H51V51H13V13Z" fill="#17110D" stroke="url(#boardGold)" stroke-width="3"/>
+  <path d="M25.67 13V51" stroke="#E8D28E" stroke-width="3"/>
+  <path d="M38.33 13V51" stroke="#E8D28E" stroke-width="3"/>
+  <path d="M13 25.67H51" stroke="#E8D28E" stroke-width="3"/>
+  <path d="M13 38.33H51" stroke="#E8D28E" stroke-width="3"/>
+  <circle cx="19.33" cy="19.33" r="4.1" fill="#9BB3C8" stroke="#E7F0FB" stroke-opacity="0.4" stroke-width="1.2"/>
+  <circle cx="32" cy="32" r="4.1" fill="#F0DB92" stroke="#FFF2CB" stroke-opacity="0.4" stroke-width="1.2"/>
+  <circle cx="44.67" cy="44.67" r="4.1" fill="#C36E49" stroke="#FFD8C4" stroke-opacity="0.4" stroke-width="1.2"/>
+</svg>

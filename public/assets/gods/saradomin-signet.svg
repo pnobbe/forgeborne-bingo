@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="sara-blade" x1="32" y1="13" x2="32" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDF7E6"/>
+      <stop offset="0.45" stop-color="#F0D68D"/>
+      <stop offset="1" stop-color="#6E98E6"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 36C21.2 28.2 26 24.2 32 22.1C27.2 27.4 24.4 33.4 22.8 40.3L18 36Z" fill="#F4FAFF" opacity="0.92"/>
+  <path d="M46 36C42.8 28.2 38 24.2 32 22.1C36.8 27.4 39.6 33.4 41.2 40.3L46 36Z" fill="#F4FAFF" opacity="0.92"/>
+  <path d="M32 13L36.4 21.8H33.8V47H30.2V21.8H27.6L32 13Z" fill="url(#sara-blade)"/>
+  <path d="M25.2 26.2H38.8" stroke="#F3D488" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="32" cy="26.2" r="4.6" fill="#8AB7F5" stroke="#FFF7DE" stroke-width="1.6"/>
+</svg>
