@@ -104,6 +104,7 @@ Scripts:
 
 - `scripts/generate_teams.py`: CLI entrypoint and orchestration
 - `scripts/teamgen_*.py`: generator internals split by config, storage, fetch, scoring, balancing, and output
+- `scripts/swap_players.py`: manual post-generation swap tool for `public/data/teams.json`
 - `scripts/preview_site.py`: local dev preview server
 - `scripts/dev`: convenience wrapper for previewing locally
 
@@ -264,6 +265,10 @@ Current team generation is deterministic:
 3. snake-draft the main pool across teams
 4. assign overflow players to the currently lightest teams
 5. run deterministic one-for-one swaps that reduce team rating spread while preserving team counts
+
+Manual override note:
+
+- `scripts/swap_players.py` can apply an explicit swap after generation, but those changes live only in the generated JSON and will be overwritten by the next generator run
 
 Important caveat:
 

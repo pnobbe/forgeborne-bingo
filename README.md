@@ -101,6 +101,35 @@ You can choose a different port with:
 This preview server includes hot reload for changes in `public/`.
 It does not automatically rerun the Python generator when `participants.txt`, `scripts/generate_teams.py`, or the supporting `scripts/teamgen_*.py` modules change; rerun the generator manually or start preview with `--regenerate` when needed.
 
+## Manual Team Swaps
+
+If you want to manually swap two players after generation, use:
+
+```bash
+~/.local/bin/uv run python scripts/swap_players.py "Behre" "Ya Stal"
+```
+
+That shows a preview with:
+
+- each player's current and new team
+- their rating, combat score, skilling score, and rating rank
+- both affected team totals before and after the swap
+- the overall rating spread before and after
+
+To write the swap back into the live site data:
+
+```bash
+~/.local/bin/uv run python scripts/swap_players.py "Behre" "Ya Stal" --apply
+```
+
+Or write a separate copy:
+
+```bash
+~/.local/bin/uv run python scripts/swap_players.py "Behre" "Ya Stal" --output public/data/teams.manual.json
+```
+
+Important: manual swaps only modify the generated JSON. If you rerun `scripts/generate_teams.py`, the generator will rebuild teams and overwrite those manual changes.
+
 ## Notes
 
 - API responses are cached in `cache.json` for 1 hour

@@ -12,8 +12,8 @@
   "summary": {
     "team_count": 4,
     "participant_count": 34,
-    "rating_min": 530.3763343333334,
-    "rating_max": 531.7113556666667
+    "rating_min": 530.07,
+    "rating_max": 532.36
   },
   "participants": [
     {
@@ -13774,7 +13774,7 @@
     {
       "username": "Athcident",
       "player_type": "group_ironman",
-      "team": "Team 1",
+      "team": "Team 4",
       "ehp": 242.82,
       "ehb": 44.51,
       "total_level": 1920,
@@ -14173,7 +14173,7 @@
     {
       "username": "Scimy Turner",
       "player_type": "ironman",
-      "team": "Team 4",
+      "team": "Team 1",
       "ehp": 395.31,
       "ehb": 48.07,
       "total_level": 1929,
@@ -15786,7 +15786,7 @@
   "teams": [
     {
       "name": "Team 1",
-      "total_rating": 531.28,
+      "total_rating": 530.07,
       "player_count": 8,
       "players": [
         {
@@ -19012,401 +19012,359 @@
           ]
         },
         {
-          "username": "Athcident",
-          "player_type": "group_ironman",
+          "username": "Scimy Turner",
+          "player_type": "ironman",
           "team": "Team 1",
-          "ehp": 242.82,
-          "ehb": 44.51,
-          "total_level": 1920,
-          "ehb_gained": 0.18,
-          "ehp_gained": 20.92,
-          "ehp_rank": 25.0,
-          "ehb_rank": 19.0,
-          "overall_rank": 22,
-          "rating_rank": 28,
-          "ehb_lifetime_bonus": 4.45,
-          "ehp_lifetime_bonus": 24.28,
-          "ehb_score": 4.63,
-          "ehp_score": 15.07,
-          "total_rating": 19.7,
+          "ehp": 395.31,
+          "ehb": 48.07,
+          "total_level": 1929,
+          "ehb_gained": 0.5,
+          "ehp_gained": 0.0,
+          "ehp_rank": 16.0,
+          "ehb_rank": 18.0,
+          "overall_rank": 17,
+          "rating_rank": 29,
+          "ehb_lifetime_bonus": 4.81,
+          "ehp_lifetime_bonus": 39.53,
+          "ehb_score": 5.31,
+          "ehp_score": 13.18,
+          "total_rating": 18.48,
           "bosses": [
             {
-              "name": "Grotesque Guardians",
-              "key": "grotesque_guardians",
-              "kills": 5,
-              "ehb": 0.1351
-            },
-            {
-              "name": "Sarachnis",
-              "key": "sarachnis",
-              "kills": 5,
-              "ehb": 0.0454
+              "name": "Barrows Chests",
+              "key": "barrows_chests",
+              "kills": 11,
+              "ehb": 0.5
             }
           ],
           "skills": [
             {
-              "name": "Sailing",
-              "key": "sailing",
-              "xp": 1348858,
-              "ehp": 5.6202
+              "name": "Herblore",
+              "key": "herblore",
+              "xp": 2310,
+              "ehp": 0.033
             },
             {
               "name": "Slayer",
               "key": "slayer",
-              "xp": 299905,
-              "ehp": 3.7605
+              "xp": 820,
+              "ehp": 0.026
             },
             {
-              "name": "Mining",
-              "key": "mining",
-              "xp": 141722,
-              "ehp": 1.241
-            },
-            {
-              "name": "Ranged",
-              "key": "ranged",
-              "xp": 134050,
-              "ehp": 0.1126
-            },
-            {
-              "name": "Hunter",
-              "key": "hunter",
-              "xp": 22922,
-              "ehp": 0.0554
-            },
-            {
-              "name": "Smithing",
-              "key": "smithing",
-              "xp": 20230,
-              "ehp": 0.0426
-            },
-            {
-              "name": "Construction",
-              "key": "construction",
-              "xp": 15312,
-              "ehp": 0.0161
-            },
-            {
-              "name": "Prayer",
-              "key": "prayer",
-              "xp": 22140,
-              "ehp": 0.0111
-            },
-            {
-              "name": "Herblore",
-              "key": "herblore",
-              "xp": 4260,
-              "ehp": 0.0105
-            },
-            {
-              "name": "Defence",
-              "key": "defence",
-              "xp": 2784,
-              "ehp": 0.0035
-            },
-            {
-              "name": "Farming",
-              "key": "farming",
-              "xp": 3404,
-              "ehp": 0.0025
+              "name": "Attack",
+              "key": "attack",
+              "xp": 4263,
+              "ehp": 0.0229
             },
             {
               "name": "Hitpoints",
               "key": "hitpoints",
-              "xp": 404888,
-              "ehp": 0.002
+              "xp": 1658124,
+              "ehp": 0.0083
             },
             {
               "name": "Magic",
               "key": "magic",
-              "xp": 278209,
-              "ehp": 0.0014
-            },
-            {
-              "name": "Crafting",
-              "key": "crafting",
-              "xp": 268,
-              "ehp": 0.0007
-            },
-            {
-              "name": "Agility",
-              "key": "agility",
-              "xp": 33,
-              "ehp": 0.0005
+              "xp": 22212,
+              "ehp": 0.0001
             }
           ],
           "lifetime_bosses": [
             {
-              "name": "Lunar Chests",
-              "key": "lunar_chests",
-              "kills": 265,
-              "ehb": 14.7222
-            },
-            {
-              "name": "The Corrupted Gauntlet",
-              "key": "the_corrupted_gauntlet",
-              "kills": 69,
-              "ehb": 9.5833
-            },
-            {
               "name": "Barrows Chests",
               "key": "barrows_chests",
-              "kills": 145,
-              "ehb": 6.5909
+              "kills": 453,
+              "ehb": 20.5909
             },
             {
-              "name": "The Royal Titans",
-              "key": "the_royal_titans",
-              "kills": 358,
-              "ehb": 6.5091
+              "name": "Lunar Chests",
+              "key": "lunar_chests",
+              "kills": 299,
+              "ehb": 16.6111
             },
             {
-              "name": "The Hueycoatl",
-              "key": "the_hueycoatl",
-              "kills": 63,
-              "ehb": 3.15
-            },
-            {
-              "name": "Scurrius",
-              "key": "scurrius",
-              "kills": 73,
-              "ehb": 1.0429
+              "name": "Calvarion",
+              "key": "calvarion",
+              "kills": 117,
+              "ehb": 2.6
             },
             {
               "name": "The Gauntlet",
               "key": "the_gauntlet",
-              "kills": 8,
-              "ehb": 0.8
+              "kills": 14,
+              "ehb": 1.4
+            },
+            {
+              "name": "The Royal Titans",
+              "key": "the_royal_titans",
+              "kills": 67,
+              "ehb": 1.2182
+            },
+            {
+              "name": "Dagannoth Rex",
+              "key": "dagannoth_rex",
+              "kills": 112,
+              "ehb": 1.12
+            },
+            {
+              "name": "Vorkath",
+              "key": "vorkath",
+              "kills": 23,
+              "ehb": 0.6765
+            },
+            {
+              "name": "The Hueycoatl",
+              "key": "the_hueycoatl",
+              "kills": 12,
+              "ehb": 0.6
             },
             {
               "name": "Tztok Jad",
               "key": "tztok_jad",
               "kills": 1,
-              "ehb": 0.4
+              "ehb": 0.4546
             },
             {
-              "name": "Dagannoth Rex",
-              "key": "dagannoth_rex",
-              "kills": 36,
-              "ehb": 0.3429
+              "name": "Zulrah",
+              "key": "zulrah",
+              "kills": 18,
+              "ehb": 0.4286
             },
             {
-              "name": "Tombs Of Amascut",
-              "key": "tombs_of_amascut",
-              "kills": 1,
-              "ehb": 0.2703
-            },
-            {
-              "name": "Deranged Archaeologist",
-              "key": "deranged_archaeologist",
-              "kills": 19,
-              "ehb": 0.2375
-            },
-            {
-              "name": "Amoxliatl",
-              "key": "amoxliatl",
-              "kills": 17,
-              "ehb": 0.2
-            },
-            {
-              "name": "Grotesque Guardians",
-              "key": "grotesque_guardians",
-              "kills": 5,
-              "ehb": 0.1351
+              "name": "Chaos Elemental",
+              "key": "chaos_elemental",
+              "kills": 20,
+              "ehb": 0.4167
             },
             {
               "name": "Hespori",
               "key": "hespori",
-              "kills": 7,
-              "ehb": 0.1167
+              "kills": 16,
+              "ehb": 0.32
             },
             {
-              "name": "Sarachnis",
-              "key": "sarachnis",
-              "kills": 11,
-              "ehb": 0.1
+              "name": "Dagannoth Supreme",
+              "key": "dagannoth_supreme",
+              "kills": 24,
+              "ehb": 0.24
             },
             {
-              "name": "Crazy Archaeologist",
-              "key": "crazy_archaeologist",
-              "kills": 7,
-              "ehb": 0.0933
+              "name": "King Black Dragon",
+              "key": "king_black_dragon",
+              "kills": 17,
+              "ehb": 0.2267
             },
             {
-              "name": "The Whisperer",
-              "key": "the_whisperer",
-              "kills": 1,
-              "ehb": 0.0454
+              "name": "Scurrius",
+              "key": "scurrius",
+              "kills": 13,
+              "ehb": 0.2167
+            },
+            {
+              "name": "Giant Mole",
+              "key": "giant_mole",
+              "kills": 19,
+              "ehb": 0.1959
+            },
+            {
+              "name": "Obor",
+              "key": "obor",
+              "kills": 2,
+              "ehb": 0.1667
             },
             {
               "name": "Skotizo",
               "key": "skotizo",
-              "kills": 2,
-              "ehb": 0.0444
+              "kills": 5,
+              "ehb": 0.1316
+            },
+            {
+              "name": "Kril Tsutsaroth",
+              "key": "kril_tsutsaroth",
+              "kills": 4,
+              "ehb": 0.125
+            },
+            {
+              "name": "Grotesque Guardians",
+              "key": "grotesque_guardians",
+              "kills": 4,
+              "ehb": 0.1177
+            },
+            {
+              "name": "Dagannoth Prime",
+              "key": "dagannoth_prime",
+              "kills": 8,
+              "ehb": 0.08
             },
             {
               "name": "The Leviathan",
               "key": "the_leviathan",
               "kills": 1,
-              "ehb": 0.0323
+              "ehb": 0.037
             },
             {
-              "name": "Duke Sucellus",
-              "key": "duke_sucellus",
+              "name": "Sarachnis",
+              "key": "sarachnis",
+              "kills": 2,
+              "ehb": 0.0299
+            },
+            {
+              "name": "Kalphite Queen",
+              "key": "kalphite_queen",
               "kills": 1,
-              "ehb": 0.0256
+              "ehb": 0.027
             },
             {
               "name": "Vardorvis",
               "key": "vardorvis",
               "kills": 1,
-              "ehb": 0.0256
+              "ehb": 0.027
             },
             {
-              "name": "Zulrah",
-              "key": "zulrah",
+              "name": "Crazy Archaeologist",
+              "key": "crazy_archaeologist",
               "kills": 1,
-              "ehb": 0.0217
-            },
-            {
-              "name": "Commander Zilyana",
-              "key": "commander_zilyana",
-              "kills": 1,
-              "ehb": 0.0167
+              "ehb": 0.0105
             }
           ],
           "lifetime_skills": [
             {
-              "name": "Sailing",
-              "key": "sailing",
-              "xp": 13047126,
-              "ehp": 69.1197
-            },
-            {
               "name": "Slayer",
               "key": "slayer",
-              "xp": 1472961,
-              "ehp": 33.9064
-            },
-            {
-              "name": "Runecrafting",
-              "key": "runecrafting",
-              "xp": 1044581,
-              "ehp": 24.9168
-            },
-            {
-              "name": "Agility",
-              "key": "agility",
-              "xp": 1154367,
-              "ehp": 24.778
+              "xp": 2481167,
+              "ehp": 108.2552
             },
             {
               "name": "Mining",
               "key": "mining",
-              "xp": 1649799,
-              "ehp": 20.3509
-            },
-            {
-              "name": "Woodcutting",
-              "key": "woodcutting",
-              "xp": 2057377,
-              "ehp": 12.1042
+              "xp": 1987287,
+              "ehp": 70.982
             },
             {
               "name": "Fishing",
               "key": "fishing",
-              "xp": 1042012,
-              "ehp": 9.671
+              "xp": 1848149,
+              "ehp": 24.7493
             },
             {
-              "name": "Thieving",
-              "key": "thieving",
-              "xp": 1092373,
-              "ehp": 8.1708
-            },
-            {
-              "name": "Hunter",
-              "key": "hunter",
-              "xp": 2712121,
-              "ehp": 7.5926
-            },
-            {
-              "name": "Defence",
-              "key": "defence",
-              "xp": 5391948,
-              "ehp": 6.759
-            },
-            {
-              "name": "Smithing",
-              "key": "smithing",
-              "xp": 1802252,
-              "ehp": 4.5164
-            },
-            {
-              "name": "Firemaking",
-              "key": "firemaking",
-              "xp": 2024140,
-              "ehp": 3.9333
+              "name": "Agility",
+              "key": "agility",
+              "xp": 1638816,
+              "ehp": 23.3487
             },
             {
               "name": "Herblore",
               "key": "herblore",
-              "xp": 912931,
-              "ehp": 3.4815
+              "xp": 1602866,
+              "ehp": 22.8981
             },
             {
-              "name": "Farming",
-              "key": "farming",
-              "xp": 1200598,
-              "ehp": 3.2266
+              "name": "Firemaking",
+              "key": "firemaking",
+              "xp": 6954659,
+              "ehp": 21.9993
             },
             {
-              "name": "Crafting",
-              "key": "crafting",
-              "xp": 999134,
-              "ehp": 3.2249
+              "name": "Woodcutting",
+              "key": "woodcutting",
+              "xp": 2770178,
+              "ehp": 16.3007
             },
             {
               "name": "Ranged",
               "key": "ranged",
-              "xp": 3578763,
-              "ehp": 3.0074
+              "xp": 4623478,
+              "ehp": 15.8573
+            },
+            {
+              "name": "Attack",
+              "key": "attack",
+              "xp": 2430730,
+              "ehp": 13.0404
+            },
+            {
+              "name": "Runecrafting",
+              "key": "runecrafting",
+              "xp": 827117,
+              "ehp": 10.19
+            },
+            {
+              "name": "Hunter",
+              "key": "hunter",
+              "xp": 1220331,
+              "ehp": 10.15
             },
             {
               "name": "Cooking",
               "key": "cooking",
-              "xp": 1383768,
-              "ehp": 1.9217
+              "xp": 3522755,
+              "ehp": 9.8415
             },
             {
-              "name": "Construction",
-              "key": "construction",
-              "xp": 909588,
-              "ehp": 1.3951
+              "name": "Crafting",
+              "key": "crafting",
+              "xp": 1386008,
+              "ehp": 9.7023
+            },
+            {
+              "name": "Thieving",
+              "key": "thieving",
+              "xp": 1458407,
+              "ehp": 8.6744
+            },
+            {
+              "name": "Sailing",
+              "key": "sailing",
+              "xp": 208097,
+              "ehp": 7.2087
+            },
+            {
+              "name": "Smithing",
+              "key": "smithing",
+              "xp": 1207800,
+              "ehp": 6.4289
+            },
+            {
+              "name": "Farming",
+              "key": "farming",
+              "xp": 2302075,
+              "ehp": 5.1302
             },
             {
               "name": "Prayer",
               "key": "prayer",
-              "xp": 1347715,
-              "ehp": 0.6739
+              "xp": 806067,
+              "ehp": 4.5825
             },
             {
-              "name": "Hitpoints",
-              "key": "hitpoints",
-              "xp": 8855839,
-              "ehp": 0.0443
-            },
-            {
-              "name": "Magic",
-              "key": "magic",
-              "xp": 3317535,
-              "ehp": 0.0166
+              "name": "Construction",
+              "key": "construction",
+              "xp": 860276,
+              "ehp": 4.3276
             },
             {
               "name": "Fletching",
               "key": "fletching",
-              "xp": 1046653,
-              "ehp": 0.0052
+              "xp": 2057016,
+              "ehp": 1.3495
+            },
+            {
+              "name": "Strength",
+              "key": "strength",
+              "xp": 13034611,
+              "ehp": 0.2176
+            },
+            {
+              "name": "Hitpoints",
+              "key": "hitpoints",
+              "xp": 9511487,
+              "ehp": 0.0476
+            },
+            {
+              "name": "Magic",
+              "key": "magic",
+              "xp": 5932718,
+              "ehp": 0.0297
             }
           ]
         },
@@ -19717,7 +19675,7 @@
     },
     {
       "name": "Team 2",
-      "total_rating": 530.38,
+      "total_rating": 530.36,
       "player_count": 8,
       "players": [
         {
@@ -23510,7 +23468,7 @@
     },
     {
       "name": "Team 3",
-      "total_rating": 531.71,
+      "total_rating": 531.72,
       "player_count": 9,
       "players": [
         {
@@ -27731,7 +27689,7 @@
     },
     {
       "name": "Team 4",
-      "total_rating": 531.14,
+      "total_rating": 532.36,
       "player_count": 9,
       "players": [
         {
@@ -31044,359 +31002,401 @@
           ]
         },
         {
-          "username": "Scimy Turner",
-          "player_type": "ironman",
+          "username": "Athcident",
+          "player_type": "group_ironman",
           "team": "Team 4",
-          "ehp": 395.31,
-          "ehb": 48.07,
-          "total_level": 1929,
-          "ehb_gained": 0.5,
-          "ehp_gained": 0.0,
-          "ehp_rank": 16.0,
-          "ehb_rank": 18.0,
-          "overall_rank": 17,
-          "rating_rank": 29,
-          "ehb_lifetime_bonus": 4.81,
-          "ehp_lifetime_bonus": 39.53,
-          "ehb_score": 5.31,
-          "ehp_score": 13.18,
-          "total_rating": 18.48,
+          "ehp": 242.82,
+          "ehb": 44.51,
+          "total_level": 1920,
+          "ehb_gained": 0.18,
+          "ehp_gained": 20.92,
+          "ehp_rank": 25.0,
+          "ehb_rank": 19.0,
+          "overall_rank": 22,
+          "rating_rank": 28,
+          "ehb_lifetime_bonus": 4.45,
+          "ehp_lifetime_bonus": 24.28,
+          "ehb_score": 4.63,
+          "ehp_score": 15.07,
+          "total_rating": 19.7,
           "bosses": [
             {
-              "name": "Barrows Chests",
-              "key": "barrows_chests",
-              "kills": 11,
-              "ehb": 0.5
+              "name": "Grotesque Guardians",
+              "key": "grotesque_guardians",
+              "kills": 5,
+              "ehb": 0.1351
+            },
+            {
+              "name": "Sarachnis",
+              "key": "sarachnis",
+              "kills": 5,
+              "ehb": 0.0454
             }
           ],
           "skills": [
             {
-              "name": "Herblore",
-              "key": "herblore",
-              "xp": 2310,
-              "ehp": 0.033
+              "name": "Sailing",
+              "key": "sailing",
+              "xp": 1348858,
+              "ehp": 5.6202
             },
             {
               "name": "Slayer",
               "key": "slayer",
-              "xp": 820,
-              "ehp": 0.026
+              "xp": 299905,
+              "ehp": 3.7605
             },
             {
-              "name": "Attack",
-              "key": "attack",
-              "xp": 4263,
-              "ehp": 0.0229
+              "name": "Mining",
+              "key": "mining",
+              "xp": 141722,
+              "ehp": 1.241
+            },
+            {
+              "name": "Ranged",
+              "key": "ranged",
+              "xp": 134050,
+              "ehp": 0.1126
+            },
+            {
+              "name": "Hunter",
+              "key": "hunter",
+              "xp": 22922,
+              "ehp": 0.0554
+            },
+            {
+              "name": "Smithing",
+              "key": "smithing",
+              "xp": 20230,
+              "ehp": 0.0426
+            },
+            {
+              "name": "Construction",
+              "key": "construction",
+              "xp": 15312,
+              "ehp": 0.0161
+            },
+            {
+              "name": "Prayer",
+              "key": "prayer",
+              "xp": 22140,
+              "ehp": 0.0111
+            },
+            {
+              "name": "Herblore",
+              "key": "herblore",
+              "xp": 4260,
+              "ehp": 0.0105
+            },
+            {
+              "name": "Defence",
+              "key": "defence",
+              "xp": 2784,
+              "ehp": 0.0035
+            },
+            {
+              "name": "Farming",
+              "key": "farming",
+              "xp": 3404,
+              "ehp": 0.0025
             },
             {
               "name": "Hitpoints",
               "key": "hitpoints",
-              "xp": 1658124,
-              "ehp": 0.0083
+              "xp": 404888,
+              "ehp": 0.002
             },
             {
               "name": "Magic",
               "key": "magic",
-              "xp": 22212,
-              "ehp": 0.0001
+              "xp": 278209,
+              "ehp": 0.0014
+            },
+            {
+              "name": "Crafting",
+              "key": "crafting",
+              "xp": 268,
+              "ehp": 0.0007
+            },
+            {
+              "name": "Agility",
+              "key": "agility",
+              "xp": 33,
+              "ehp": 0.0005
             }
           ],
           "lifetime_bosses": [
             {
-              "name": "Barrows Chests",
-              "key": "barrows_chests",
-              "kills": 453,
-              "ehb": 20.5909
-            },
-            {
               "name": "Lunar Chests",
               "key": "lunar_chests",
-              "kills": 299,
-              "ehb": 16.6111
+              "kills": 265,
+              "ehb": 14.7222
             },
             {
-              "name": "Calvarion",
-              "key": "calvarion",
-              "kills": 117,
-              "ehb": 2.6
+              "name": "The Corrupted Gauntlet",
+              "key": "the_corrupted_gauntlet",
+              "kills": 69,
+              "ehb": 9.5833
             },
             {
-              "name": "The Gauntlet",
-              "key": "the_gauntlet",
-              "kills": 14,
-              "ehb": 1.4
+              "name": "Barrows Chests",
+              "key": "barrows_chests",
+              "kills": 145,
+              "ehb": 6.5909
             },
             {
               "name": "The Royal Titans",
               "key": "the_royal_titans",
-              "kills": 67,
-              "ehb": 1.2182
-            },
-            {
-              "name": "Dagannoth Rex",
-              "key": "dagannoth_rex",
-              "kills": 112,
-              "ehb": 1.12
-            },
-            {
-              "name": "Vorkath",
-              "key": "vorkath",
-              "kills": 23,
-              "ehb": 0.6765
+              "kills": 358,
+              "ehb": 6.5091
             },
             {
               "name": "The Hueycoatl",
               "key": "the_hueycoatl",
-              "kills": 12,
-              "ehb": 0.6
+              "kills": 63,
+              "ehb": 3.15
+            },
+            {
+              "name": "Scurrius",
+              "key": "scurrius",
+              "kills": 73,
+              "ehb": 1.0429
+            },
+            {
+              "name": "The Gauntlet",
+              "key": "the_gauntlet",
+              "kills": 8,
+              "ehb": 0.8
             },
             {
               "name": "Tztok Jad",
               "key": "tztok_jad",
               "kills": 1,
-              "ehb": 0.4546
+              "ehb": 0.4
             },
             {
-              "name": "Zulrah",
-              "key": "zulrah",
-              "kills": 18,
-              "ehb": 0.4286
+              "name": "Dagannoth Rex",
+              "key": "dagannoth_rex",
+              "kills": 36,
+              "ehb": 0.3429
             },
             {
-              "name": "Chaos Elemental",
-              "key": "chaos_elemental",
-              "kills": 20,
-              "ehb": 0.4167
+              "name": "Tombs Of Amascut",
+              "key": "tombs_of_amascut",
+              "kills": 1,
+              "ehb": 0.2703
             },
             {
-              "name": "Hespori",
-              "key": "hespori",
-              "kills": 16,
-              "ehb": 0.32
-            },
-            {
-              "name": "Dagannoth Supreme",
-              "key": "dagannoth_supreme",
-              "kills": 24,
-              "ehb": 0.24
-            },
-            {
-              "name": "King Black Dragon",
-              "key": "king_black_dragon",
-              "kills": 17,
-              "ehb": 0.2267
-            },
-            {
-              "name": "Scurrius",
-              "key": "scurrius",
-              "kills": 13,
-              "ehb": 0.2167
-            },
-            {
-              "name": "Giant Mole",
-              "key": "giant_mole",
+              "name": "Deranged Archaeologist",
+              "key": "deranged_archaeologist",
               "kills": 19,
-              "ehb": 0.1959
+              "ehb": 0.2375
             },
             {
-              "name": "Obor",
-              "key": "obor",
-              "kills": 2,
-              "ehb": 0.1667
-            },
-            {
-              "name": "Skotizo",
-              "key": "skotizo",
-              "kills": 5,
-              "ehb": 0.1316
-            },
-            {
-              "name": "Kril Tsutsaroth",
-              "key": "kril_tsutsaroth",
-              "kills": 4,
-              "ehb": 0.125
+              "name": "Amoxliatl",
+              "key": "amoxliatl",
+              "kills": 17,
+              "ehb": 0.2
             },
             {
               "name": "Grotesque Guardians",
               "key": "grotesque_guardians",
-              "kills": 4,
-              "ehb": 0.1177
+              "kills": 5,
+              "ehb": 0.1351
             },
             {
-              "name": "Dagannoth Prime",
-              "key": "dagannoth_prime",
-              "kills": 8,
-              "ehb": 0.08
+              "name": "Hespori",
+              "key": "hespori",
+              "kills": 7,
+              "ehb": 0.1167
+            },
+            {
+              "name": "Sarachnis",
+              "key": "sarachnis",
+              "kills": 11,
+              "ehb": 0.1
+            },
+            {
+              "name": "Crazy Archaeologist",
+              "key": "crazy_archaeologist",
+              "kills": 7,
+              "ehb": 0.0933
+            },
+            {
+              "name": "The Whisperer",
+              "key": "the_whisperer",
+              "kills": 1,
+              "ehb": 0.0454
+            },
+            {
+              "name": "Skotizo",
+              "key": "skotizo",
+              "kills": 2,
+              "ehb": 0.0444
             },
             {
               "name": "The Leviathan",
               "key": "the_leviathan",
               "kills": 1,
-              "ehb": 0.037
+              "ehb": 0.0323
             },
             {
-              "name": "Sarachnis",
-              "key": "sarachnis",
-              "kills": 2,
-              "ehb": 0.0299
-            },
-            {
-              "name": "Kalphite Queen",
-              "key": "kalphite_queen",
+              "name": "Duke Sucellus",
+              "key": "duke_sucellus",
               "kills": 1,
-              "ehb": 0.027
+              "ehb": 0.0256
             },
             {
               "name": "Vardorvis",
               "key": "vardorvis",
               "kills": 1,
-              "ehb": 0.027
+              "ehb": 0.0256
             },
             {
-              "name": "Crazy Archaeologist",
-              "key": "crazy_archaeologist",
+              "name": "Zulrah",
+              "key": "zulrah",
               "kills": 1,
-              "ehb": 0.0105
+              "ehb": 0.0217
+            },
+            {
+              "name": "Commander Zilyana",
+              "key": "commander_zilyana",
+              "kills": 1,
+              "ehb": 0.0167
             }
           ],
           "lifetime_skills": [
             {
+              "name": "Sailing",
+              "key": "sailing",
+              "xp": 13047126,
+              "ehp": 69.1197
+            },
+            {
               "name": "Slayer",
               "key": "slayer",
-              "xp": 2481167,
-              "ehp": 108.2552
-            },
-            {
-              "name": "Mining",
-              "key": "mining",
-              "xp": 1987287,
-              "ehp": 70.982
-            },
-            {
-              "name": "Fishing",
-              "key": "fishing",
-              "xp": 1848149,
-              "ehp": 24.7493
-            },
-            {
-              "name": "Agility",
-              "key": "agility",
-              "xp": 1638816,
-              "ehp": 23.3487
-            },
-            {
-              "name": "Herblore",
-              "key": "herblore",
-              "xp": 1602866,
-              "ehp": 22.8981
-            },
-            {
-              "name": "Firemaking",
-              "key": "firemaking",
-              "xp": 6954659,
-              "ehp": 21.9993
-            },
-            {
-              "name": "Woodcutting",
-              "key": "woodcutting",
-              "xp": 2770178,
-              "ehp": 16.3007
-            },
-            {
-              "name": "Ranged",
-              "key": "ranged",
-              "xp": 4623478,
-              "ehp": 15.8573
-            },
-            {
-              "name": "Attack",
-              "key": "attack",
-              "xp": 2430730,
-              "ehp": 13.0404
+              "xp": 1472961,
+              "ehp": 33.9064
             },
             {
               "name": "Runecrafting",
               "key": "runecrafting",
-              "xp": 827117,
-              "ehp": 10.19
+              "xp": 1044581,
+              "ehp": 24.9168
             },
             {
-              "name": "Hunter",
-              "key": "hunter",
-              "xp": 1220331,
-              "ehp": 10.15
+              "name": "Agility",
+              "key": "agility",
+              "xp": 1154367,
+              "ehp": 24.778
             },
             {
-              "name": "Cooking",
-              "key": "cooking",
-              "xp": 3522755,
-              "ehp": 9.8415
+              "name": "Mining",
+              "key": "mining",
+              "xp": 1649799,
+              "ehp": 20.3509
             },
             {
-              "name": "Crafting",
-              "key": "crafting",
-              "xp": 1386008,
-              "ehp": 9.7023
+              "name": "Woodcutting",
+              "key": "woodcutting",
+              "xp": 2057377,
+              "ehp": 12.1042
+            },
+            {
+              "name": "Fishing",
+              "key": "fishing",
+              "xp": 1042012,
+              "ehp": 9.671
             },
             {
               "name": "Thieving",
               "key": "thieving",
-              "xp": 1458407,
-              "ehp": 8.6744
+              "xp": 1092373,
+              "ehp": 8.1708
             },
             {
-              "name": "Sailing",
-              "key": "sailing",
-              "xp": 208097,
-              "ehp": 7.2087
+              "name": "Hunter",
+              "key": "hunter",
+              "xp": 2712121,
+              "ehp": 7.5926
+            },
+            {
+              "name": "Defence",
+              "key": "defence",
+              "xp": 5391948,
+              "ehp": 6.759
             },
             {
               "name": "Smithing",
               "key": "smithing",
-              "xp": 1207800,
-              "ehp": 6.4289
+              "xp": 1802252,
+              "ehp": 4.5164
+            },
+            {
+              "name": "Firemaking",
+              "key": "firemaking",
+              "xp": 2024140,
+              "ehp": 3.9333
+            },
+            {
+              "name": "Herblore",
+              "key": "herblore",
+              "xp": 912931,
+              "ehp": 3.4815
             },
             {
               "name": "Farming",
               "key": "farming",
-              "xp": 2302075,
-              "ehp": 5.1302
+              "xp": 1200598,
+              "ehp": 3.2266
             },
             {
-              "name": "Prayer",
-              "key": "prayer",
-              "xp": 806067,
-              "ehp": 4.5825
+              "name": "Crafting",
+              "key": "crafting",
+              "xp": 999134,
+              "ehp": 3.2249
+            },
+            {
+              "name": "Ranged",
+              "key": "ranged",
+              "xp": 3578763,
+              "ehp": 3.0074
+            },
+            {
+              "name": "Cooking",
+              "key": "cooking",
+              "xp": 1383768,
+              "ehp": 1.9217
             },
             {
               "name": "Construction",
               "key": "construction",
-              "xp": 860276,
-              "ehp": 4.3276
+              "xp": 909588,
+              "ehp": 1.3951
             },
             {
-              "name": "Fletching",
-              "key": "fletching",
-              "xp": 2057016,
-              "ehp": 1.3495
-            },
-            {
-              "name": "Strength",
-              "key": "strength",
-              "xp": 13034611,
-              "ehp": 0.2176
+              "name": "Prayer",
+              "key": "prayer",
+              "xp": 1347715,
+              "ehp": 0.6739
             },
             {
               "name": "Hitpoints",
               "key": "hitpoints",
-              "xp": 9511487,
-              "ehp": 0.0476
+              "xp": 8855839,
+              "ehp": 0.0443
             },
             {
               "name": "Magic",
               "key": "magic",
-              "xp": 5932718,
-              "ehp": 0.0297
+              "xp": 3317535,
+              "ehp": 0.0166
+            },
+            {
+              "name": "Fletching",
+              "key": "fletching",
+              "xp": 1046653,
+              "ehp": 0.0052
             }
           ]
         },
