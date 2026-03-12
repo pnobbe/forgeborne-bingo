@@ -8,12 +8,12 @@ The product vision has 3 main tabs:
 
 - `Board`: the primary feature; a shared bingo board of challenge tiles for the event
 - `Teams`: generated team overview, team totals, and members
-- `Participants`: detailed participant analysis and the exact weighting math used for team balancing
+- `Roster` (`participants` internally): detailed participant analysis and the exact rating math used for team balancing
 
 Current implementation status:
 
 - `Teams`: implemented
-- `Participants`: implemented
+- `Roster`: implemented (`participants` in code and query params)
 - `Board`: not implemented yet
 
 For v1, the app should remain static and GitHub Pages-friendly. Board completion should be stored per browser only, not shared across users or teams.
@@ -63,13 +63,13 @@ Possible later additions:
 - team logo
 - standings and points during the competition
 
-### Participants
+### Roster
 
-The Participants tab exists to explain and justify the seeding score for every player.
+The Roster tab (still `participants` internally) exists to explain and justify the seeding rating for every player.
 
 This tab should continue to emphasize:
 
-- transparency of the weighting formula
+- transparency of the rating formula
 - detailed breakdown of player strengths
 - useful visual comparison across the roster
 - room for future personalization, such as event-earned titles
@@ -80,13 +80,18 @@ This repo is a lightweight static-site project with a Python data-generation ste
 
 End-to-end flow:
 
-1. `participants.txt` provides the participant usernames
+1. `participants.txt` provides the participant usernames and the source-of-truth display casing
 2. `scripts/generate_teams.py` fetches Wise Old Man and OSRS hiscores data
-3. the generator computes ranks, scores, ratings, and team assignments
+3. the generator computes ranks, rating components, ratings, and team assignments
 4. it writes `public/data/teams.json` and can optionally export Markdown
 5. the frontend in `public/` fetches `public/data/teams.json` and renders the UI
 
 The CLI entrypoint stays in `scripts/generate_teams.py`, but the generator internals are split across supporting `scripts/teamgen_*.py` modules.
+
+Important live-data note:
+
+- treat `public/data/teams.json` as the current source of truth for team assignments unless the user explicitly asks to regenerate teams
+- `scripts/swap_players.py` can adjust that JSON without rerunning the generator, so the live site data may intentionally differ from a fresh generation run
 
 There is no frontend framework, no JS build step, and no application server.
 
@@ -96,15 +101,15 @@ Core project files:
 
 - `README.md`: setup and usage docs, but parts are currently stale
 - `pyproject.toml`: Python dependencies managed with `uv`
-- `participants.txt`: participant source list
+- `participants.txt`: participant source list and source of truth for displayed username casing
 - `player_overrides.json`: manual metadata overrides
-- `cache.json`: cached external API responses
+- `cache.json`: local cached external API responses; useful for reruns, but not a canonical project artifact
 
 Scripts:
 
 - `scripts/generate_teams.py`: CLI entrypoint and orchestration
 - `scripts/teamgen_*.py`: generator internals split by config, storage, fetch, scoring, balancing, and output
-- `scripts/swap_players.py`: manual post-generation swap tool for `public/data/teams.json`
+- `scripts/swap_players.py`: manual post-generation swap tool for `public/data/teams.json`; previews by default and only writes with `--apply` or `--output`
 - `scripts/preview_site.py`: local dev preview server
 - `scripts/dev`: convenience wrapper for previewing locally
 
@@ -113,7 +118,7 @@ Static site:
 - `public/index.html`: site shell, templates, and tab markup
 - `public/app.js`: data loading, rendering, tab state, countdown, card interactions
 - `public/styles.css`: handcrafted OSRS/forge visual system
-- `public/data/teams.json`: generated site data
+- `public/data/teams.json`: generated site data and the live source of truth for current team assignments unless the user explicitly requests regeneration
 - `public/assets/`: local art and icons
 
 Deployment:
@@ -128,12 +133,13 @@ The frontend is plain HTML, CSS, and vanilla JavaScript.
 Existing navigation:
 
 - `Teams` tab
-- `Participants` tab
+- centered `Board` medallion placeholder (non-clickable, `Coming soon`)
+- `Roster` tab (`participants` internally)
 
 Current deep links:
 
 - `?tab=teams`
-- `?tab=participants`
+- `?tab=participants` (loads the user-facing `Roster` tab)
 
 Tab state is managed in `public/app.js` with query params and `history.replaceState`.
 
@@ -163,17 +169,18 @@ Implemented in:
 Current behavior:
 
 - renders team cards
+- maps generic source team names onto fixed god-themed frontend identities
 - shows total team rating
 - shows roster rows with player type, rank, rating, and share of team total
 
 Current limits:
 
-- team names are generic (`Team 1`, `Team 2`, etc.)
+- underlying data names are still generic (`Team 1`, `Team 2`, etc.) even though the UI presents themed identities
 - no captain support
 - no team editing UI
 - no standings or score tracking
 
-### Participants Tab
+### Participants / Roster Tab
 
 Implemented in:
 
@@ -191,7 +198,7 @@ Current behavior:
 Current strengths:
 
 - best transparency surface in the app
-- communicates the math behind weighting well
+- communicates the rating math well
 - already feels like a strong analytical roster browser
 
 Current limits:
@@ -202,11 +209,12 @@ Current limits:
 
 ### Board Tab
 
-Not implemented.
+Not implemented as a real feature yet.
 
 There is currently:
 
-- no board tab in `public/index.html`
+- a centered board medallion placeholder in `public/index.html`
+- no clickable board tab/button
 - no board routing in `public/app.js`
 - no board data model
 - no tile UI
@@ -214,7 +222,7 @@ There is currently:
 
 ## Domain Logic
 
-### Weighting Philosophy
+### Rating Philosophy
 
 Team balancing is based on both lifetime account progression and recent activity.
 
@@ -226,7 +234,7 @@ The idea is:
 
 ### Current Formula
 
-In `scripts/generate_teams.py`, the current formula is:
+In the current generator (implemented primarily in `scripts/teamgen_scoring.py` and `scripts/teamgen_teams.py`), the formula is:
 
 - `ehb_score = ehb_gained + (ehb / 10)`
 - `ehp_score = (ehp_gained + (ehp / 10)) / 3`
@@ -256,11 +264,16 @@ Important detail:
 - `overall_rank` is descriptive only
 - team generation is driven by computed rating, not by `overall_rank`
 
+### Displayed Names
+
+- displayed usernames should preserve the exact casing from `participants.txt`
+- do not replace display names with Wise Old Man casing unless the user explicitly asks for that behavior
+
 ### Team Assignment
 
 Current team generation is deterministic:
 
-1. compute all player weights
+1. compute all player ratings
 2. sort descending by rating
 3. snake-draft the main pool across teams
 4. assign overflow players to the currently lightest teams
@@ -268,7 +281,11 @@ Current team generation is deterministic:
 
 Manual override note:
 
-- `scripts/swap_players.py` can apply an explicit swap after generation, but those changes live only in the generated JSON and will be overwritten by the next generator run
+- `scripts/swap_players.py` previews swaps by default
+- `--apply` writes in place and `--output` writes a copy
+- it only swaps players in existing JSON; it does not rerun the generator
+- it recalculates team totals, summary min/max values, and keeps team player lists sorted by `rating_rank`
+- those JSON-only changes will still be overwritten by the next generator run
 
 Important caveat:
 
@@ -295,7 +312,7 @@ OSRS hiscores are used mainly for account-type checks and verification.
 
 This repo assumes an ironman-only clan roster.
 
-Current normalization behavior in `scripts/generate_teams.py`:
+Current normalization behavior lives in `scripts/teamgen_scoring.py`, with hiscores checks in `scripts/teamgen_fetch.py`:
 
 - WOM `hardcore` becomes `hardcore_ironman`
 - WOM `ultimate` is verified and becomes `ultimate_ironman` or falls back to `ironman`
@@ -309,6 +326,7 @@ This is intentional for the current clan assumption, but it is a project-specifi
 
 - raw API responses are cached in `cache.json`
 - cache TTL is currently 1 hour
+- `cache.json` is ignored local state, not canonical repo data
 
 This lets the generator recompute derived data without refetching everything every run.
 
@@ -329,11 +347,13 @@ Setup:
 Generate data:
 
 - `uv run python scripts/generate_teams.py`
+- warning: rerunning the generator rebuilds teams and overwrites any manual swaps that only exist in `public/data/teams.json`
 
 Preview locally:
 
 - `./scripts/dev`
 - or `uv run python scripts/preview_site.py`
+- preview skips regeneration if `public/data/teams.json` already exists; use `--regenerate` to force a fresh run
 
 Typical local URL:
 
@@ -355,7 +375,7 @@ This matches the intended static-site deployment model.
 
 Future agents should be aware of the following inconsistencies before changing logic:
 
-1. `public/data/teams.json` may be out of sync with generator output if it was not freshly regenerated
+1. `public/data/teams.json` may intentionally be out of sync with a fresh generator run because of manual swaps or curated ordering; treat it as the live source of truth unless the user explicitly requests regeneration
 
 2. participant input and generated output may differ
    - if player fetches fail, the generator skips them silently apart from terminal output
@@ -370,7 +390,7 @@ Future agents should try to preserve these strong parts of the current implement
 - lightweight static architecture
 - zero-backend deployment model for v1
 - strong OSRS/forge visual identity
-- transparent participant weighting breakdowns
+- transparent roster rating breakdowns
 - straightforward deterministic team generation
 
 ## Recommended Near-Term Priorities
@@ -380,8 +400,8 @@ Suggested implementation order:
 1. define a board data schema for tiles and metadata
 2. add a real `Board` tab to the existing site shell
 3. implement board rendering and local browser persistence
-4. improve Teams and Participants with search/filter/sort as needed
-5. add tests around weighting and team generation logic
+4. improve Teams and Roster with search/filter/sort as needed
+5. add tests around rating and team generation logic
 
 ## Board V1 Implementation Guidance
 
@@ -406,11 +426,12 @@ Avoid for v1:
 
 - Read the generator and frontend before changing domain rules.
 - If you change the JSON shape, update both the generator and the frontend together.
-- If you change weighting math, update code, UI copy, and documentation together.
+- If you change rating math, update code, UI copy, and documentation together.
 - Prefer incremental changes over large rewrites.
 - Preserve static hosting compatibility.
 - Do not introduce a frontend framework unless there is a strong reason.
 - Preserve the established aesthetic; do not turn the app into a generic modern dashboard.
+- Do not rerun `scripts/generate_teams.py` casually when working on frontend or manual swap tooling; that can overwrite intentionally curated team assignments in `public/data/teams.json`.
 
 ## Quick Verification Checklist
 
@@ -420,7 +441,8 @@ After meaningful changes, verify at minimum:
 - `public/data/teams.json` loads in the browser
 - tab navigation works
 - Teams tab renders
-- Participants tab renders
+- Roster tab renders
+- Board placeholder behaves as expected if Board is still unimplemented
 - Board tab renders if implemented
 - mobile layout remains usable
 - any new local persistence survives refresh
@@ -434,5 +456,6 @@ If in doubt, treat these as the current source of truth:
 - live frontend behavior: `public/app.js`
 - live frontend structure: `public/index.html`
 - live styling system: `public/styles.css`
+- live team assignment source of truth: `public/data/teams.json`
 
 Documentation files are helpful, but some of them are currently stale relative to the code.
