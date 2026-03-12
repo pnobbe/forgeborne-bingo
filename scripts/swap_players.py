@@ -62,7 +62,26 @@ def locate_participant(data: Dict[str, Any], username: str) -> Dict[str, Any]:
     raise ValueError(f"Could not find player '{username}' in participant list.")
 
 
+def player_sort_key(player: Dict[str, Any]) -> tuple:
+    rating_rank = player.get("rating_rank")
+    overall_rank = player.get("overall_rank")
+    total_rating = player.get("total_rating", 0.0)
+    return (
+        rating_rank if rating_rank is not None else float("inf"),
+        overall_rank if overall_rank is not None else float("inf"),
+        -total_rating,
+        player.get("username", "").lower(),
+    )
+
+
+def sort_team_players(data: Dict[str, Any]) -> None:
+    for team in data.get("teams", []):
+        team["players"].sort(key=player_sort_key)
+
+
 def recalculate_totals(data: Dict[str, Any]) -> None:
+    sort_team_players(data)
+
     for team in data.get("teams", []):
         team["total_rating"] = round(
             sum(player.get("total_rating", 0.0) for player in team.get("players", [])),

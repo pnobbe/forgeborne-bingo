@@ -13,6 +13,18 @@ from teamgen_config import (
 )
 
 
+def player_sort_key(player: Dict) -> tuple:
+    rating_rank = player.get("rating_rank")
+    overall_rank = player.get("overall_rank")
+    total_rating = player.get("total_rating", 0.0)
+    return (
+        rating_rank if rating_rank is not None else float("inf"),
+        overall_rank if overall_rank is not None else float("inf"),
+        -total_rating,
+        player.get("username", "").lower(),
+    )
+
+
 def print_teams(teams: List[List[Dict]]) -> None:
     print("\n--- Final Teams ---")
     for team_index, team in enumerate(teams, start=1):
@@ -193,6 +205,7 @@ def write_json_output(
         team_players = [player_row(player, f"Team {team_index}") for player in team]
         for row in team_players:
             row["rating_rank"] = rating_rank_by_username[row["username"]]
+        team_players.sort(key=player_sort_key)
 
         payload["teams"].append(
             {
