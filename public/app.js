@@ -10,6 +10,7 @@ const tabButtons = document.querySelectorAll('[data-tab]');
 const tabPanels = document.querySelectorAll('[data-panel]');
 const infoChips = document.querySelectorAll('.info-chip');
 const VALID_TABS = new Set(['teams', 'participants']);
+const participantMobileLayoutQuery = window.matchMedia('(max-width: 720px)');
 
 const GOD_THEMES = [
   {
@@ -323,6 +324,77 @@ function qs(node, selector) {
 
 function qsa(node, selector) {
   return Array.from(node.querySelectorAll(selector));
+}
+
+function syncParticipantResponsiveLayout() {
+  const useMobileLayout = participantMobileLayoutQuery.matches;
+
+  qsa(participantsList, '.participant-card').forEach((participantNode) => {
+    const top = participantNode.querySelector('.participant-card__top');
+    const identity = participantNode.querySelector('.participant-card__identity');
+    const summary = participantNode.querySelector('.participant-card__summary');
+    const totals = participantNode.querySelector('.participant-card__totals');
+    const signet = participantNode.querySelector('.participant-team-signet');
+    const typeBadge = participantNode.querySelector('.player-type-badge');
+    const name = participantNode.querySelector('.participant-name');
+    const badges = participantNode.querySelector('.participant-badges');
+    let nameplate = participantNode.querySelector('.participant-card__nameplate');
+
+    if (!top || !identity || !summary || !totals || !signet || !typeBadge || !name) return;
+
+    if (useMobileLayout) {
+      if (signet.parentElement !== top) {
+        top.insertBefore(signet, top.firstChild);
+      }
+
+      if (!nameplate) {
+        nameplate = document.createElement('div');
+        nameplate.className = 'participant-card__nameplate';
+      }
+
+      if (typeBadge.parentElement !== nameplate) {
+        nameplate.appendChild(typeBadge);
+      }
+
+      if (name.parentElement !== nameplate) {
+        nameplate.appendChild(name);
+      }
+
+      if (nameplate.parentElement !== identity) {
+        identity.appendChild(nameplate);
+      }
+
+      if (summary) {
+        top.insertBefore(totals, summary);
+      } else if (totals.parentElement !== top) {
+        top.appendChild(totals);
+      }
+
+      return;
+    }
+
+    const restoreAnchor = badges && badges.parentElement === identity ? badges : null;
+
+    if (signet.parentElement !== identity) {
+      identity.insertBefore(signet, identity.firstChild);
+    }
+
+    if (typeBadge.parentElement !== identity) {
+      identity.insertBefore(typeBadge, restoreAnchor);
+    }
+
+    if (name.parentElement !== identity) {
+      identity.insertBefore(name, restoreAnchor);
+    }
+
+    if (nameplate) {
+      nameplate.remove();
+    }
+
+    if (totals.parentElement !== summary) {
+      summary.appendChild(totals);
+    }
+  });
 }
 
 function animateBreakdownOpen(panel) {
@@ -720,8 +792,8 @@ function renderParticipants(data) {
         const rc = recentBossMap.get(boss.key);
         ehbList.appendChild(makeBreakdownItem(
           boss.key, boss.name,
-          `${formatNumber(boss.kills)} kc`,
-          `${formatNumber(boss.ehb)} ehb`,
+          formatNumber(boss.kills),
+          formatNumber(boss.ehb),
           rc ? `+${formatNumber(rc.kills)}`  : null,
           rc ? `+${formatNumber(rc.ehb)}`   : null,
         ));
@@ -743,8 +815,8 @@ function renderParticipants(data) {
         const rc = recentSkillMap.get(skill.key);
         ehpList.appendChild(makeBreakdownItem(
           skill.key, skill.name,
-          `${formatXp(skill.xp)} xp`,
-          `${formatNumber(skill.ehp)} ehp`,
+          formatXp(skill.xp),
+          formatNumber(skill.ehp),
           rc ? `+${formatXp(rc.xp)}`        : null,
           rc ? `+${formatNumber(rc.ehp)}`   : null,
         ));
@@ -780,6 +852,8 @@ function renderParticipants(data) {
 
     participantsList.appendChild(participantNode);
   });
+
+  syncParticipantResponsiveLayout();
 }
 
 function getTabFromUrl() {
@@ -926,4 +1000,11 @@ async function loadTeams() {
 setupTabs();
 setupInfoChips();
 startCountdown();
+
+if (typeof participantMobileLayoutQuery.addEventListener === 'function') {
+  participantMobileLayoutQuery.addEventListener('change', syncParticipantResponsiveLayout);
+} else if (typeof participantMobileLayoutQuery.addListener === 'function') {
+  participantMobileLayoutQuery.addListener(syncParticipantResponsiveLayout);
+}
+
 loadTeams();
