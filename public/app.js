@@ -8,6 +8,7 @@ const playerTemplate = document.getElementById('player-template');
 const participantTemplate = document.getElementById('participant-template');
 const tabButtons = document.querySelectorAll('[data-tab]');
 const tabPanels = document.querySelectorAll('[data-panel]');
+const infoChips = document.querySelectorAll('.info-chip');
 const VALID_TABS = new Set(['teams', 'participants']);
 
 const GOD_THEMES = [
@@ -532,7 +533,6 @@ function renderTeams(data) {
   const maxRatingStr = formatNumber(Math.max(...allPlayers.map(player => player.total_rating)));
   teamsGrid.dataset.teamCount = String(data.teams.length);
   teamsGrid.dataset.columns = String(getIdealTeamGridColumns(data.teams.length));
-  teamsGrid.style.setProperty('--teams-columns', String(getIdealTeamGridColumns(data.teams.length)));
   // Use rem-based widths so ch resolution doesn't depend on font-size differences.
   // IBM Plex Mono at 0.75rem ≈ 0.46rem/char; pill has 14px (0.875rem) padding.
   const ratingWidth = `${(maxRatingStr.length * 0.46 + 0.875).toFixed(2)}rem`;
@@ -849,6 +849,59 @@ function setupTabs() {
   setActiveTab(getTabFromUrl(), { updateUrl: false });
 }
 
+function setInfoChipOpenState(chip, isOpen) {
+  chip.classList.toggle('is-open', isOpen);
+
+  const button = chip.querySelector('.info-chip__button');
+  if (button) {
+    button.setAttribute('aria-expanded', String(isOpen));
+  }
+}
+
+function closeInfoChips(exceptChip = null) {
+  infoChips.forEach((chip) => {
+    if (chip === exceptChip) return;
+    setInfoChipOpenState(chip, false);
+  });
+}
+
+function setupInfoChips() {
+  if (!infoChips.length) return;
+
+  infoChips.forEach((chip) => {
+    const button = chip.querySelector('.info-chip__button');
+    if (!button) return;
+
+    button.setAttribute('aria-expanded', 'false');
+
+    button.addEventListener('click', (event) => {
+      const willOpen = !chip.classList.contains('is-open');
+
+      if (window.matchMedia('(max-width: 720px)').matches) {
+        event.preventDefault();
+      }
+
+      closeInfoChips(chip);
+      setInfoChipOpenState(chip, willOpen);
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.info-chip')) return;
+    closeInfoChips();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeInfoChips();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    closeInfoChips();
+  });
+}
+
 async function loadTeams() {
   try {
     const response = await fetch('data/teams.json', { cache: 'no-store' });
@@ -871,5 +924,6 @@ async function loadTeams() {
 }
 
 setupTabs();
+setupInfoChips();
 startCountdown();
 loadTeams();
