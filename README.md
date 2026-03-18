@@ -130,6 +130,38 @@ Or write a separate copy:
 
 Important: manual swaps only modify the generated JSON. If you rerun `scripts/generate_teams.py`, the generator will rebuild teams and overwrite those manual changes.
 
+## Manual Board Claims
+
+If you want to add a verified board claim without hand-editing JSON, use:
+
+```bash
+~/.local/bin/uv run python scripts/add_board_claim.py vorkath-any-unique "Team 2" "Patri"
+```
+
+Useful options:
+
+- `--status verified` to control the claim status
+- `--completed-at 2026-03-19T21:14:00Z` to set an exact UTC timestamp
+- `--proof-url https://example.com/proof.png` to attach proof
+- `--note "Draconic visage drop"` to save an extra note
+- `--output public/data/board.manual.json` to write a separate copy instead of updating the live board file
+
+Example with metadata:
+
+```bash
+~/.local/bin/uv run python scripts/add_board_claim.py vorkath-any-unique "Team 2" "Patri" \
+  --completed-at "2026-03-19T21:14:00Z" \
+  --proof-url "https://example.com/proof.png" \
+  --note "Draconic visage drop"
+```
+
+Notes:
+
+- the script updates `public/data/board.json` by default
+- team names must match the tracked names in the board data exactly, such as `Team 1`
+- duplicate claims for the same team on the same tile are blocked unless you pass `--allow-duplicate-team`
+- the frog-blessed free tile is automatic and does not need claims
+
 ## Notes
 
 - API responses are cached in `cache.json` for 1 hour
