@@ -1951,10 +1951,10 @@ main {
   overflow: visible;
   border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(7, 6, 5, 0.28), rgba(7, 6, 5, 0.82)),
-    radial-gradient(circle at 50% -8%, rgba(224, 196, 127, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(7, 6, 5, 0.14), rgba(7, 6, 5, 0.64)),
+    radial-gradient(circle at 50% -8%, rgba(224, 196, 127, 0.14), transparent 32%),
     var(--board-detail-art) center/cover no-repeat,
-    linear-gradient(180deg, rgba(47, 40, 34, 0.96), rgba(27, 23, 19, 0.98));
+    linear-gradient(180deg, rgba(47, 40, 34, 0.88), rgba(27, 23, 19, 0.92));
   box-shadow:
     inset 0 0 0 1px rgba(186, 157, 95, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
@@ -1967,8 +1967,8 @@ main {
   inset: 0;
   border-radius: inherit;
   background:
-    linear-gradient(180deg, rgba(6, 5, 4, 0.94) 0%, rgba(10, 9, 7, 0.84) 12%, rgba(12, 10, 8, 0.54) 24%, rgba(12, 10, 8, 0.18) 42%, rgba(10, 9, 7, 0.36) 100%),
-    linear-gradient(90deg, rgba(7, 6, 5, 0.18), rgba(7, 6, 5, 0.04) 18%, rgba(7, 6, 5, 0.04) 82%, rgba(7, 6, 5, 0.18));
+    linear-gradient(180deg, rgba(6, 5, 4, 0.82) 0%, rgba(10, 9, 7, 0.68) 12%, rgba(12, 10, 8, 0.4) 24%, rgba(12, 10, 8, 0.1) 42%, rgba(10, 9, 7, 0.24) 100%),
+    linear-gradient(90deg, rgba(7, 6, 5, 0.14), rgba(7, 6, 5, 0.02) 18%, rgba(7, 6, 5, 0.02) 82%, rgba(7, 6, 5, 0.14));
   pointer-events: none;
 }
 
@@ -2181,8 +2181,8 @@ main {
   border: 1px solid rgba(240, 219, 146, 0.1);
   border-radius: 16px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012)),
-    linear-gradient(180deg, rgba(32, 28, 23, 0.82), rgba(18, 15, 12, 0.84));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    linear-gradient(180deg, rgba(32, 28, 23, 0.68), rgba(18, 15, 12, 0.72));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   align-content: start;
 }
@@ -2230,9 +2230,9 @@ main {
   border: 1px solid rgba(240, 219, 146, 0.12);
   border-radius: 14px;
   background:
-    radial-gradient(circle at 14% 0%, rgba(224, 196, 127, 0.08), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
-    linear-gradient(180deg, rgba(43, 37, 31, 0.78), rgba(22, 19, 16, 0.8));
+    radial-gradient(circle at 14% 0%, rgba(224, 196, 127, 0.1), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012)),
+    linear-gradient(180deg, rgba(43, 37, 31, 0.62), rgba(22, 19, 16, 0.68));
   text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
