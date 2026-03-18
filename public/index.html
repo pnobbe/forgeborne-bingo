@@ -16,7 +16,7 @@
       <div class="hero-main">
         <div class="hero-aside">
           <div class="hero-meta">
-            <span class="hero-meta__dates">18 Mar 2026 — 1 Apr 2026 &nbsp;·&nbsp; GMT+0</span>
+            <span class="hero-meta__dates">18 Mar 2026 11:30 UTC — 1 Apr 2026 00:00 UTC</span>
             <span class="hero-meta__countdown" id="hero-countdown" aria-live="polite" aria-atomic="true"></span>
             <a class="hero-meta__discord" href="https://discord.gg/ja2A5SpB" target="_blank" rel="noopener noreferrer">
               <svg class="discord-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -69,15 +69,71 @@
         <div class="tabs-panel__well">
           <div class="tabs tabs--primary" role="tablist" aria-label="Primary views">
             <button class="tab-button is-active" id="tab-teams" type="button" role="tab" aria-selected="true" aria-controls="panel-teams" data-tab="teams">Teams</button>
-            <div class="nav-board-wrap" tabindex="0" aria-label="Bingo Board" aria-describedby="board-coming-soon">
-              <div class="nav-board-placeholder" aria-hidden="true">
-                <span class="nav-board-placeholder__shine" aria-hidden="true"></span>
-                <img class="nav-board-placeholder__icon" src="assets/icon-board.svg" alt="" width="30" height="30" loading="lazy">
-              </div>
-              <span class="nav-board-placeholder__tooltip" id="board-coming-soon" role="tooltip">Board coming soon</span>
+            <div class="nav-board-wrap">
+              <button class="nav-board-button" id="tab-board" type="button" role="tab" aria-selected="false" aria-controls="panel-board" data-tab="board" aria-describedby="board-tab-label">
+                <span class="nav-board-button__shine" aria-hidden="true"></span>
+                <img class="nav-board-button__icon" src="assets/icon-board.svg" alt="" width="30" height="30" loading="lazy">
+                <span class="sr-only">Board</span>
+              </button>
+              <span class="nav-board-button__tooltip" id="board-tab-label" role="tooltip">Board</span>
             </div>
             <button class="tab-button" id="tab-participants" type="button" role="tab" aria-selected="false" aria-controls="panel-participants" data-tab="participants">Roster</button>
           </div>
+        </div>
+      </section>
+
+      <section class="panel tab-panel panel--section panel--board" id="panel-board" role="tabpanel" aria-labelledby="tab-board" data-panel="board" hidden>
+        <div class="board-shell">
+          <div class="board-main">
+            <header class="board-toolbar">
+              <div class="board-toolbar__meta" aria-label="Board details and tracking">
+                <div class="info-chip board-chip">
+                  <button class="info-chip__button board-chip__button" type="button" aria-label="Board overview">
+                    <img src="assets/icon-board-overview.svg" alt="" />
+                    <span class="sr-only">Board overview</span>
+                  </button>
+                  <div class="info-popover board-info-popover board-info-popover--summary">
+                    <p class="info-popover__label" id="board-title">Forgeborne Bingo Board</p>
+                    <p class="board-info-popover__intro" id="board-description"></p>
+                    <div class="board-info-popover__meta" id="board-meta"></div>
+                    <div class="info-popover__content board-info-popover__summary-grid" id="board-summary"></div>
+                  </div>
+                </div>
+
+                <div class="info-chip board-chip">
+                  <button class="info-chip__button board-chip__button" type="button" aria-label="Board guide">
+                    <img src="assets/icon-board-rules.svg" alt="" />
+                    <span class="sr-only">Board guide</span>
+                  </button>
+                  <div class="info-popover board-info-popover board-info-popover--rules">
+                    <p class="info-popover__label">Board Guide</p>
+                    <div class="info-popover__content board-info-popover__content">
+                      <div class="rule-card rule-card--compact board-rule-card">
+                        <ul class="board-rules__list" id="board-rules-list"></ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <div class="board-grid-scroller">
+              <div class="board-grid" id="board-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-item-preview" id="board-item-preview" hidden data-x="left" data-y="below" data-state="idle" aria-hidden="true">
+          <article class="board-item-preview__card" id="board-item-preview-card">
+            <div class="board-item-preview__image-wrap" id="board-item-preview-image-wrap" hidden>
+              <img class="board-item-preview__image" id="board-item-preview-image" src="" alt="" loading="lazy">
+            </div>
+            <div class="board-item-preview__body">
+              <p class="board-item-preview__status" id="board-item-preview-status">OSRS Wiki</p>
+              <h4 class="board-item-preview__title" id="board-item-preview-title"></h4>
+              <p class="board-item-preview__extract" id="board-item-preview-extract"></p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -89,6 +145,67 @@
         <div class="participants-list" id="participants-list"></div>
       </section>
     </main>
+  </div>
+
+  <div class="board-popover" id="board-popover" hidden data-mode="modal">
+    <div class="board-popover__backdrop" id="board-popover-backdrop" hidden></div>
+    <div class="board-popover__dialog" id="board-popover-dialog" role="dialog" aria-modal="false" aria-labelledby="board-detail-title" aria-live="polite" aria-atomic="true" tabindex="-1">
+      <article class="board-detail" id="board-detail">
+        <div class="board-detail__frame">
+          <header class="board-detail__header">
+            <div class="board-detail__art" id="board-detail-art">
+              <img class="board-detail__icon" id="board-detail-icon" src="" alt="" loading="lazy" hidden>
+            </div>
+
+            <div class="board-detail__header-copy">
+              <div class="board-detail__title-row">
+                <div class="board-detail__title-main">
+                  <div class="board-detail__title-group">
+                    <h3 class="board-detail__title" id="board-detail-title"></h3>
+                    <span class="board-detail__tile-marker" id="board-detail-coordinate"></span>
+                  </div>
+                </div>
+
+                <div class="board-detail__actions">
+                  <div class="board-completion-notch board-detail__completion-notch" id="board-detail-completion-notch" aria-label="Team completion status"></div>
+                  <button class="board-popover__close" id="board-popover-close" type="button" aria-label="Close board detail" hidden>X</button>
+                </div>
+              </div>
+
+            </div>
+          </header>
+
+          <div class="board-detail__body">
+            <section class="board-detail__mission" aria-labelledby="board-detail-objective-label">
+              <p class="board-detail__section-label board-detail__section-label--mission" id="board-detail-objective-label">Challenge</p>
+              <p class="board-detail__mission-copy" id="board-detail-objective"></p>
+              <div class="board-detail__context" id="board-detail-context-wrap" hidden>
+                <p class="board-detail__description" id="board-detail-description"></p>
+              </div>
+            </section>
+
+            <section class="board-detail__section-card board-detail__targets" id="board-detail-targets-wrap" hidden>
+              <p class="board-detail__subsection-label" id="board-detail-targets-label">Qualifying Targets</p>
+              <div class="board-detail__targets-grid" id="board-detail-targets"></div>
+            </section>
+
+            <section class="board-detail__rules-panel" id="board-detail-requirements-wrap" hidden>
+              <p class="board-detail__subsection-label">Rule Notes</p>
+              <ul class="board-detail__requirements" id="board-detail-requirements"></ul>
+            </section>
+
+            <section class="board-detail__support-card board-detail__support-card--verification" id="board-detail-verification-wrap">
+              <p class="board-detail__subsection-label">Verification</p>
+              <p id="board-detail-verification"></p>
+            </section>
+
+            <section id="board-detail-links-wrap" hidden aria-hidden="true" style="display:none !important;">
+              <div id="board-detail-links"></div>
+            </section>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 
   <template id="team-template">
@@ -310,6 +427,33 @@
           <ul class="breakdown-list breakdown-list--ehp"></ul>
         </div>
 
+      </div>
+    </article>
+  </template>
+
+  <template id="board-tile-template">
+    <button class="board-tile" type="button">
+      <div class="board-completion-notch board-tile__completion-notch" aria-hidden="true"></div>
+      <span class="board-tile__topline">
+        <span class="board-tile__coordinate"></span>
+      </span>
+      <div class="board-tile__visual"></div>
+      <strong class="board-tile__title"></strong>
+    </button>
+  </template>
+
+  <template id="board-completion-template">
+    <article class="board-completion">
+      <span class="board-completion__crest" aria-hidden="true">
+        <img class="board-completion__crest-icon" src="" alt="" width="18" height="18" loading="lazy">
+      </span>
+      <div class="board-completion__copy">
+        <div class="board-completion__row">
+          <strong class="board-completion__team"></strong>
+          <a class="board-completion__proof" href="" target="_blank" rel="noopener noreferrer" hidden>Proof</a>
+        </div>
+        <p class="board-completion__meta"></p>
+        <p class="board-completion__note" hidden></p>
       </div>
     </article>
   </template>

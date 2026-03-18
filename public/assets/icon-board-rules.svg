@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="boardRulesRing" x1="24" y1="3" x2="24" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD08A"/>
+      <stop offset="1" stop-color="#A24C1D"/>
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="20.5" fill="#211612" stroke="url(#boardRulesRing)" stroke-width="3"/>
+  <path d="M16.5 13.5H26.5L31.5 18.5V31C31.5 32.933 29.933 34.5 28 34.5H16.5C14.567 34.5 13 32.933 13 31V17C13 15.067 14.567 13.5 16.5 13.5Z" fill="#2B211B" stroke="#FFD996" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M26.5 13.5V17.3C26.5 18.515 27.485 19.5 28.7 19.5H31.5" stroke="#FFD996" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17.5 22H27.5M17.5 26H27.5M17.5 30H24.5" stroke="#8E4421" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="29.5" cy="29.5" r="4.5" fill="#FF9A3D"/>
+  <path d="M27.7 29.5L28.95 30.75L31.55 28.15" stroke="#211612" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
