@@ -1164,6 +1164,8 @@ const BOARD_TILE_ITEM_REFS = normalizeBoardItemRefs({
     'Vorki',
     'Draconic visage',
     'Skeletal visage',
+    { match: 'Vorkath head', display: "Vorkath's head", image: 'Vorkath\'s head', page: "Vorkath's head" },
+    { match: "Vorkath's head", display: "Vorkath's head", image: 'Vorkath\'s head', page: "Vorkath's head" },
   ],
   'zulrah-any-unique': [
     'Tanzanite fang',
@@ -1628,7 +1630,7 @@ const BOARD_TILE_DISPLAY_CONFIG = {
     ],
   },
   'dt2-vestige-progress': {
-    title: 'Loot Any Vestige or Three Gold Rings',
+    title: 'Progress a Vestige Drop Three Times ',
     groups: [
       { type: 'icons', refs: BOARD_TILE_TARGET_REFS['dt2-vestige-progress'].slice(0, 4), columns: 2, iconSize: '2.08rem', gap: '6px' },
     ],
@@ -1786,8 +1788,10 @@ const BOARD_TILE_RULE_NOTES = {
     'Only one qualifying hilt is needed.',
   ],
   'dt2-vestige-progress': [
-    'Three gold rings may be split across teammates.',
-    'Mixed ring progress across different DT2 bosses counts.',
+    'The tile needs three total vestige-table rolls.',
+    'Each qualifying vestige or qualifying gold ring counts as one roll.',
+    'Any mix of vestiges and gold rings counts toward the three required rolls.',
+    'Those rolls may be split across teammates and different DT2 bosses.',
   ],
   'gotr-needle-or-lantern': [
     'The qualifying item must be gained from Rewards Guardian searches during the event window.',
@@ -1842,6 +1846,7 @@ const BOARD_TILE_RULE_NOTES = {
     'Pre-owned rings do not count.',
   ],
   'vorkath-any-unique': [
+    'Vorkath\'s head does not count.',
     'Pre-owned items do not count.',
   ],
   'zulrah-any-unique': [

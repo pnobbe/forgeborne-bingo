@@ -71,18 +71,19 @@
                 "row": 1,
                 "column": 2
             },
-            "title": "Obtain a Desert Treasure II Vestige or 3x Gold Rings",
+            "title": "Hit the DT2 Vestige Table 3 Times",
             "category": "Bossing",
             "difficulty": "Hard",
             "points": 5,
-            "summary": "Obtain any Desert Treasure II vestige, or complete the hidden vestige progress with any three DT2 gold ring drops.",
-            "description": "Qualifying vestiges are Ultor, Bellator, Venator, and Magus. DT2 bosses use hidden unique-progress rolls; the visible gold ring drops mark vestige progress, and any three total qualifying gold ring drops count here as full vestige progress even if they come from different DT2 bosses or different team members.",
-            "objective": "Have the team obtain any qualifying vestige during the event, or accumulate any three qualifying DT2 gold ring drops during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible in every screenshot, covering either the vestige itself or all three qualifying gold ring drops.",
+            "summary": "Record three total rolls on the DT2 vestige table through any mix of vestiges and gold rings.",
+            "description": "Qualifying vestiges are Ultor, Bellator, Venator, and Magus. DT2 bosses use hidden vestige-progress rolls; both the vestige itself and the corresponding gold ring represent a successful roll on that table. For this tile, the team needs any three total qualifying rolls, counted through any mix of qualifying vestige drops and DT2 gold ring drops.",
+            "objective": "Have the team record any three qualifying DT2 vestige-table rolls during the event window, through any mix of qualifying vestige drops and gold ring drops.",
+            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible in every screenshot covering all three qualifying rolls, whether they are vestige drops, gold ring drops, or a mix of both.",
             "requirements": [
                 "Qualifying vestiges are Ultor vestige, Bellator vestige, Venator vestige, and Magus vestige.",
-                "Any three qualifying DT2 gold ring drops count for this tile.",
-                "Gold ring progress may be split across different DT2 bosses and different team members.",
+                "Each qualifying vestige drop counts as one roll, and each qualifying DT2 gold ring drop counts as one roll.",
+                "The team needs three total qualifying rolls in any mix of vestiges and gold rings.",
+                "Qualifying rolls may be split across different DT2 bosses and different team members.",
                 "Pre-owned vestiges or ring progress do not count."
             ],
             "icon": {
