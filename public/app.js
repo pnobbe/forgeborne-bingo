@@ -257,7 +257,7 @@ function playerTypeIcon(type) {
 
 // Bingo event window — UTC boundaries
 const BINGO_START = Date.UTC(2026, 2, 18, 11, 30);  // 18 Mar 2026 11:30 UTC
-const BINGO_END   = Date.UTC(2026, 3,  1);          // 1 Apr 2026 00:00 UTC
+const BINGO_END   = Date.UTC(2026, 3,  1, 11, 30);  // 1 Apr 2026 11:30 UTC
 
 function formatCountdown(ms) {
   if (ms <= 0) return null;
