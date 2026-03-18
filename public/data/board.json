@@ -1,1202 +1,1212 @@
 {
-    "schema_version": 1,
-    "board_id": "forgeborne-2026-main",
-    "version": "2026.03.18",
-    "title": "Forgeborne Bingo Board",
-    "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-    "updated_at": "2026-03-18T00:00:00Z",
-    "layout": {
-        "rows": 5,
-        "columns": 5
-    },
-    "teams_tracked": [
-        "Team 1",
-        "Team 2",
-        "Team 3",
-        "Team 4"
-    ],
-    "rules": [
-        "Each tile can be claimed once per team unless that tile says otherwise.",
-        "Open any tile to see the exact objective, qualifying rewards, and proof requirements.",
-        "A claim is only locked in after its proof has been verified.",
-        "Use the Clan Events plugin with the password \"Forgborne Bingo\" so every proof screenshot shows the player name, date, and time.",
-        "For tiles with multiple drops or progress stages, your team can combine event-window progress across teammates unless that tile says otherwise.",
-        "If a tile-specific rule conflicts with a board note, follow the tile's own Rule Notes and Verification text."
-    ],
-    "tiles": [
+  "schema_version": 1,
+  "board_id": "forgeborne-2026-main",
+  "version": "2026.03.18",
+  "title": "Forgeborne Bingo Board",
+  "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
+  "updated_at": "2026-03-18T21:31:39Z",
+  "layout": {
+    "rows": 5,
+    "columns": 5
+  },
+  "teams_tracked": [
+    "Team 1",
+    "Team 2",
+    "Team 3",
+    "Team 4"
+  ],
+  "rules": [
+    "Each tile can be claimed once per team unless that tile says otherwise.",
+    "Open any tile to see the exact objective, qualifying rewards, and proof requirements.",
+    "A claim is only locked in after its proof has been verified.",
+    "Use the Clan Events plugin with the password \"Forgborne Bingo\" so every proof screenshot shows the player name, date, and time.",
+    "For tiles with multiple drops or progress stages, your team can combine event-window progress across teammates unless that tile says otherwise.",
+    "If a tile-specific rule conflicts with a board note, follow the tile's own Rule Notes and Verification text."
+  ],
+  "tiles": [
+    {
+      "id": "any-gwd-hilt",
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "title": "Obtain a Godsword Hilt from God Wars Dungeon",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any godsword hilt from the God Wars Dungeon bosses.",
+      "description": "Any of the five godsword hilts counts: Armadyl, Bandos, Saradomin, Zamorak, or Ancient from Nex. Hilts are the component that determines a godsword's appearance and special attack.",
+      "objective": "Have a team member obtain any qualifying godsword hilt during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying hilt.",
+      "requirements": [
+        "Qualifying drops are Armadyl hilt, Bandos hilt, Saradomin hilt, Zamorak hilt, or Ancient hilt.",
+        "The hilt must come from its God Wars Dungeon boss source during the event window.",
+        "Only one qualifying hilt is needed to claim the tile."
+      ],
+      "icon": {
+        "key": "general_graardor",
+        "alt": "God Wars Dungeon boss icon"
+      },
+      "art": {
+        "background_key": "general_graardor"
+      },
+      "links": [
         {
-            "id": "any-gwd-hilt",
-            "position": {
-                "row": 1,
-                "column": 1
-            },
-            "title": "Obtain a Godsword Hilt from God Wars Dungeon",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any godsword hilt from the God Wars Dungeon bosses.",
-            "description": "Any of the five godsword hilts counts: Armadyl, Bandos, Saradomin, Zamorak, or Ancient from Nex. Hilts are the component that determines a godsword's appearance and special attack.",
-            "objective": "Have a team member obtain any qualifying godsword hilt during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying hilt.",
-            "requirements": [
-                "Qualifying drops are Armadyl hilt, Bandos hilt, Saradomin hilt, Zamorak hilt, or Ancient hilt.",
-                "The hilt must come from its God Wars Dungeon boss source during the event window.",
-                "Only one qualifying hilt is needed to claim the tile."
-            ],
-            "icon": {
-                "key": "general_graardor",
-                "alt": "God Wars Dungeon boss icon"
-            },
-            "art": {
-                "background_key": "general_graardor"
-            },
-            "links": [
-                {
-                    "label": "Godsword hilt",
-                    "url": "https://oldschool.runescape.wiki/w/Godsword_hilt"
-                },
-                {
-                    "label": "God Wars Dungeon",
-                    "url": "https://oldschool.runescape.wiki/w/God_Wars_Dungeon"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
+          "label": "Godsword hilt",
+          "url": "https://oldschool.runescape.wiki/w/Godsword_hilt"
         },
         {
-            "id": "dt2-vestige-progress",
-            "position": {
-                "row": 1,
-                "column": 2
-            },
-            "title": "Hit the DT2 Vestige Table 3 Times",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Record three total rolls on the DT2 vestige table through any mix of vestiges and gold rings.",
-            "description": "Qualifying vestiges are Ultor, Bellator, Venator, and Magus. DT2 bosses use hidden vestige-progress rolls; both the vestige itself and the corresponding gold ring represent a successful roll on that table. For this tile, the team needs any three total qualifying rolls, counted through any mix of qualifying vestige drops and DT2 gold ring drops.",
-            "objective": "Have the team record any three qualifying DT2 vestige-table rolls during the event window, through any mix of qualifying vestige drops and gold ring drops.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible in every screenshot covering all three qualifying rolls, whether they are vestige drops, gold ring drops, or a mix of both.",
-            "requirements": [
-                "Qualifying vestiges are Ultor vestige, Bellator vestige, Venator vestige, and Magus vestige.",
-                "Each qualifying vestige drop counts as one roll, and each qualifying DT2 gold ring drop counts as one roll.",
-                "The team needs three total qualifying rolls in any mix of vestiges and gold rings.",
-                "Qualifying rolls may be split across different DT2 bosses and different team members.",
-                "Pre-owned vestiges or ring progress do not count."
-            ],
-            "icon": {
-                "key": "vardorvis",
-                "alt": "Desert Treasure II boss icon"
-            },
-            "art": {
-                "background_key": "vardorvis"
-            },
-            "links": [
-                {
-                    "label": "Vestige list",
-                    "url": "https://oldschool.runescape.wiki/w/Vestige_(disambiguation)"
-                },
-                {
-                    "label": "Vardorvis",
-                    "url": "https://oldschool.runescape.wiki/w/Vardorvis"
-                },
-                {
-                    "label": "The Whisperer",
-                    "url": "https://oldschool.runescape.wiki/w/The_Whisperer"
-                },
-                {
-                    "label": "The Leviathan",
-                    "url": "https://oldschool.runescape.wiki/w/The_Leviathan"
-                },
-                {
-                    "label": "Duke Sucellus",
-                    "url": "https://oldschool.runescape.wiki/w/Duke_Sucellus"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "gotr-needle-or-lantern",
-            "position": {
-                "row": 1,
-                "column": 3
-            },
-            "title": "Loot an Abyssal Needle or Abyssal Lantern",
-            "category": "Minigame",
-            "difficulty": "Medium",
-            "points": 4,
-            "summary": "Obtain either an abyssal needle or an abyssal lantern from Guardians of the Rift rewards.",
-            "description": "Both items come from the Rewards Guardian in Guardians of the Rift. The abyssal needle is used to create the colossal pouch, while the abyssal lantern grants powerful minigame-only effects when lit with logs.",
-            "objective": "Have a team member obtain an abyssal needle or abyssal lantern during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Rewards Guardian search reward.",
-            "requirements": [
-                "Abyssal needle and abyssal lantern both count.",
-                "The drop must be obtained during the event window.",
-                "The abyssal needle or abyssal lantern must come from Rewards Guardian searches during the event window.",
-                "Abyssal pearl exchanges do not count.",
-                "Pre-owned rewards do not count."
-            ],
-            "icon": {
-                "key": "runecrafting",
-                "alt": "Runecrafting icon"
-            },
-            "art": {
-                "background_key": "guardians_of_the_rift"
-            },
-            "links": [
-                {
-                    "label": "Abyssal needle",
-                    "url": "https://oldschool.runescape.wiki/w/Abyssal_needle"
-                },
-                {
-                    "label": "Abyssal lantern",
-                    "url": "https://oldschool.runescape.wiki/w/Abyssal_lantern"
-                },
-                {
-                    "label": "Guardians of the Rift",
-                    "url": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "double-synapse-or-claw",
-            "position": {
-                "row": 1,
-                "column": 4
-            },
-            "title": "Obtain 2x Tormented Synapse or Burning Claw Drops",
-            "category": "PvM",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any two qualifying Tormented Demon drops: tormented synapses and/or burning claws.",
-            "description": "This tile tracks the major While Guthix Sleeps Tormented Demon drops. Tormented synapse is used for Emberlight, the Purging staff, and the Scorching bow; burning claw is the single-drop component that combines into Burning claws.",
-            "objective": "Have the team obtain two total qualifying drops during the event window, with each drop being either a tormented synapse or a burning claw.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both qualifying drops.",
-            "requirements": [
-                "Qualifying drops are tormented synapse and burning claw.",
-                "Any mix counts, including 2 synapses, 2 claws, or 1 of each.",
-                "The two qualifying drops may be obtained by different team members unless event rules later restrict this."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Combat icon"
-            },
-            "art": {
-                "background_key": "tormented_demons"
-            },
-            "links": [
-                {
-                    "label": "Tormented synapse",
-                    "url": "https://oldschool.runescape.wiki/w/Tormented_synapse"
-                },
-                {
-                    "label": "Burning claw",
-                    "url": "https://oldschool.runescape.wiki/w/Burning_claw"
-                },
-                {
-                    "label": "Tormented Demons",
-                    "url": "https://oldschool.runescape.wiki/w/Tormented_Demon"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "huey-wand-or-tome",
-            "position": {
-                "row": 1,
-                "column": 5
-            },
-            "title": "Obtain a Dragon Hunter Wand or Tome of Earth",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain either the dragon hunter wand or the tome of earth from the Hueycoatl.",
-            "description": "Both uniques come from the Hueycoatl reward table. The dragon hunter wand is a dragon-slaying autocast weapon, while the tome of earth gives infinite earth runes and boosts standard spellbook earth damage while charged.",
-            "objective": "Have a team member obtain a dragon hunter wand or tome of earth during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Hueycoatl unique.",
-            "requirements": [
-                "Either dragon hunter wand or tome of earth counts.",
-                "The qualifying drop must come from the Hueycoatl during the event window."
-            ],
-            "icon": {
-                "key": "the_hueycoatl",
-                "alt": "The Hueycoatl icon"
-            },
-            "art": {
-                "background_key": "the_hueycoatl"
-            },
-            "links": [
-                {
-                    "label": "Dragon hunter wand",
-                    "url": "https://oldschool.runescape.wiki/w/Dragon_hunter_wand"
-                },
-                {
-                    "label": "Tome of earth",
-                    "url": "https://oldschool.runescape.wiki/w/Tome_of_earth"
-                },
-                {
-                    "label": "The Hueycoatl",
-                    "url": "https://oldschool.runescape.wiki/w/The_Hueycoatl"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "dragon-warhammer",
-            "position": {
-                "row": 2,
-                "column": 1
-            },
-            "title": "Obtain a Dragon Warhammer",
-            "category": "PvM",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain a dragon warhammer from Lizardman shamans.",
-            "description": "An iconic shaman unique and one of the game's signature defence-reduction spec weapons. The dragon warhammer is an extremely rare Lizardman shaman drop, and its special attack drains 30% of a target's current Defence on a successful hit.",
-            "objective": "Have a team member obtain a dragon warhammer drop during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the dragon warhammer drop.",
-            "requirements": [
-                "The dragon warhammer must be obtained as a drop from Lizardman shamans during the event.",
-                "Pre-owned dragon warhammers do not count.",
-                "Only one qualifying drop is needed to claim the tile."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Combat icon"
-            },
-            "art": {
-                "background_key": "lizardman_shamans"
-            },
-            "links": [
-                {
-                    "label": "Dragon warhammer",
-                    "url": "https://oldschool.runescape.wiki/w/Dragon_warhammer"
-                },
-                {
-                    "label": "Lizardman shaman",
-                    "url": "https://oldschool.runescape.wiki/w/Lizardman_shaman"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "tempoross-unique-no-barrel-box",
-            "position": {
-                "row": 2,
-                "column": 2
-            },
-            "title": "Loot Any Eligible Unique from Tempoross",
-            "category": "Minigame",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain a qualifying Tempoross unique other than fish barrel or tackle box.",
-            "description": "Qualifying rewards for this tile are tome of water, big harpoonfish, dragon harpoon, and Tiny tempor. Tome of water and big harpoonfish are 1/1,600 reward-pool uniques, while dragon harpoon and the pet are the much rarer 1/8,000 pulls.",
-            "objective": "Have a team member obtain a tome of water, big harpoonfish, dragon harpoon, or Tiny tempor from Tempoross during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Tempoross reward-pool unique.",
-            "requirements": [
-                "Qualifying rewards are tome of water, big harpoonfish, dragon harpoon, and Tiny tempor.",
-                "Fish barrel and tackle box do not count for this tile.",
-                "The qualifying item must be obtained from the Tempoross reward pool during the event.",
-                "Pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "fishing",
-                "alt": "Fishing icon"
-            },
-            "art": {
-                "background_key": "tempoross",
-                "background_url": "https://oldschool.runescape.wiki/images/thumb/Tempoross_Cove.png/1200px-Tempoross_Cove.png?703e2"
-            },
-            "links": [
-                {
-                    "label": "Tome of water",
-                    "url": "https://oldschool.runescape.wiki/w/Tome_of_water"
-                },
-                {
-                    "label": "Big harpoonfish",
-                    "url": "https://oldschool.runescape.wiki/w/Big_harpoonfish"
-                },
-                {
-                    "label": "Dragon harpoon",
-                    "url": "https://oldschool.runescape.wiki/w/Dragon_harpoon"
-                },
-                {
-                    "label": "Tiny tempor",
-                    "url": "https://oldschool.runescape.wiki/w/Tiny_tempor"
-                },
-                {
-                    "label": "Tempoross",
-                    "url": "https://oldschool.runescape.wiki/w/Tempoross"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "doom-any-unique",
-            "position": {
-                "row": 2,
-                "column": 3
-            },
-            "title": "Receive a Doom of Mokhaiotl Unique",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any qualifying unique from the Doom of Mokhaiotl.",
-            "description": "Qualifying uniques for this tile are Mokhaiotl cloth, Eye of ayak (uncharged), Avernic treads, and Dom. The Doom is a delve boss, so deeper clears unlock additional uniques and improve the rates, but risking a unique by pushing deeper and dying forfeits it.",
-            "objective": "Have a team member successfully claim any qualifying Doom of Mokhaiotl unique during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible when the qualifying unique is successfully claimed.",
-            "requirements": [
-                "Qualifying uniques are Mokhaiotl cloth, Eye of ayak (uncharged), Avernic treads, and Dom.",
-                "Mokhaiotl cloth can roll from delve 2+, Eye of ayak from delve 3+, Avernic treads from delve 4+, and Dom from delve 6+.",
-                "The unique must be successfully claimed; a unique seen in the burrow warning but lost by dying deeper does not count.",
-                "Pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Combat icon"
-            },
-            "art": {
-                "background_key": "doom_of_mokhaiotl"
-            },
-            "links": [
-                {
-                    "label": "Doom of Mokhaiotl",
-                    "url": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl#Uniques"
-                },
-                {
-                    "label": "Avernic treads",
-                    "url": "https://oldschool.runescape.wiki/w/Avernic_treads"
-                },
-                {
-                    "label": "Eye of ayak",
-                    "url": "https://oldschool.runescape.wiki/w/Eye_of_ayak_(uncharged)"
-                },
-                {
-                    "label": "Mokhaiotl cloth",
-                    "url": "https://oldschool.runescape.wiki/w/Mokhaiotl_cloth"
-                },
-                {
-                    "label": "Dom",
-                    "url": "https://oldschool.runescape.wiki/w/Dom"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "three-unsired",
-            "position": {
-                "row": 2,
-                "column": 4
-            },
-            "title": "Obtain 3x Unsired",
-            "category": "Slayer",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Collect three unsired drops from the Abyssal Sire.",
-            "description": "Unsired is the signature untradeable 1/100 pre-roll unique from Abyssal Sire, the 85 Slayer solo boss. It cannot be banked, is redeemed at the Font of Consumption, and can become bludgeon pieces, abyssal weapons, jars, heads, or the Abyssal orphan.",
-            "objective": "Have the team obtain three unsired drops from Abyssal Sire during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for each of the three Unsired drops. If they are redeemed later, include enough screenshot proof to tie the turn-ins back to those drops.",
-            "requirements": [
-                "Only event-window unsired drops from Abyssal Sire count.",
-                "Three total unsired drops are required.",
-                "The three unsireds may be obtained by different team members unless event rules later restrict this.",
-                "Redeeming unsireds at the Font of Consumption is allowed; the tile counts the drops, not the rewards."
-            ],
-            "icon": {
-                "key": "abyssal_sire",
-                "alt": "Abyssal Sire icon"
-            },
-            "art": {
-                "background_key": "abyssal_sire",
-                "background_url": "https://oldschool.runescape.wiki/images/Abyssal_Nexus.png?851b8"
-            },
-            "links": [
-                {
-                    "label": "Unsired",
-                    "url": "https://oldschool.runescape.wiki/w/Unsired"
-                },
-                {
-                    "label": "Abyssal Sire",
-                    "url": "https://oldschool.runescape.wiki/w/Abyssal_Sire"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "full-barrows-set",
-            "position": {
-                "row": 2,
-                "column": 5
-            },
-            "title": "Complete a Barrows Equipment Set",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Complete any one full Barrows brother equipment set from scratch.",
-            "description": "Any full four-piece set counts: Ahrim, Dharok, Guthan, Karil, Torag, or Verac. The team may split the pieces across members, but all four drops must belong to the same brother's set and must be newly obtained during the event.",
-            "objective": "Have the team collectively obtain all four pieces of any one qualifying Barrows set during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for each of the four qualifying Barrows pieces, and identify which set was completed.",
-            "requirements": [
-                "Qualifying sets are Ahrim's, Dharok's, Guthan's, Karil's, Torag's, and Verac's equipment sets.",
-                "Each completed set needs its helm or hood, body, legs or skirt, and weapon from the same brother.",
-                "Pieces may be obtained by different team members.",
-                "All four pieces must be fresh event-window Barrows rewards; pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "barrows_chests",
-                "alt": "Barrows chest icon"
-            },
-            "art": {
-                "background_key": "barrows_chests"
-            },
-            "links": [
-                {
-                    "label": "Barrows",
-                    "url": "https://oldschool.runescape.wiki/w/Barrows"
-                },
-                {
-                    "label": "Barrows equipment",
-                    "url": "https://oldschool.runescape.wiki/w/Barrows_equipment"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "twinflame-staff-from-scratch",
-            "position": {
-                "row": 3,
-                "column": 1
-            },
-            "title": "Loot Both Twinflame Staff Pieces",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain both Twinflame staff crowns from Royal Titans during the event.",
-            "description": "Twinflame staff is made by combining a battlestaff with the fire element staff crown and the ice element staff crown. For this tile, the team only needs both crowns as fresh event-window Royal Titans drops, and the two pieces may come from different team members.",
-            "objective": "Have the team obtain both the fire element staff crown and the ice element staff crown from Royal Titans during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both staff piece drops.",
-            "requirements": [
-                "Both the fire element staff crown and the ice element staff crown are required.",
-                "Both crowns must be fresh event-window drops from Royal Titans.",
-                "The two crowns may be obtained by different team members.",
-                "The twinflame staff does not need to be assembled to claim the tile.",
-                "Pre-owned crowns do not count."
-            ],
-            "icon": {
-                "key": "the_royal_titans",
-                "alt": "Royal Titans icon"
-            },
-            "art": {
-                "background_key": "the_royal_titans"
-            },
-            "links": [
-                {
-                    "label": "Twinflame staff",
-                    "url": "https://oldschool.runescape.wiki/w/Twinflame_staff"
-                },
-                {
-                    "label": "Royal Titans",
-                    "url": "https://oldschool.runescape.wiki/w/Royal_Titans"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "toa-any-purple",
-            "position": {
-                "row": 3,
-                "column": 2
-            },
-            "title": "Loot a Purple from Tombs of Amascut",
-            "category": "Raid",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any purple unique from a Tombs of Amascut reward chest.",
-            "description": "A purple from Tombs of Amascut means any chest unique from the raid's purple table, including Osmumten's fang, Tumeken's shadow, Elidinis' ward, Lightbearer, or Masori armour pieces. This tile tracks the purple reward itself, not jewels, thread, pet, or cosmetic rewards.",
-            "objective": "Have a team member receive any qualifying purple unique from Tombs of Amascut during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Tombs of Amascut purple.",
-            "requirements": [
-                "Qualifying rewards are Osmumten's fang, Tumeken's shadow (uncharged), Elidinis' ward, Lightbearer, Masori mask, Masori body, and Masori chaps.",
-                "The unique must come from a Tombs of Amascut reward chest during the event window.",
-                "Jewels, thread of elidinis, pet, kits, and other non-purple rewards do not count."
-            ],
-            "icon": {
-                "key": "tombs_of_amascut",
-                "alt": "Tombs of Amascut icon"
-            },
-            "art": {
-                "background_key": "tombs_of_amascut"
-            },
-            "links": [
-                {
-                    "label": "ToA uniques",
-                    "url": "https://oldschool.runescape.wiki/w/Chest_(Tombs_of_Amascut)#Uniques_2"
-                },
-                {
-                    "label": "Tombs of Amascut",
-                    "url": "https://oldschool.runescape.wiki/w/Tombs_of_Amascut"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "free-tile-tbd",
-            "position": {
-                "row": 3,
-                "column": 3
-            },
-            "title": "Free Tile for a frog to land on",
-            "category": "Special",
-            "difficulty": "Free",
-            "points": 0,
-            "summary": "A blessed free space for the board's resident frog.",
-            "description": "There is no challenge for this tile. It is a free tile that has been blessed by a frog and counts as unlocked for every team automatically.",
-            "objective": "No gameplay action is required. This tile starts unlocked for every team.",
-            "verification": "No verification is needed.",
-            "requirements": [
-                "This tile is automatically unlocked for every team.",
-                "No player action is required.",
-                "No proof or verification is needed."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Placeholder icon"
-            },
-            "art": {
-                "background_url": "https://oldschool.runescape.wiki/images/thumb/Apple_orchard.png/1280px-Apple_orchard.png?1b10f"
-            },
-            "links": [
-                {
-                    "label": "Board rules",
-                    "url": "https://oldschool.runescape.wiki/"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "enhanced-crystal-weapon-seed",
-            "position": {
-                "row": 3,
-                "column": 4
-            },
-            "title": "Loot an Enhanced Crystal Weapon Seed",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain an enhanced crystal weapon seed from the Gauntlet or Corrupted Gauntlet.",
-            "description": "The enhanced crystal weapon seed is the chase unique used to create the Bow of Faerdhinen or Blade of Saeldor. It can come from either version of the Gauntlet reward chest, with a much better rate in Corrupted Gauntlet.",
-            "objective": "Have a team member receive an enhanced crystal weapon seed from a Gauntlet reward chest during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the enhanced crystal weapon seed.",
-            "requirements": [
-                "Drops from either the Gauntlet or Corrupted Gauntlet count.",
-                "The seed must be received from the reward chest during the event window.",
-                "Reverted or pre-owned seeds do not count."
-            ],
-            "icon": {
-                "key": "the_gauntlet",
-                "alt": "The Gauntlet icon"
-            },
-            "art": {
-                "background_key": "the_gauntlet"
-            },
-            "links": [
-                {
-                    "label": "Enhanced crystal weapon seed",
-                    "url": "https://oldschool.runescape.wiki/w/Enhanced_crystal_weapon_seed"
-                },
-                {
-                    "label": "The Gauntlet",
-                    "url": "https://oldschool.runescape.wiki/w/The_Gauntlet"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "all-three-dk-rings",
-            "position": {
-                "row": 3,
-                "column": 5
-            },
-            "title": "Obtain All Three Dagannoth Kings Rings",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain the Berserker, Seers, and Archers rings from the Dagannoth Kings during the event.",
-            "description": "This tile requires the full ring trio from the Dagannoth Kings: Berserker ring from Dagannoth Rex, Seers ring from Dagannoth Prime, and Archers ring from Dagannoth Supreme. The rings may be split across teammates, but all three qualifying drops must be fresh event-window Dagannoth Kings rewards.",
-            "objective": "Have the team collectively obtain Berserker ring, Seers ring, and Archers ring from the Dagannoth Kings during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for all three rings, and identify which player obtained each one.",
-            "requirements": [
-                "Berserker ring must come from Dagannoth Rex, Seers ring from Dagannoth Prime, and Archers ring from Dagannoth Supreme.",
-                "All three rings are required to claim the tile.",
-                "The rings may be obtained by different team members unless event rules later restrict this.",
-                "Pre-owned rings do not count."
-            ],
-            "icon": {
-                "key": "dagannoth_rex",
-                "alt": "Dagannoth Kings icon"
-            },
-            "art": {
-                "background_key": "dagannoth_rex"
-            },
-            "links": [
-                {
-                    "label": "Dagannoth Kings",
-                    "url": "https://oldschool.runescape.wiki/w/Dagannoth_Kings"
-                },
-                {
-                    "label": "Berserker ring",
-                    "url": "https://oldschool.runescape.wiki/w/Berserker_ring"
-                },
-                {
-                    "label": "Seers ring",
-                    "url": "https://oldschool.runescape.wiki/w/Seers_ring"
-                },
-                {
-                    "label": "Archers ring",
-                    "url": "https://oldschool.runescape.wiki/w/Archers_ring"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "vorkath-any-unique",
-            "position": {
-                "row": 4,
-                "column": 1
-            },
-            "title": "Obtain a Vorkath Unique",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain any qualifying unique from Vorkath.",
-            "description": "Qualifying uniques for this tile are dragonbone necklace, jar of decay, Vorki, draconic visage, and skeletal visage. Any one of these drops counts, letting teams claim the tile with either the more attainable dragonbone necklace or one of Vorkath's rarer chase drops.",
-            "objective": "Have a team member obtain any qualifying Vorkath unique during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Vorkath unique.",
-            "requirements": [
-                "Qualifying drops are dragonbone necklace, jar of decay, Vorki, draconic visage, and skeletal visage.",
-                "The qualifying drop must come from Vorkath during the event window.",
-                "Pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "vorkath",
-                "alt": "Vorkath icon"
-            },
-            "art": {
-                "background_key": "vorkath",
-                "background_url": "https://oldschool.runescape.wiki/images/Ungael.png?2e330"
-            },
-            "links": [
-                {
-                    "label": "Vorkath",
-                    "url": "https://oldschool.runescape.wiki/w/Vorkath"
-                },
-                {
-                    "label": "Dragonbone necklace",
-                    "url": "https://oldschool.runescape.wiki/w/Dragonbone_necklace"
-                },
-                {
-                    "label": "Jar of decay",
-                    "url": "https://oldschool.runescape.wiki/w/Jar_of_decay"
-                },
-                {
-                    "label": "Vorki",
-                    "url": "https://oldschool.runescape.wiki/w/Vorki"
-                },
-                {
-                    "label": "Draconic visage",
-                    "url": "https://oldschool.runescape.wiki/w/Draconic_visage"
-                },
-                {
-                    "label": "Skeletal visage",
-                    "url": "https://oldschool.runescape.wiki/w/Skeletal_visage"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "zulrah-any-unique",
-            "position": {
-                "row": 4,
-                "column": 2
-            },
-            "title": "Obtain a Zulrah Unique",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain any qualifying unique from Zulrah.",
-            "description": "Qualifying uniques for this tile are tanzanite fang, magic fang, serpentine visage, tanzanite mutagen, magma mutagen, jar of swamp, and pet snakeling. Any one of these drops counts, covering both Zulrah's core weapon uniques and its rarer cosmetic or pet rewards.",
-            "objective": "Have a team member obtain any qualifying Zulrah unique during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Zulrah unique.",
-            "requirements": [
-                "Qualifying drops are tanzanite fang, magic fang, serpentine visage, tanzanite mutagen, magma mutagen, jar of swamp, and pet snakeling.",
-                "The qualifying drop must come from Zulrah during the event window.",
-                "Pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "zulrah",
-                "alt": "Zulrah icon"
-            },
-            "art": {
-                "background_key": "zulrah",
-                "background_url": "https://oldschool.runescape.wiki/images/Poison_Waste.png?06158"
-            },
-            "links": [
-                {
-                    "label": "Zulrah",
-                    "url": "https://oldschool.runescape.wiki/w/Zulrah"
-                },
-                {
-                    "label": "Tanzanite fang",
-                    "url": "https://oldschool.runescape.wiki/w/Tanzanite_fang"
-                },
-                {
-                    "label": "Magic fang",
-                    "url": "https://oldschool.runescape.wiki/w/Magic_fang"
-                },
-                {
-                    "label": "Serpentine visage",
-                    "url": "https://oldschool.runescape.wiki/w/Serpentine_visage"
-                },
-                {
-                    "label": "Tanzanite mutagen",
-                    "url": "https://oldschool.runescape.wiki/w/Tanzanite_mutagen"
-                },
-                {
-                    "label": "Magma mutagen",
-                    "url": "https://oldschool.runescape.wiki/w/Magma_mutagen"
-                },
-                {
-                    "label": "Jar of swamp",
-                    "url": "https://oldschool.runescape.wiki/w/Jar_of_swamp"
-                },
-                {
-                    "label": "Pet snakeling",
-                    "url": "https://oldschool.runescape.wiki/w/Pet_snakeling"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "cox-any-purple",
-            "position": {
-                "row": 4,
-                "column": 3
-            },
-            "title": "Loot a Purple from Chambers of Xeric",
-            "category": "Raid",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any purple unique from the Chambers of Xeric reward chest.",
-            "description": "Any item on the Ancient chest unique drop table counts for this tile, including the prayer scrolls, Ancestral pieces, Twisted buckler, Dragon hunter crossbow, Dinh's bulwark, Kodai insignia, Elder maul, and Twisted bow. Standard Chambers and Challenge Mode both qualify as long as the reward is a purple unique from the chest.",
-            "objective": "Have a team member receive any qualifying purple unique from Chambers of Xeric during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Chambers of Xeric purple.",
-            "requirements": [
-                "Qualifying rewards are Dexterous prayer scroll, Arcane prayer scroll, Twisted buckler, Dragon hunter crossbow, Dinh's bulwark, Ancestral hat, Ancestral robe top, Ancestral robe bottom, Kodai insignia, Elder maul, and Twisted bow.",
-                "The unique must come from a Chambers of Xeric reward chest during the event window.",
-                "Non-purple raid rewards do not count."
-            ],
-            "icon": {
-                "key": "chambers_of_xeric",
-                "alt": "Chambers of Xeric icon"
-            },
-            "art": {
-                "background_key": "chambers_of_xeric"
-            },
-            "links": [
-                {
-                    "label": "Ancient chest uniques",
-                    "url": "https://oldschool.runescape.wiki/w/Ancient_chest#Unique_drop_table"
-                },
-                {
-                    "label": "Chambers of Xeric",
-                    "url": "https://oldschool.runescape.wiki/w/Chambers_of_Xeric"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "wintertodt-tome-phoenix-or-axe",
-            "position": {
-                "row": 4,
-                "column": 4
-            },
-            "title": "Loot Any Eligible Unique from Wintertodt",
-            "category": "Minigame",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain a tome of fire, Phoenix, or dragon axe from Wintertodt.",
-            "description": "This tile tracks the main Wintertodt chase rewards. A qualifying item must come from a Wintertodt supply crate during the event, so tome of fire, Phoenix, or dragon axe all count if newly obtained from the minigame.",
-            "objective": "Have a team member obtain a qualifying Wintertodt unique from a supply crate during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Wintertodt supply crate reward.",
-            "requirements": [
-                "Qualifying rewards are tome of fire, Phoenix, and dragon axe from Wintertodt.",
-                "The qualifying item must come from a Wintertodt supply crate during the event window.",
-                "Warm gloves, torch, burnt pages, and other non-qualifying supply crate rewards do not count.",
-                "Pre-owned Wintertodt uniques do not count."
-            ],
-            "icon": {
-                "key": "firemaking",
-                "alt": "Firemaking icon"
-            },
-            "art": {
-                "background_key": "wintertodt",
-                "background_url": "https://oldschool.runescape.wiki/images/thumb/Wintertodt_prison.png/1280px-Wintertodt_prison.png?4df34"
-            },
-            "links": [
-                {
-                    "label": "Wintertodt",
-                    "url": "https://oldschool.runescape.wiki/w/Wintertodt"
-                },
-                {
-                    "label": "Tome of fire",
-                    "url": "https://oldschool.runescape.wiki/w/Tome_of_fire"
-                },
-                {
-                    "label": "Phoenix",
-                    "url": "https://oldschool.runescape.wiki/w/Phoenix"
-                },
-                {
-                    "label": "Dragon axe",
-                    "url": "https://oldschool.runescape.wiki/w/Dragon_axe"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "three-voidwaker-pieces",
-            "position": {
-                "row": 4,
-                "column": 5
-            },
-            "title": "Obtain 3x Voidwaker Pieces",
-            "category": "Wilderness",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any three Voidwaker pieces during the event, with duplicates allowed.",
-            "description": "Qualifying pieces are Voidwaker blade, Voidwaker hilt, and Voidwaker gem. The team only needs three total pieces, not one of each, so duplicate drops count and the pieces may be split across different teammates.",
-            "objective": "Have the team collectively obtain any three qualifying Voidwaker pieces during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for the three qualifying Voidwaker pieces, and identify which player obtained each one.",
-            "requirements": [
-                "Qualifying pieces are Voidwaker blade, Voidwaker hilt, and Voidwaker gem.",
-                "Any combination counts, including duplicate pieces such as 3 blades or 2 hilts plus 1 gem.",
-                "The three pieces may be obtained by different team members.",
-                "All three qualifying drops must be fresh event-window drops; pre-owned pieces do not count."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Combat icon"
-            },
-            "art": {
-                "background_key": "voidwaker_pieces"
-            },
-            "links": [
-                {
-                    "label": "Voidwaker",
-                    "url": "https://oldschool.runescape.wiki/w/Voidwaker"
-                },
-                {
-                    "label": "Voidwaker blade",
-                    "url": "https://oldschool.runescape.wiki/w/Voidwaker_blade"
-                },
-                {
-                    "label": "Voidwaker hilt",
-                    "url": "https://oldschool.runescape.wiki/w/Voidwaker_hilt"
-                },
-                {
-                    "label": "Voidwaker gem",
-                    "url": "https://oldschool.runescape.wiki/w/Voidwaker_gem"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "medium-clue-boot-unique",
-            "position": {
-                "row": 5,
-                "column": 1
-            },
-            "title": "Loot a Boot Unique from a Medium Clue Scroll",
-            "category": "Clues",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "From a medium clue casket, obtain ranger boots, wizard boots, climbing boots (g), holy sandals, or spiked manacles.",
-            "description": "This tile tracks the standout medium clue footwear uniques. Any one qualifying casket reward counts, whether it is the iconic ranger boots or one of the other rare boot-slot rewards from medium clues.",
-            "objective": "Have a team member open a medium clue casket and receive any qualifying boot unique during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying medium clue casket reward.",
-            "requirements": [
-                "Qualifying rewards are ranger boots, wizard boots, climbing boots (g), holy sandals, and spiked manacles.",
-                "The qualifying item must come from a medium clue casket opened during the event window.",
-                "Pre-owned items do not count."
-            ],
-            "icon": {
-                "key": "mimic",
-                "alt": "Treasure Trails icon"
-            },
-            "art": {
-                "background_key": "clue_scrolls_medium"
-            },
-            "links": [
-                {
-                    "label": "Medium clue scroll",
-                    "url": "https://oldschool.runescape.wiki/w/Medium_clue_scroll"
-                },
-                {
-                    "label": "Ranger boots",
-                    "url": "https://oldschool.runescape.wiki/w/Ranger_boots"
-                },
-                {
-                    "label": "Wizard boots",
-                    "url": "https://oldschool.runescape.wiki/w/Wizard_boots"
-                },
-                {
-                    "label": "Climbing boots (g)",
-                    "url": "https://oldschool.runescape.wiki/w/Climbing_boots_(g)"
-                },
-                {
-                    "label": "Holy sandals",
-                    "url": "https://oldschool.runescape.wiki/w/Holy_sandals"
-                },
-                {
-                    "label": "Spiked manacles",
-                    "url": "https://oldschool.runescape.wiki/w/Spiked_manacles"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "two-zenyte-shards",
-            "position": {
-                "row": 5,
-                "column": 2
-            },
-            "title": "Obtain 2x Zenyte Shards",
-            "category": "PvM",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain two zenyte shards from demonic gorillas or tortured gorillas.",
-            "description": "Zenyte shards are the signature gorilla unique used to craft zenyte jewellery. For this tile, any mix of demonic gorilla and tortured gorilla drops counts, and the two shards may be split across multiple teammates.",
-            "objective": "Have the team collectively obtain two zenyte shard drops during the event window.",
-            "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both Zenyte shard drops, and identify which player obtained each one.",
-            "requirements": [
-                "Only zenyte shard drops from demonic gorillas or tortured gorillas count.",
-                "Any mix of the two gorilla sources counts.",
-                "The two shards may be obtained by different team members.",
-                "Pre-owned Zenyte shards do not count."
-            ],
-            "icon": {
-                "key": "combat",
-                "alt": "Combat icon"
-            },
-            "art": {
-                "background_key": "demonic_gorillas"
-            },
-            "links": [
-                {
-                    "label": "Zenyte shard",
-                    "url": "https://oldschool.runescape.wiki/w/Zenyte_shard"
-                },
-                {
-                    "label": "Demonic gorilla",
-                    "url": "https://oldschool.runescape.wiki/w/Demonic_gorilla"
-                },
-                {
-                    "label": "Tortured gorilla",
-                    "url": "https://oldschool.runescape.wiki/w/Tortured_gorilla"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "kq-head",
-            "position": {
-                "row": 5,
-                "column": 3
-            },
-            "title": "Obtain a Kalphite Queen Head",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 4,
-            "summary": "Obtain a Kq head from the Kalphite Queen.",
-            "description": "The Kq head is the rare untradeable Kalphite Queen drop used for taxidermy, the Dark Altar, or a green slayer helmet. This tile specifically requires the rare Kq head drop and does not count the guaranteed tattered kq head obtained at 256 killcount.",
-            "objective": "Have a team member obtain a Kq head drop from the Kalphite Queen during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the Kq head drop.",
-            "requirements": [
-                "Only the rare Kq head drop from the Kalphite Queen counts.",
-                "Tattered kq head does not count for this tile.",
-                "The head must be obtained during the event window."
-            ],
-            "icon": {
-                "key": "kalphite_queen",
-                "alt": "Kalphite Queen icon"
-            },
-            "art": {
-                "background_key": "kalphite_queen"
-            },
-            "links": [
-                {
-                    "label": "Kq head",
-                    "url": "https://oldschool.runescape.wiki/w/Kq_head"
-                },
-                {
-                    "label": "Kalphite Queen",
-                    "url": "https://oldschool.runescape.wiki/w/Kalphite_Queen"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "twelve-million-non-combat-xp",
-            "position": {
-                "row": 5,
-                "column": 4
-            },
-            "title": "Gain 12,000,000 Collective Non-Combat Experience",
-            "category": "Skilling",
-            "difficulty": "Elite",
-            "points": 5,
-            "summary": "Gain a collective 12,000,000 non-combat XP across the team, tracked through Wise Old Man.",
-            "description": "This is a team-wide skilling accumulation tile. Add together each team member's gained XP on Wise Old Man across the qualifying non-combat skills until the team reaches 12,000,000 total XP during the event window.",
-            "objective": "Reach 12,000,000 combined WOM-tracked XP in qualifying non-combat skills during the event window.",
-            "verification": "Use Wise Old Man gained XP totals as the canonical source of truth, summing the qualifying skill gains across all players on the team.",
-            "requirements": [
-                "Qualifying skills are Agility, Construction, Cooking, Crafting, Farming, Firemaking, Fishing, Fletching, Herblore, Hunter, Mining, Runecraft, Smithing, Thieving, and Woodcutting.",
-                "Attack, Strength, Defence, Hitpoints, Ranged, Prayer, Magic, and Slayer do not count toward this tile.",
-                "The 12,000,000 XP total may be split across any number of team members.",
-                "Only event-window XP gains tracked on Wise Old Man count."
-            ],
-            "icon": {
-                "key": "overall",
-                "alt": "Overall icon"
-            },
-            "art": {
-                "background_key": "overall"
-            },
-            "links": [
-                {
-                    "label": "Wise Old Man",
-                    "url": "https://wiseoldman.net/"
-                },
-                {
-                    "label": "Skills",
-                    "url": "https://oldschool.runescape.wiki/w/Skills"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
-        },
-        {
-            "id": "yama-oathplate-piece",
-            "position": {
-                "row": 5,
-                "column": 5
-            },
-            "title": "Receive an Oathplate Armour Piece from Yama",
-            "category": "Bossing",
-            "difficulty": "Hard",
-            "points": 5,
-            "summary": "Obtain any Oathplate armour piece from Yama.",
-            "description": "Qualifying pieces are oathplate helm, oathplate chest, and oathplate legs. For this tile, any one piece counts if it is sourced from Yama during the event, either as a direct armour drop or through a forgotten lockbox dropped by Yama.",
-            "objective": "Have a team member obtain any qualifying Oathplate armour piece sourced from Yama during the event window.",
-            "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Oathplate piece, or provide screenshot proof showing 450 Oathplate shards sourced during the event and not pre-owned.",
-            "requirements": [
-                "Qualifying pieces are oathplate helm, oathplate chest, and oathplate legs.",
-                "Direct Yama drops and forgotten lockbox outcomes sourced from Yama both count.",
-                "A collective 450 Oathplate shards sourced from Yama also counts.",
-                "If claiming with shards, provide proof that the 450 shards were earned during the event and were not pre-owned.",
-                "Pre-owned Oathplate pieces do not count."
-            ],
-            "icon": {
-                "key": "yama",
-                "alt": "Yama icon"
-            },
-            "art": {
-                "background_key": "yama"
-            },
-            "links": [
-                {
-                    "label": "Oathplate armour",
-                    "url": "https://oldschool.runescape.wiki/w/Oathplate_armour"
-                },
-                {
-                    "label": "Yama",
-                    "url": "https://oldschool.runescape.wiki/w/Yama"
-                }
-            ],
-            "competition": {
-                "claim_limit_per_team": 1,
-                "completions": []
-            }
+          "label": "God Wars Dungeon",
+          "url": "https://oldschool.runescape.wiki/w/God_Wars_Dungeon"
         }
-    ]
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "dt2-vestige-progress",
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "title": "Hit the DT2 Vestige Table 3 Times",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Record three total rolls on the DT2 vestige table through any mix of vestiges and gold rings.",
+      "description": "Qualifying vestiges are Ultor, Bellator, Venator, and Magus. DT2 bosses use hidden vestige-progress rolls; both the vestige itself and the corresponding gold ring represent a successful roll on that table. For this tile, the team needs any three total qualifying rolls, counted through any mix of qualifying vestige drops and DT2 gold ring drops.",
+      "objective": "Have the team record any three qualifying DT2 vestige-table rolls during the event window, through any mix of qualifying vestige drops and gold ring drops.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible in every screenshot covering all three qualifying rolls, whether they are vestige drops, gold ring drops, or a mix of both.",
+      "requirements": [
+        "Qualifying vestiges are Ultor vestige, Bellator vestige, Venator vestige, and Magus vestige.",
+        "Each qualifying vestige drop counts as one roll, and each qualifying DT2 gold ring drop counts as one roll.",
+        "The team needs three total qualifying rolls in any mix of vestiges and gold rings.",
+        "Qualifying rolls may be split across different DT2 bosses and different team members.",
+        "Pre-owned vestiges or ring progress do not count."
+      ],
+      "icon": {
+        "key": "vardorvis",
+        "alt": "Desert Treasure II boss icon"
+      },
+      "art": {
+        "background_key": "vardorvis"
+      },
+      "links": [
+        {
+          "label": "Vestige list",
+          "url": "https://oldschool.runescape.wiki/w/Vestige_(disambiguation)"
+        },
+        {
+          "label": "Vardorvis",
+          "url": "https://oldschool.runescape.wiki/w/Vardorvis"
+        },
+        {
+          "label": "The Whisperer",
+          "url": "https://oldschool.runescape.wiki/w/The_Whisperer"
+        },
+        {
+          "label": "The Leviathan",
+          "url": "https://oldschool.runescape.wiki/w/The_Leviathan"
+        },
+        {
+          "label": "Duke Sucellus",
+          "url": "https://oldschool.runescape.wiki/w/Duke_Sucellus"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "gotr-needle-or-lantern",
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "title": "Loot an Abyssal Needle or Abyssal Lantern",
+      "category": "Minigame",
+      "difficulty": "Medium",
+      "points": 4,
+      "summary": "Obtain either an abyssal needle or an abyssal lantern from Guardians of the Rift rewards.",
+      "description": "Both items come from the Rewards Guardian in Guardians of the Rift. The abyssal needle is used to create the colossal pouch, while the abyssal lantern grants powerful minigame-only effects when lit with logs.",
+      "objective": "Have a team member obtain an abyssal needle or abyssal lantern during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Rewards Guardian search reward.",
+      "requirements": [
+        "Abyssal needle and abyssal lantern both count.",
+        "The drop must be obtained during the event window.",
+        "The abyssal needle or abyssal lantern must come from Rewards Guardian searches during the event window.",
+        "Abyssal pearl exchanges do not count.",
+        "Pre-owned rewards do not count."
+      ],
+      "icon": {
+        "key": "runecrafting",
+        "alt": "Runecrafting icon"
+      },
+      "art": {
+        "background_key": "guardians_of_the_rift"
+      },
+      "links": [
+        {
+          "label": "Abyssal needle",
+          "url": "https://oldschool.runescape.wiki/w/Abyssal_needle"
+        },
+        {
+          "label": "Abyssal lantern",
+          "url": "https://oldschool.runescape.wiki/w/Abyssal_lantern"
+        },
+        {
+          "label": "Guardians of the Rift",
+          "url": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "double-synapse-or-claw",
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "title": "Obtain 2x Tormented Synapse or Burning Claw Drops",
+      "category": "PvM",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any two qualifying Tormented Demon drops: tormented synapses and/or burning claws.",
+      "description": "This tile tracks the major While Guthix Sleeps Tormented Demon drops. Tormented synapse is used for Emberlight, the Purging staff, and the Scorching bow; burning claw is the single-drop component that combines into Burning claws.",
+      "objective": "Have the team obtain two total qualifying drops during the event window, with each drop being either a tormented synapse or a burning claw.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both qualifying drops.",
+      "requirements": [
+        "Qualifying drops are tormented synapse and burning claw.",
+        "Any mix counts, including 2 synapses, 2 claws, or 1 of each.",
+        "The two qualifying drops may be obtained by different team members unless event rules later restrict this."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Combat icon"
+      },
+      "art": {
+        "background_key": "tormented_demons"
+      },
+      "links": [
+        {
+          "label": "Tormented synapse",
+          "url": "https://oldschool.runescape.wiki/w/Tormented_synapse"
+        },
+        {
+          "label": "Burning claw",
+          "url": "https://oldschool.runescape.wiki/w/Burning_claw"
+        },
+        {
+          "label": "Tormented Demons",
+          "url": "https://oldschool.runescape.wiki/w/Tormented_Demon"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "huey-wand-or-tome",
+      "position": {
+        "row": 1,
+        "column": 5
+      },
+      "title": "Obtain a Dragon Hunter Wand or Tome of Earth",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain either the dragon hunter wand or the tome of earth from the Hueycoatl.",
+      "description": "Both uniques come from the Hueycoatl reward table. The dragon hunter wand is a dragon-slaying autocast weapon, while the tome of earth gives infinite earth runes and boosts standard spellbook earth damage while charged.",
+      "objective": "Have a team member obtain a dragon hunter wand or tome of earth during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Hueycoatl unique.",
+      "requirements": [
+        "Either dragon hunter wand or tome of earth counts.",
+        "The qualifying drop must come from the Hueycoatl during the event window."
+      ],
+      "icon": {
+        "key": "the_hueycoatl",
+        "alt": "The Hueycoatl icon"
+      },
+      "art": {
+        "background_key": "the_hueycoatl"
+      },
+      "links": [
+        {
+          "label": "Dragon hunter wand",
+          "url": "https://oldschool.runescape.wiki/w/Dragon_hunter_wand"
+        },
+        {
+          "label": "Tome of earth",
+          "url": "https://oldschool.runescape.wiki/w/Tome_of_earth"
+        },
+        {
+          "label": "The Hueycoatl",
+          "url": "https://oldschool.runescape.wiki/w/The_Hueycoatl"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "dragon-warhammer",
+      "position": {
+        "row": 2,
+        "column": 1
+      },
+      "title": "Obtain a Dragon Warhammer",
+      "category": "PvM",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain a dragon warhammer from Lizardman shamans.",
+      "description": "An iconic shaman unique and one of the game's signature defence-reduction spec weapons. The dragon warhammer is an extremely rare Lizardman shaman drop, and its special attack drains 30% of a target's current Defence on a successful hit.",
+      "objective": "Have a team member obtain a dragon warhammer drop during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the dragon warhammer drop.",
+      "requirements": [
+        "The dragon warhammer must be obtained as a drop from Lizardman shamans during the event.",
+        "Pre-owned dragon warhammers do not count.",
+        "Only one qualifying drop is needed to claim the tile."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Combat icon"
+      },
+      "art": {
+        "background_key": "lizardman_shamans"
+      },
+      "links": [
+        {
+          "label": "Dragon warhammer",
+          "url": "https://oldschool.runescape.wiki/w/Dragon_warhammer"
+        },
+        {
+          "label": "Lizardman shaman",
+          "url": "https://oldschool.runescape.wiki/w/Lizardman_shaman"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "tempoross-unique-no-barrel-box",
+      "position": {
+        "row": 2,
+        "column": 2
+      },
+      "title": "Loot Any Eligible Unique from Tempoross",
+      "category": "Minigame",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain a qualifying Tempoross unique other than fish barrel or tackle box.",
+      "description": "Qualifying rewards for this tile are tome of water, big harpoonfish, dragon harpoon, and Tiny tempor. Tome of water and big harpoonfish are 1/1,600 reward-pool uniques, while dragon harpoon and the pet are the much rarer 1/8,000 pulls.",
+      "objective": "Have a team member obtain a tome of water, big harpoonfish, dragon harpoon, or Tiny tempor from Tempoross during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Tempoross reward-pool unique.",
+      "requirements": [
+        "Qualifying rewards are tome of water, big harpoonfish, dragon harpoon, and Tiny tempor.",
+        "Fish barrel and tackle box do not count for this tile.",
+        "The qualifying item must be obtained from the Tempoross reward pool during the event.",
+        "Pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "fishing",
+        "alt": "Fishing icon"
+      },
+      "art": {
+        "background_key": "tempoross",
+        "background_url": "https://oldschool.runescape.wiki/images/thumb/Tempoross_Cove.png/1200px-Tempoross_Cove.png?703e2"
+      },
+      "links": [
+        {
+          "label": "Tome of water",
+          "url": "https://oldschool.runescape.wiki/w/Tome_of_water"
+        },
+        {
+          "label": "Big harpoonfish",
+          "url": "https://oldschool.runescape.wiki/w/Big_harpoonfish"
+        },
+        {
+          "label": "Dragon harpoon",
+          "url": "https://oldschool.runescape.wiki/w/Dragon_harpoon"
+        },
+        {
+          "label": "Tiny tempor",
+          "url": "https://oldschool.runescape.wiki/w/Tiny_tempor"
+        },
+        {
+          "label": "Tempoross",
+          "url": "https://oldschool.runescape.wiki/w/Tempoross"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "doom-any-unique",
+      "position": {
+        "row": 2,
+        "column": 3
+      },
+      "title": "Receive a Doom of Mokhaiotl Unique",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any qualifying unique from the Doom of Mokhaiotl.",
+      "description": "Qualifying uniques for this tile are Mokhaiotl cloth, Eye of ayak (uncharged), Avernic treads, and Dom. The Doom is a delve boss, so deeper clears unlock additional uniques and improve the rates, but risking a unique by pushing deeper and dying forfeits it.",
+      "objective": "Have a team member successfully claim any qualifying Doom of Mokhaiotl unique during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible when the qualifying unique is successfully claimed.",
+      "requirements": [
+        "Qualifying uniques are Mokhaiotl cloth, Eye of ayak (uncharged), Avernic treads, and Dom.",
+        "Mokhaiotl cloth can roll from delve 2+, Eye of ayak from delve 3+, Avernic treads from delve 4+, and Dom from delve 6+.",
+        "The unique must be successfully claimed; a unique seen in the burrow warning but lost by dying deeper does not count.",
+        "Pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Combat icon"
+      },
+      "art": {
+        "background_key": "doom_of_mokhaiotl"
+      },
+      "links": [
+        {
+          "label": "Doom of Mokhaiotl",
+          "url": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl#Uniques"
+        },
+        {
+          "label": "Avernic treads",
+          "url": "https://oldschool.runescape.wiki/w/Avernic_treads"
+        },
+        {
+          "label": "Eye of ayak",
+          "url": "https://oldschool.runescape.wiki/w/Eye_of_ayak_(uncharged)"
+        },
+        {
+          "label": "Mokhaiotl cloth",
+          "url": "https://oldschool.runescape.wiki/w/Mokhaiotl_cloth"
+        },
+        {
+          "label": "Dom",
+          "url": "https://oldschool.runescape.wiki/w/Dom"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "three-unsired",
+      "position": {
+        "row": 2,
+        "column": 4
+      },
+      "title": "Obtain 3x Unsired",
+      "category": "Slayer",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Collect three unsired drops from the Abyssal Sire.",
+      "description": "Unsired is the signature untradeable 1/100 pre-roll unique from Abyssal Sire, the 85 Slayer solo boss. It cannot be banked, is redeemed at the Font of Consumption, and can become bludgeon pieces, abyssal weapons, jars, heads, or the Abyssal orphan.",
+      "objective": "Have the team obtain three unsired drops from Abyssal Sire during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for each of the three Unsired drops. If they are redeemed later, include enough screenshot proof to tie the turn-ins back to those drops.",
+      "requirements": [
+        "Only event-window unsired drops from Abyssal Sire count.",
+        "Three total unsired drops are required.",
+        "The three unsireds may be obtained by different team members unless event rules later restrict this.",
+        "Redeeming unsireds at the Font of Consumption is allowed; the tile counts the drops, not the rewards."
+      ],
+      "icon": {
+        "key": "abyssal_sire",
+        "alt": "Abyssal Sire icon"
+      },
+      "art": {
+        "background_key": "abyssal_sire",
+        "background_url": "https://oldschool.runescape.wiki/images/Abyssal_Nexus.png?851b8"
+      },
+      "links": [
+        {
+          "label": "Unsired",
+          "url": "https://oldschool.runescape.wiki/w/Unsired"
+        },
+        {
+          "label": "Abyssal Sire",
+          "url": "https://oldschool.runescape.wiki/w/Abyssal_Sire"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "full-barrows-set",
+      "position": {
+        "row": 2,
+        "column": 5
+      },
+      "title": "Complete a Barrows Equipment Set",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Complete any one full Barrows brother equipment set from scratch.",
+      "description": "Any full four-piece set counts: Ahrim, Dharok, Guthan, Karil, Torag, or Verac. The team may split the pieces across members, but all four drops must belong to the same brother's set and must be newly obtained during the event.",
+      "objective": "Have the team collectively obtain all four pieces of any one qualifying Barrows set during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for each of the four qualifying Barrows pieces, and identify which set was completed.",
+      "requirements": [
+        "Qualifying sets are Ahrim's, Dharok's, Guthan's, Karil's, Torag's, and Verac's equipment sets.",
+        "Each completed set needs its helm or hood, body, legs or skirt, and weapon from the same brother.",
+        "Pieces may be obtained by different team members.",
+        "All four pieces must be fresh event-window Barrows rewards; pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "barrows_chests",
+        "alt": "Barrows chest icon"
+      },
+      "art": {
+        "background_key": "barrows_chests"
+      },
+      "links": [
+        {
+          "label": "Barrows",
+          "url": "https://oldschool.runescape.wiki/w/Barrows"
+        },
+        {
+          "label": "Barrows equipment",
+          "url": "https://oldschool.runescape.wiki/w/Barrows_equipment"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "twinflame-staff-from-scratch",
+      "position": {
+        "row": 3,
+        "column": 1
+      },
+      "title": "Loot Both Twinflame Staff Pieces",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain both Twinflame staff crowns from Royal Titans during the event.",
+      "description": "Twinflame staff is made by combining a battlestaff with the fire element staff crown and the ice element staff crown. For this tile, the team only needs both crowns as fresh event-window Royal Titans drops, and the two pieces may come from different team members.",
+      "objective": "Have the team obtain both the fire element staff crown and the ice element staff crown from Royal Titans during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both staff piece drops.",
+      "requirements": [
+        "Both the fire element staff crown and the ice element staff crown are required.",
+        "Both crowns must be fresh event-window drops from Royal Titans.",
+        "The two crowns may be obtained by different team members.",
+        "The twinflame staff does not need to be assembled to claim the tile.",
+        "Pre-owned crowns do not count."
+      ],
+      "icon": {
+        "key": "the_royal_titans",
+        "alt": "Royal Titans icon"
+      },
+      "art": {
+        "background_key": "the_royal_titans"
+      },
+      "links": [
+        {
+          "label": "Twinflame staff",
+          "url": "https://oldschool.runescape.wiki/w/Twinflame_staff"
+        },
+        {
+          "label": "Royal Titans",
+          "url": "https://oldschool.runescape.wiki/w/Royal_Titans"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": [
+          {
+            "id": "team-3-ironwiilllyy-yungvlad",
+            "team": "Team 3",
+            "player": "IronWiilllyy & yungVlad",
+            "status": "verified",
+            "completed_at": "2026-03-18T21:31:39Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1483922965971337227/image.png?ex=69bc5a75&is=69bb08f5&hm=f3f090b0ff035674cb41fe536a0f386aa4a8cb86d09f7816a832985ed04f31f4&=&format=webp&quality=lossless&width=1346&height=1320",
+            "note": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "toa-any-purple",
+      "position": {
+        "row": 3,
+        "column": 2
+      },
+      "title": "Loot a Purple from Tombs of Amascut",
+      "category": "Raid",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any purple unique from a Tombs of Amascut reward chest.",
+      "description": "A purple from Tombs of Amascut means any chest unique from the raid's purple table, including Osmumten's fang, Tumeken's shadow, Elidinis' ward, Lightbearer, or Masori armour pieces. This tile tracks the purple reward itself, not jewels, thread, pet, or cosmetic rewards.",
+      "objective": "Have a team member receive any qualifying purple unique from Tombs of Amascut during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Tombs of Amascut purple.",
+      "requirements": [
+        "Qualifying rewards are Osmumten's fang, Tumeken's shadow (uncharged), Elidinis' ward, Lightbearer, Masori mask, Masori body, and Masori chaps.",
+        "The unique must come from a Tombs of Amascut reward chest during the event window.",
+        "Jewels, thread of elidinis, pet, kits, and other non-purple rewards do not count."
+      ],
+      "icon": {
+        "key": "tombs_of_amascut",
+        "alt": "Tombs of Amascut icon"
+      },
+      "art": {
+        "background_key": "tombs_of_amascut"
+      },
+      "links": [
+        {
+          "label": "ToA uniques",
+          "url": "https://oldschool.runescape.wiki/w/Chest_(Tombs_of_Amascut)#Uniques_2"
+        },
+        {
+          "label": "Tombs of Amascut",
+          "url": "https://oldschool.runescape.wiki/w/Tombs_of_Amascut"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "free-tile-tbd",
+      "position": {
+        "row": 3,
+        "column": 3
+      },
+      "title": "Free Tile for a frog to land on",
+      "category": "Special",
+      "difficulty": "Free",
+      "points": 0,
+      "summary": "A blessed free space for the board's resident frog.",
+      "description": "There is no challenge for this tile. It is a free tile that has been blessed by a frog and counts as unlocked for every team automatically.",
+      "objective": "No gameplay action is required. This tile starts unlocked for every team.",
+      "verification": "No verification is needed.",
+      "requirements": [
+        "This tile is automatically unlocked for every team.",
+        "No player action is required.",
+        "No proof or verification is needed."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Placeholder icon"
+      },
+      "art": {
+        "background_url": "https://oldschool.runescape.wiki/images/thumb/Apple_orchard.png/1280px-Apple_orchard.png?1b10f"
+      },
+      "links": [
+        {
+          "label": "Board rules",
+          "url": "https://oldschool.runescape.wiki/"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "enhanced-crystal-weapon-seed",
+      "position": {
+        "row": 3,
+        "column": 4
+      },
+      "title": "Loot an Enhanced Crystal Weapon Seed",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain an enhanced crystal weapon seed from the Gauntlet or Corrupted Gauntlet.",
+      "description": "The enhanced crystal weapon seed is the chase unique used to create the Bow of Faerdhinen or Blade of Saeldor. It can come from either version of the Gauntlet reward chest, with a much better rate in Corrupted Gauntlet.",
+      "objective": "Have a team member receive an enhanced crystal weapon seed from a Gauntlet reward chest during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the enhanced crystal weapon seed.",
+      "requirements": [
+        "Drops from either the Gauntlet or Corrupted Gauntlet count.",
+        "The seed must be received from the reward chest during the event window.",
+        "Reverted or pre-owned seeds do not count."
+      ],
+      "icon": {
+        "key": "the_gauntlet",
+        "alt": "The Gauntlet icon"
+      },
+      "art": {
+        "background_key": "the_gauntlet"
+      },
+      "links": [
+        {
+          "label": "Enhanced crystal weapon seed",
+          "url": "https://oldschool.runescape.wiki/w/Enhanced_crystal_weapon_seed"
+        },
+        {
+          "label": "The Gauntlet",
+          "url": "https://oldschool.runescape.wiki/w/The_Gauntlet"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "all-three-dk-rings",
+      "position": {
+        "row": 3,
+        "column": 5
+      },
+      "title": "Obtain All Three Dagannoth Kings Rings",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain the Berserker, Seers, and Archers rings from the Dagannoth Kings during the event.",
+      "description": "This tile requires the full ring trio from the Dagannoth Kings: Berserker ring from Dagannoth Rex, Seers ring from Dagannoth Prime, and Archers ring from Dagannoth Supreme. The rings may be split across teammates, but all three qualifying drops must be fresh event-window Dagannoth Kings rewards.",
+      "objective": "Have the team collectively obtain Berserker ring, Seers ring, and Archers ring from the Dagannoth Kings during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for all three rings, and identify which player obtained each one.",
+      "requirements": [
+        "Berserker ring must come from Dagannoth Rex, Seers ring from Dagannoth Prime, and Archers ring from Dagannoth Supreme.",
+        "All three rings are required to claim the tile.",
+        "The rings may be obtained by different team members unless event rules later restrict this.",
+        "Pre-owned rings do not count."
+      ],
+      "icon": {
+        "key": "dagannoth_rex",
+        "alt": "Dagannoth Kings icon"
+      },
+      "art": {
+        "background_key": "dagannoth_rex"
+      },
+      "links": [
+        {
+          "label": "Dagannoth Kings",
+          "url": "https://oldschool.runescape.wiki/w/Dagannoth_Kings"
+        },
+        {
+          "label": "Berserker ring",
+          "url": "https://oldschool.runescape.wiki/w/Berserker_ring"
+        },
+        {
+          "label": "Seers ring",
+          "url": "https://oldschool.runescape.wiki/w/Seers_ring"
+        },
+        {
+          "label": "Archers ring",
+          "url": "https://oldschool.runescape.wiki/w/Archers_ring"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "vorkath-any-unique",
+      "position": {
+        "row": 4,
+        "column": 1
+      },
+      "title": "Obtain a Vorkath Unique",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain any qualifying unique from Vorkath.",
+      "description": "Qualifying uniques for this tile are dragonbone necklace, jar of decay, Vorki, draconic visage, and skeletal visage. Any one of these drops counts, letting teams claim the tile with either the more attainable dragonbone necklace or one of Vorkath's rarer chase drops.",
+      "objective": "Have a team member obtain any qualifying Vorkath unique during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Vorkath unique.",
+      "requirements": [
+        "Qualifying drops are dragonbone necklace, jar of decay, Vorki, draconic visage, and skeletal visage.",
+        "The qualifying drop must come from Vorkath during the event window.",
+        "Pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "vorkath",
+        "alt": "Vorkath icon"
+      },
+      "art": {
+        "background_key": "vorkath",
+        "background_url": "https://oldschool.runescape.wiki/images/Ungael.png?2e330"
+      },
+      "links": [
+        {
+          "label": "Vorkath",
+          "url": "https://oldschool.runescape.wiki/w/Vorkath"
+        },
+        {
+          "label": "Dragonbone necklace",
+          "url": "https://oldschool.runescape.wiki/w/Dragonbone_necklace"
+        },
+        {
+          "label": "Jar of decay",
+          "url": "https://oldschool.runescape.wiki/w/Jar_of_decay"
+        },
+        {
+          "label": "Vorki",
+          "url": "https://oldschool.runescape.wiki/w/Vorki"
+        },
+        {
+          "label": "Draconic visage",
+          "url": "https://oldschool.runescape.wiki/w/Draconic_visage"
+        },
+        {
+          "label": "Skeletal visage",
+          "url": "https://oldschool.runescape.wiki/w/Skeletal_visage"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "zulrah-any-unique",
+      "position": {
+        "row": 4,
+        "column": 2
+      },
+      "title": "Obtain a Zulrah Unique",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain any qualifying unique from Zulrah.",
+      "description": "Qualifying uniques for this tile are tanzanite fang, magic fang, serpentine visage, tanzanite mutagen, magma mutagen, jar of swamp, and pet snakeling. Any one of these drops counts, covering both Zulrah's core weapon uniques and its rarer cosmetic or pet rewards.",
+      "objective": "Have a team member obtain any qualifying Zulrah unique during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Zulrah unique.",
+      "requirements": [
+        "Qualifying drops are tanzanite fang, magic fang, serpentine visage, tanzanite mutagen, magma mutagen, jar of swamp, and pet snakeling.",
+        "The qualifying drop must come from Zulrah during the event window.",
+        "Pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "zulrah",
+        "alt": "Zulrah icon"
+      },
+      "art": {
+        "background_key": "zulrah",
+        "background_url": "https://oldschool.runescape.wiki/images/Poison_Waste.png?06158"
+      },
+      "links": [
+        {
+          "label": "Zulrah",
+          "url": "https://oldschool.runescape.wiki/w/Zulrah"
+        },
+        {
+          "label": "Tanzanite fang",
+          "url": "https://oldschool.runescape.wiki/w/Tanzanite_fang"
+        },
+        {
+          "label": "Magic fang",
+          "url": "https://oldschool.runescape.wiki/w/Magic_fang"
+        },
+        {
+          "label": "Serpentine visage",
+          "url": "https://oldschool.runescape.wiki/w/Serpentine_visage"
+        },
+        {
+          "label": "Tanzanite mutagen",
+          "url": "https://oldschool.runescape.wiki/w/Tanzanite_mutagen"
+        },
+        {
+          "label": "Magma mutagen",
+          "url": "https://oldschool.runescape.wiki/w/Magma_mutagen"
+        },
+        {
+          "label": "Jar of swamp",
+          "url": "https://oldschool.runescape.wiki/w/Jar_of_swamp"
+        },
+        {
+          "label": "Pet snakeling",
+          "url": "https://oldschool.runescape.wiki/w/Pet_snakeling"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "cox-any-purple",
+      "position": {
+        "row": 4,
+        "column": 3
+      },
+      "title": "Loot a Purple from Chambers of Xeric",
+      "category": "Raid",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any purple unique from the Chambers of Xeric reward chest.",
+      "description": "Any item on the Ancient chest unique drop table counts for this tile, including the prayer scrolls, Ancestral pieces, Twisted buckler, Dragon hunter crossbow, Dinh's bulwark, Kodai insignia, Elder maul, and Twisted bow. Standard Chambers and Challenge Mode both qualify as long as the reward is a purple unique from the chest.",
+      "objective": "Have a team member receive any qualifying purple unique from Chambers of Xeric during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Chambers of Xeric purple.",
+      "requirements": [
+        "Qualifying rewards are Dexterous prayer scroll, Arcane prayer scroll, Twisted buckler, Dragon hunter crossbow, Dinh's bulwark, Ancestral hat, Ancestral robe top, Ancestral robe bottom, Kodai insignia, Elder maul, and Twisted bow.",
+        "The unique must come from a Chambers of Xeric reward chest during the event window.",
+        "Non-purple raid rewards do not count."
+      ],
+      "icon": {
+        "key": "chambers_of_xeric",
+        "alt": "Chambers of Xeric icon"
+      },
+      "art": {
+        "background_key": "chambers_of_xeric"
+      },
+      "links": [
+        {
+          "label": "Ancient chest uniques",
+          "url": "https://oldschool.runescape.wiki/w/Ancient_chest#Unique_drop_table"
+        },
+        {
+          "label": "Chambers of Xeric",
+          "url": "https://oldschool.runescape.wiki/w/Chambers_of_Xeric"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "wintertodt-tome-phoenix-or-axe",
+      "position": {
+        "row": 4,
+        "column": 4
+      },
+      "title": "Loot Any Eligible Unique from Wintertodt",
+      "category": "Minigame",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain a tome of fire, Phoenix, or dragon axe from Wintertodt.",
+      "description": "This tile tracks the main Wintertodt chase rewards. A qualifying item must come from a Wintertodt supply crate during the event, so tome of fire, Phoenix, or dragon axe all count if newly obtained from the minigame.",
+      "objective": "Have a team member obtain a qualifying Wintertodt unique from a supply crate during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Wintertodt supply crate reward.",
+      "requirements": [
+        "Qualifying rewards are tome of fire, Phoenix, and dragon axe from Wintertodt.",
+        "The qualifying item must come from a Wintertodt supply crate during the event window.",
+        "Warm gloves, torch, burnt pages, and other non-qualifying supply crate rewards do not count.",
+        "Pre-owned Wintertodt uniques do not count."
+      ],
+      "icon": {
+        "key": "firemaking",
+        "alt": "Firemaking icon"
+      },
+      "art": {
+        "background_key": "wintertodt",
+        "background_url": "https://oldschool.runescape.wiki/images/thumb/Wintertodt_prison.png/1280px-Wintertodt_prison.png?4df34"
+      },
+      "links": [
+        {
+          "label": "Wintertodt",
+          "url": "https://oldschool.runescape.wiki/w/Wintertodt"
+        },
+        {
+          "label": "Tome of fire",
+          "url": "https://oldschool.runescape.wiki/w/Tome_of_fire"
+        },
+        {
+          "label": "Phoenix",
+          "url": "https://oldschool.runescape.wiki/w/Phoenix"
+        },
+        {
+          "label": "Dragon axe",
+          "url": "https://oldschool.runescape.wiki/w/Dragon_axe"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "three-voidwaker-pieces",
+      "position": {
+        "row": 4,
+        "column": 5
+      },
+      "title": "Obtain 3x Voidwaker Pieces",
+      "category": "Wilderness",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any three Voidwaker pieces during the event, with duplicates allowed.",
+      "description": "Qualifying pieces are Voidwaker blade, Voidwaker hilt, and Voidwaker gem. The team only needs three total pieces, not one of each, so duplicate drops count and the pieces may be split across different teammates.",
+      "objective": "Have the team collectively obtain any three qualifying Voidwaker pieces during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for the three qualifying Voidwaker pieces, and identify which player obtained each one.",
+      "requirements": [
+        "Qualifying pieces are Voidwaker blade, Voidwaker hilt, and Voidwaker gem.",
+        "Any combination counts, including duplicate pieces such as 3 blades or 2 hilts plus 1 gem.",
+        "The three pieces may be obtained by different team members.",
+        "All three qualifying drops must be fresh event-window drops; pre-owned pieces do not count."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Combat icon"
+      },
+      "art": {
+        "background_key": "voidwaker_pieces"
+      },
+      "links": [
+        {
+          "label": "Voidwaker",
+          "url": "https://oldschool.runescape.wiki/w/Voidwaker"
+        },
+        {
+          "label": "Voidwaker blade",
+          "url": "https://oldschool.runescape.wiki/w/Voidwaker_blade"
+        },
+        {
+          "label": "Voidwaker hilt",
+          "url": "https://oldschool.runescape.wiki/w/Voidwaker_hilt"
+        },
+        {
+          "label": "Voidwaker gem",
+          "url": "https://oldschool.runescape.wiki/w/Voidwaker_gem"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "medium-clue-boot-unique",
+      "position": {
+        "row": 5,
+        "column": 1
+      },
+      "title": "Loot a Boot Unique from a Medium Clue Scroll",
+      "category": "Clues",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "From a medium clue casket, obtain ranger boots, wizard boots, climbing boots (g), holy sandals, or spiked manacles.",
+      "description": "This tile tracks the standout medium clue footwear uniques. Any one qualifying casket reward counts, whether it is the iconic ranger boots or one of the other rare boot-slot rewards from medium clues.",
+      "objective": "Have a team member open a medium clue casket and receive any qualifying boot unique during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying medium clue casket reward.",
+      "requirements": [
+        "Qualifying rewards are ranger boots, wizard boots, climbing boots (g), holy sandals, and spiked manacles.",
+        "The qualifying item must come from a medium clue casket opened during the event window.",
+        "Pre-owned items do not count."
+      ],
+      "icon": {
+        "key": "mimic",
+        "alt": "Treasure Trails icon"
+      },
+      "art": {
+        "background_key": "clue_scrolls_medium"
+      },
+      "links": [
+        {
+          "label": "Medium clue scroll",
+          "url": "https://oldschool.runescape.wiki/w/Medium_clue_scroll"
+        },
+        {
+          "label": "Ranger boots",
+          "url": "https://oldschool.runescape.wiki/w/Ranger_boots"
+        },
+        {
+          "label": "Wizard boots",
+          "url": "https://oldschool.runescape.wiki/w/Wizard_boots"
+        },
+        {
+          "label": "Climbing boots (g)",
+          "url": "https://oldschool.runescape.wiki/w/Climbing_boots_(g)"
+        },
+        {
+          "label": "Holy sandals",
+          "url": "https://oldschool.runescape.wiki/w/Holy_sandals"
+        },
+        {
+          "label": "Spiked manacles",
+          "url": "https://oldschool.runescape.wiki/w/Spiked_manacles"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "two-zenyte-shards",
+      "position": {
+        "row": 5,
+        "column": 2
+      },
+      "title": "Obtain 2x Zenyte Shards",
+      "category": "PvM",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain two zenyte shards from demonic gorillas or tortured gorillas.",
+      "description": "Zenyte shards are the signature gorilla unique used to craft zenyte jewellery. For this tile, any mix of demonic gorilla and tortured gorilla drops counts, and the two shards may be split across multiple teammates.",
+      "objective": "Have the team collectively obtain two zenyte shard drops during the event window.",
+      "verification": "Submit screenshots taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible for both Zenyte shard drops, and identify which player obtained each one.",
+      "requirements": [
+        "Only zenyte shard drops from demonic gorillas or tortured gorillas count.",
+        "Any mix of the two gorilla sources counts.",
+        "The two shards may be obtained by different team members.",
+        "Pre-owned Zenyte shards do not count."
+      ],
+      "icon": {
+        "key": "combat",
+        "alt": "Combat icon"
+      },
+      "art": {
+        "background_key": "demonic_gorillas"
+      },
+      "links": [
+        {
+          "label": "Zenyte shard",
+          "url": "https://oldschool.runescape.wiki/w/Zenyte_shard"
+        },
+        {
+          "label": "Demonic gorilla",
+          "url": "https://oldschool.runescape.wiki/w/Demonic_gorilla"
+        },
+        {
+          "label": "Tortured gorilla",
+          "url": "https://oldschool.runescape.wiki/w/Tortured_gorilla"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "kq-head",
+      "position": {
+        "row": 5,
+        "column": 3
+      },
+      "title": "Obtain a Kalphite Queen Head",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 4,
+      "summary": "Obtain a Kq head from the Kalphite Queen.",
+      "description": "The Kq head is the rare untradeable Kalphite Queen drop used for taxidermy, the Dark Altar, or a green slayer helmet. This tile specifically requires the rare Kq head drop and does not count the guaranteed tattered kq head obtained at 256 killcount.",
+      "objective": "Have a team member obtain a Kq head drop from the Kalphite Queen during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the Kq head drop.",
+      "requirements": [
+        "Only the rare Kq head drop from the Kalphite Queen counts.",
+        "Tattered kq head does not count for this tile.",
+        "The head must be obtained during the event window."
+      ],
+      "icon": {
+        "key": "kalphite_queen",
+        "alt": "Kalphite Queen icon"
+      },
+      "art": {
+        "background_key": "kalphite_queen"
+      },
+      "links": [
+        {
+          "label": "Kq head",
+          "url": "https://oldschool.runescape.wiki/w/Kq_head"
+        },
+        {
+          "label": "Kalphite Queen",
+          "url": "https://oldschool.runescape.wiki/w/Kalphite_Queen"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "twelve-million-non-combat-xp",
+      "position": {
+        "row": 5,
+        "column": 4
+      },
+      "title": "Gain 12,000,000 Collective Non-Combat Experience",
+      "category": "Skilling",
+      "difficulty": "Elite",
+      "points": 5,
+      "summary": "Gain a collective 12,000,000 non-combat XP across the team, tracked through Wise Old Man.",
+      "description": "This is a team-wide skilling accumulation tile. Add together each team member's gained XP on Wise Old Man across the qualifying non-combat skills until the team reaches 12,000,000 total XP during the event window.",
+      "objective": "Reach 12,000,000 combined WOM-tracked XP in qualifying non-combat skills during the event window.",
+      "verification": "Use Wise Old Man gained XP totals as the canonical source of truth, summing the qualifying skill gains across all players on the team.",
+      "requirements": [
+        "Qualifying skills are Agility, Construction, Cooking, Crafting, Farming, Firemaking, Fishing, Fletching, Herblore, Hunter, Mining, Runecraft, Smithing, Thieving, and Woodcutting.",
+        "Attack, Strength, Defence, Hitpoints, Ranged, Prayer, Magic, and Slayer do not count toward this tile.",
+        "The 12,000,000 XP total may be split across any number of team members.",
+        "Only event-window XP gains tracked on Wise Old Man count."
+      ],
+      "icon": {
+        "key": "overall",
+        "alt": "Overall icon"
+      },
+      "art": {
+        "background_key": "overall"
+      },
+      "links": [
+        {
+          "label": "Wise Old Man",
+          "url": "https://wiseoldman.net/"
+        },
+        {
+          "label": "Skills",
+          "url": "https://oldschool.runescape.wiki/w/Skills"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    },
+    {
+      "id": "yama-oathplate-piece",
+      "position": {
+        "row": 5,
+        "column": 5
+      },
+      "title": "Receive an Oathplate Armour Piece from Yama",
+      "category": "Bossing",
+      "difficulty": "Hard",
+      "points": 5,
+      "summary": "Obtain any Oathplate armour piece from Yama.",
+      "description": "Qualifying pieces are oathplate helm, oathplate chest, and oathplate legs. For this tile, any one piece counts if it is sourced from Yama during the event, either as a direct armour drop or through a forgotten lockbox dropped by Yama.",
+      "objective": "Have a team member obtain any qualifying Oathplate armour piece sourced from Yama during the event window.",
+      "verification": "Submit a screenshot taken with the Clan Events plugin using the password \"Forgborne Bingo\" so the player name, date, and time are visible with the qualifying Oathplate piece, or provide screenshot proof showing 450 Oathplate shards sourced during the event and not pre-owned.",
+      "requirements": [
+        "Qualifying pieces are oathplate helm, oathplate chest, and oathplate legs.",
+        "Direct Yama drops and forgotten lockbox outcomes sourced from Yama both count.",
+        "A collective 450 Oathplate shards sourced from Yama also counts.",
+        "If claiming with shards, provide proof that the 450 shards were earned during the event and were not pre-owned.",
+        "Pre-owned Oathplate pieces do not count."
+      ],
+      "icon": {
+        "key": "yama",
+        "alt": "Yama icon"
+      },
+      "art": {
+        "background_key": "yama"
+      },
+      "links": [
+        {
+          "label": "Oathplate armour",
+          "url": "https://oldschool.runescape.wiki/w/Oathplate_armour"
+        },
+        {
+          "label": "Yama",
+          "url": "https://oldschool.runescape.wiki/w/Yama"
+        }
+      ],
+      "competition": {
+        "claim_limit_per_team": 1,
+        "completions": []
+      }
+    }
+  ]
 }
