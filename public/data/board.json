@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-18T21:31:39Z",
+  "updated_at": "2026-03-19T09:25:52Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -710,7 +710,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-2-mtcaramel",
+            "team": "Team 2",
+            "player": "MtCaramel",
+            "status": "verified",
+            "completed_at": "2026-03-19T09:24:58Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484093690292076654/image.png?ex=69bcf974&is=69bba7f4&hm=e51b0f7d36b18e996d42620cc3993d47a7e612b10ba012f3eb357cafd8b2bfe5&=",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -834,7 +844,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-2-mtcaramel",
+            "team": "Team 2",
+            "player": "MtCaramel",
+            "status": "verified",
+            "completed_at": "2026-03-19T09:25:52Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484089117015937127/image.png?ex=69bcf532&is=69bba3b2&hm=d4b0c8d7a00302dfce852143f5f4983ea7786890c856628bf5487c485570a6f0&=",
+            "note": ""
+          }
+        ]
       }
     },
     {
