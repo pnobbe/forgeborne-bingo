@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-19T09:25:52Z",
+  "updated_at": "2026-03-19T14:54:21Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -349,7 +349,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-3-gnomesharter",
+            "team": "Team 3",
+            "player": "GnomeSharter",
+            "status": "verified",
+            "completed_at": "2026-03-19T14:52:21Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484140436124602408/2026-03-19_10-42-53.png?ex=69bd24fd&is=69bbd37d&hm=a0c196b28e9e042715566368b93f96cf2afa5027aaaa14ae6607793e25fa664d&=",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -403,7 +413,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-2-vvonderss",
+            "team": "Team 2",
+            "player": "VVonderss",
+            "status": "verified",
+            "completed_at": "2026-03-19T14:54:21Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484199390095736912/Collection_log_Mokhaiotl_cloth_2026-03-19_10-36-44.png?ex=69bd5be5&is=69bc0a65&hm=658c34201bc711dcd018676177e29b4a046a50f55d1bd8f26d4022b6a510d263&=",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -852,6 +872,15 @@
             "status": "verified",
             "completed_at": "2026-03-19T09:25:52Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484089117015937127/image.png?ex=69bcf532&is=69bba3b2&hm=d4b0c8d7a00302dfce852143f5f4983ea7786890c856628bf5487c485570a6f0&=",
+            "note": ""
+          },
+          {
+            "id": "team-1-bvrn",
+            "team": "Team 1",
+            "player": "Bvrn",
+            "status": "verified",
+            "completed_at": "2026-03-19T14:50:29Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484126239177310238/Zulrah244_2026-03-19_09-45-58.png?ex=69bd17c5&is=69bbc645&hm=1f924ccddbfd4edcadd7ac002e7c02969a9f540d76e6ad0ed368b840cbd0fc95&=",
             "note": ""
           }
         ]
