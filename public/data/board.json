@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-19T21:04:27Z",
+  "updated_at": "2026-03-20T18:40:46Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -901,6 +901,15 @@
             "completed_at": "2026-03-19T14:50:29Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484126239177310238/Zulrah244_2026-03-19_09-45-58.png?ex=69bd17c5&is=69bbc645&hm=1f924ccddbfd4edcadd7ac002e7c02969a9f540d76e6ad0ed368b840cbd0fc95&=",
             "note": ""
+          },
+          {
+            "id": "team-4-lloyd-gross",
+            "team": "Team 4",
+            "player": "Lloyd Gross",
+            "status": "verified",
+            "completed_at": "2026-03-20T18:40:46Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484501660809039872/image.png?ex=69be7568&is=69bd23e8&hm=640d2b284c23a3325a21ebc1e0ae29e02d095982a564b22362f5fbf88992c92c&=",
+            "note": ""
           }
         ]
       }
@@ -1147,7 +1156,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-1-ironmontecrs",
+            "team": "Team 1",
+            "player": "IronMonteCRS",
+            "status": "verified",
+            "completed_at": "2026-03-20T18:39:41Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484619085072568521/image.png?ex=69bee2c4&is=69bd9144&hm=296b5f93c107b55e6b6715e5d1e8548dacc5ece83101060396ebbaf15fa05523&=",
+            "note": ""
+          }
+        ]
       }
     },
     {
