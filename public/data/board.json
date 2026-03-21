@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-20T21:59:28Z",
+  "updated_at": "2026-03-21T17:23:57Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -387,6 +387,15 @@
             "completed_at": "2026-03-19T19:12:06Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484261238270722248/image.png?ex=69bd957f&is=69bc43ff&hm=4335c0748e935b4970d01d713bc4e0699b6052b948d27ff17ec54af5893a17e3&=",
             "note": ""
+          },
+          {
+            "id": "team-4-jiimbosliice",
+            "team": "Team 4",
+            "player": "JiimboSliice",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:21:37Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484816661407076412/big_harpoon.PNG?ex=69bf9ac6&is=69be4946&hm=d83705b17eeb6d311f24460e6bfd6797f2e17e9be80aa693ba0252ae407a7e4f&=&format=webp&quality=lossless&width=854&height=960",
+            "note": ""
           }
         ]
       }
@@ -450,6 +459,15 @@
             "status": "verified",
             "completed_at": "2026-03-19T14:54:21Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484199390095736912/Collection_log_Mokhaiotl_cloth_2026-03-19_10-36-44.png?ex=69bd5be5&is=69bc0a65&hm=658c34201bc711dcd018676177e29b4a046a50f55d1bd8f26d4022b6a510d263&=",
+            "note": ""
+          },
+          {
+            "id": "team-4-isool",
+            "team": "Team 4",
+            "player": "isool",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:22:23Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484875716704338030/image.png?ex=69bfd1c6&is=69be8046&hm=6177a0f16e0865bc5dba0c0ad4840069be1a84eccc6baf2ed73c752f0df58b12&=&format=webp&quality=lossless&width=1431&height=856",
             "note": ""
           }
         ]
@@ -641,7 +659,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-1-dumblezore",
+            "team": "Team 1",
+            "player": "Dumblezore",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:21:59Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484868307961118740/image.png?ex=69bfcae0&is=69be7960&hm=648d8c0b7b145e0e00ebdae674127c523ad8336f45227206aff079a4f050d809&=&format=webp&quality=lossless&width=1356&height=960",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -719,7 +747,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-3-frogborne",
+            "team": "Team 3",
+            "player": "Frogborne",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:22:49Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484868307961118740/image.png?ex=69bfcae0&is=69be7960&hm=648d8c0b7b145e0e00ebdae674127c523ad8336f45227206aff079a4f050d809&=&format=webp&quality=lossless&width=1356&height=960",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -1023,7 +1061,26 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-2-mtcaramel",
+            "team": "Team 2",
+            "player": "MtCaramel",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:23:46Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484916408465887372/image.png?ex=69bff7ac&is=69bea62c&hm=4a93ad37cd9be21cb0e0444e569a983e4ec82aad40871818cd7bba4d502a76b7&=&format=webp&quality=lossless&width=1590&height=856",
+            "note": ""
+          },
+          {
+            "id": "team-3-tofsvipan",
+            "team": "Team 3",
+            "player": "Tofsvipan",
+            "status": "verified",
+            "completed_at": "2026-03-21T17:23:57Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484959084565496011/image.png?ex=69c01f6a&is=69becdea&hm=5df5fee2949c45a25d93baaebdf84a3ef503f36acdb3690d1cebaf736d95095d&=&format=webp&quality=lossless&width=1606&height=856",
+            "note": ""
+          }
+        ]
       }
     },
     {
