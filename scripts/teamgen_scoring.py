@@ -4,7 +4,11 @@ from typing import Dict, List, Tuple
 from dateutil.parser import isoparse
 from dateutil.relativedelta import relativedelta
 
-from teamgen_config import LIFETIME_DIVISOR, SCORE_WINDOW_MONTHS
+from teamgen_config import (
+    LIFETIME_DIVISOR,
+    NON_COMBAT_XP_INCLUDED_SKILLS,
+    SCORE_WINDOW_MONTHS,
+)
 
 
 def gain_over_months(timeline: List[Dict], months: int) -> float:
@@ -33,6 +37,36 @@ def gain_over_months(timeline: List[Dict], months: int) -> float:
 
 def calculate_lifetime_bonus(lifetime_value: float, divisor: float) -> float:
     return lifetime_value / divisor
+
+
+def extract_non_combat_xp_progress(entry: Dict) -> Dict:
+    gains = entry.get("gains_event") or {}
+    gains_data = gains.get("data") or {}
+    skills_data = gains_data.get("skills") or {}
+
+    tracked_skills = []
+    total_xp = 0
+    included_skills = set(NON_COMBAT_XP_INCLUDED_SKILLS)
+
+    for skill_key in NON_COMBAT_XP_INCLUDED_SKILLS:
+        skill = skills_data.get(skill_key) or {}
+        xp_gained = int((skill.get("experience") or {}).get("gained", 0) or 0)
+        tracked_skills.append(
+            {
+                "name": skill_key.replace("_", " ").title(),
+                "key": skill_key,
+                "xp": xp_gained,
+            }
+        )
+        total_xp += xp_gained
+
+    tracked_skills.sort(key=lambda skill: (-skill["xp"], skill["name"]))
+
+    return {
+        "total_xp": total_xp,
+        "included_skill_count": len(included_skills),
+        "skills": tracked_skills,
+    }
 
 
 def extract_player_stats(entry: Dict, username: str) -> Dict:
@@ -143,6 +177,8 @@ def extract_player_stats(entry: Dict, username: str) -> Dict:
             )
     lifetime_skills.sort(key=lambda skill: skill["ehp"], reverse=True)
 
+    non_combat_xp_progress = extract_non_combat_xp_progress(entry)
+
     return {
         "username": username,
         "player_type": player_type,
@@ -155,6 +191,7 @@ def extract_player_stats(entry: Dict, username: str) -> Dict:
         "skills": skills,
         "lifetime_bosses": lifetime_bosses,
         "lifetime_skills": lifetime_skills,
+        "non_combat_xp_progress": non_combat_xp_progress,
     }
 
 

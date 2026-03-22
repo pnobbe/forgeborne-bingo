@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(SCRIPT_DIR)
@@ -10,6 +11,50 @@ CACHE_EXPIRY = 3600
 WOM_API_BASE = "https://api.wiseoldman.net/v2"
 OSRS_HISCORES_BASE = "https://secure.runescape.com/m=hiscore_oldschool"
 REQUEST_TIMEOUT = 30
+
+# Event config
+BINGO_EVENT_START = datetime(2026, 3, 18, 11, 30, tzinfo=timezone.utc)
+BINGO_EVENT_END = datetime(2026, 4, 1, 11, 30, tzinfo=timezone.utc)
+OSRS_SKILLS = (
+    "attack",
+    "defence",
+    "strength",
+    "hitpoints",
+    "ranged",
+    "prayer",
+    "magic",
+    "cooking",
+    "woodcutting",
+    "fletching",
+    "fishing",
+    "firemaking",
+    "crafting",
+    "smithing",
+    "mining",
+    "herblore",
+    "agility",
+    "thieving",
+    "slayer",
+    "farming",
+    "runecrafting",
+    "hunter",
+    "sailing",
+    "construction",
+)
+NON_COMBAT_XP_TILE_ID = "twelve-million-non-combat-xp"
+NON_COMBAT_XP_TILE_TARGET = 12_000_000
+NON_COMBAT_XP_EXCLUDED_SKILLS = (
+    "attack",
+    "strength",
+    "defence",
+    "hitpoints",
+    "prayer",
+    "magic",
+    "ranged",
+)
+NON_COMBAT_XP_INCLUDED_SKILLS = tuple(
+    skill for skill in OSRS_SKILLS if skill not in NON_COMBAT_XP_EXCLUDED_SKILLS
+)
 
 # Scoring config
 SCORE_WINDOW_MONTHS = 3

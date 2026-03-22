@@ -1302,8 +1302,8 @@
       "objective": "Reach 12,000,000 combined WOM-tracked XP in qualifying non-combat skills during the event window.",
       "verification": "Use Wise Old Man gained XP totals as the canonical source of truth, summing the qualifying skill gains across all players on the team.",
       "requirements": [
-        "Qualifying skills are Agility, Construction, Cooking, Crafting, Farming, Firemaking, Fishing, Fletching, Herblore, Hunter, Mining, Runecraft, Smithing, Thieving, and Woodcutting.",
-        "Attack, Strength, Defence, Hitpoints, Ranged, Prayer, Magic, and Slayer do not count toward this tile.",
+        "Qualifying skills are Agility, Construction, Cooking, Crafting, Farming, Firemaking, Fishing, Fletching, Herblore, Hunter, Mining, Runecraft, Sailing, Slayer, Smithing, Thieving, and Woodcutting.",
+        "Attack, Strength, Defence, Hitpoints, Ranged, Prayer, and Magic do not count toward this tile.",
         "The 12,000,000 XP total may be split across any number of team members.",
         "Only event-window XP gains tracked on Wise Old Man count."
       ],

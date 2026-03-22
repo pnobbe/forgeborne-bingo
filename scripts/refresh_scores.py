@@ -5,7 +5,13 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from teamgen_config import (
+    BINGO_EVENT_END,
+    BINGO_EVENT_START,
     LIFETIME_DIVISOR,
+    NON_COMBAT_XP_EXCLUDED_SKILLS,
+    NON_COMBAT_XP_INCLUDED_SKILLS,
+    NON_COMBAT_XP_TILE_ID,
+    NON_COMBAT_XP_TILE_TARGET,
     REPO_ROOT,
     SCORE_WINDOW_MONTHS,
     SCORING_METHOD,
@@ -78,6 +84,52 @@ def player_row(player: Dict[str, Any], team_name: str) -> Dict[str, Any]:
         "skills": player.get("skills", []),
         "lifetime_bosses": player.get("lifetime_bosses", []),
         "lifetime_skills": player.get("lifetime_skills", []),
+        "non_combat_xp_progress": player.get("non_combat_xp_progress", {}),
+    }
+
+
+def build_non_combat_xp_tracking(teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+    team_rows = []
+
+    for team in teams:
+        player_rows = []
+        total_xp = 0
+
+        for player in team.get("players", []):
+            progress = player.get("non_combat_xp_progress") or {}
+            player_total_xp = int(progress.get("total_xp", 0) or 0)
+            total_xp += player_total_xp
+            player_rows.append(
+                {
+                    "username": player["username"],
+                    "total_xp": player_total_xp,
+                    "skills": progress.get("skills", []),
+                }
+            )
+
+        player_rows.sort(key=lambda row: (-row["total_xp"], row["username"].lower()))
+        team_rows.append(
+            {
+                "team": team["name"],
+                "total_xp": total_xp,
+                "target_xp": NON_COMBAT_XP_TILE_TARGET,
+                "remaining_xp": max(0, NON_COMBAT_XP_TILE_TARGET - total_xp),
+                "is_complete": total_xp >= NON_COMBAT_XP_TILE_TARGET,
+                "players": player_rows,
+            }
+        )
+
+    team_rows.sort(key=lambda row: (-row["total_xp"], row["team"].lower()))
+
+    return {
+        "tile_id": NON_COMBAT_XP_TILE_ID,
+        "metric": "event_non_combat_xp",
+        "target_xp": NON_COMBAT_XP_TILE_TARGET,
+        "event_start": BINGO_EVENT_START.isoformat(),
+        "event_end": BINGO_EVENT_END.isoformat(),
+        "included_skills": list(NON_COMBAT_XP_INCLUDED_SKILLS),
+        "excluded_skills": list(NON_COMBAT_XP_EXCLUDED_SKILLS),
+        "teams": team_rows,
     }
 
 
@@ -170,6 +222,10 @@ def main() -> None:
     }
     data["participants"] = participant_rows
     data["teams"] = teams
+    data["board_tracking"] = {
+        "generated_at": data["generated_at"],
+        "tiles": {NON_COMBAT_XP_TILE_ID: build_non_combat_xp_tracking(teams)},
+    }
 
     save_data(output_path, data)
     print(f"Updated score data written to {output_path}")

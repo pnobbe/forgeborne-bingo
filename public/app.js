@@ -38,6 +38,9 @@ const boardDetail = {
   requirements: document.getElementById('board-detail-requirements'),
   completionNotch: document.getElementById('board-detail-completion-notch'),
   verificationWrap: document.getElementById('board-detail-verification-wrap'),
+  trackerWrap: document.getElementById('board-detail-tracker-wrap'),
+  trackerLabel: document.getElementById('board-detail-tracker-label'),
+  tracker: document.getElementById('board-detail-tracker'),
 };
 
 const boardPopover = {
@@ -306,6 +309,10 @@ function formatXp(value) {
   if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + 'm';
   if (value >= 1_000) return (value / 1_000).toFixed(0) + 'k';
   return String(value);
+}
+
+function formatPercent(value) {
+  return `${(value * 100).toFixed(1)}%`;
 }
 
 function formatRank(value) {
@@ -1876,7 +1883,8 @@ const BOARD_TILE_RULE_NOTES = {
     'Tattered kq head does not count.',
   ],
   'twelve-million-non-combat-xp': [
-    'Attack, Strength, Defence, Hitpoints, Ranged, Prayer, Magic, and Slayer do not count.',
+    'Attack, Strength, Defence, Hitpoints, Ranged, Prayer, and Magic do not count.',
+    'Sailing counts toward the tracker.',
     'The 12,000,000 XP total may be split across any number of team members.',
   ],
   'yama-oathplate-piece': [
@@ -2436,6 +2444,127 @@ function getBoardTeamDisplayName(teamName) {
   return getThemeForBoardTeamName(teamName).title;
 }
 
+function getBoardTileTracking(tileId) {
+  return boardState.teamsData?.board_tracking?.tiles?.[tileId] || null;
+}
+
+function clearBoardDetailTracker() {
+  if (!boardDetail.trackerWrap || !boardDetail.tracker) return;
+  boardDetail.trackerWrap.hidden = true;
+  boardDetail.tracker.innerHTML = '';
+  if (boardDetail.trackerLabel) boardDetail.trackerLabel.textContent = 'Live Tracker';
+}
+
+function createTrackerText(className, text) {
+  const node = document.createElement('p');
+  node.className = className;
+  node.textContent = text;
+  return node;
+}
+
+function renderNonCombatXpTracker(tile, tracking) {
+  if (!boardDetail.trackerWrap || !boardDetail.tracker || !tracking) return;
+
+  boardDetail.tracker.innerHTML = '';
+  if (boardDetail.trackerLabel) boardDetail.trackerLabel.textContent = 'WOM Progress Tracker';
+  boardDetail.trackerWrap.hidden = false;
+
+  const includedSkills = Array.isArray(tracking.included_skills)
+    ? tracking.included_skills.map((skill) => toDisplayLabel(skill)).join(', ')
+    : '';
+  const intro = `Tracks ${formatXp(tracking.target_xp || 0)} total XP gained since event start across ${includedSkills || 'qualifying non-combat skills'}.`;
+  boardDetail.tracker.appendChild(createTrackerText('board-detail__tracker-intro', intro));
+
+  const teams = Array.isArray(tracking.teams) ? tracking.teams : [];
+  if (!teams.length) {
+    boardDetail.tracker.appendChild(createTrackerText('board-detail__tracker-empty', 'No WOM tracker data is available for this tile yet.'));
+    return;
+  }
+
+  const teamsWrap = document.createElement('div');
+  teamsWrap.className = 'board-detail__tracker-teams';
+
+  teams.forEach((teamEntry) => {
+    const teamNode = document.createElement('article');
+    teamNode.className = 'board-detail__tracker-team';
+
+    const head = document.createElement('div');
+    head.className = 'board-detail__tracker-team-head';
+
+    const teamName = document.createElement('strong');
+    teamName.className = 'board-detail__tracker-team-name';
+    teamName.textContent = getBoardTeamDisplayName(teamEntry.team);
+
+    const total = document.createElement('span');
+    total.className = 'board-detail__tracker-team-total';
+    total.textContent = `${formatNumber(teamEntry.total_xp || 0)} / ${formatNumber(teamEntry.target_xp || tracking.target_xp || 0)} XP`;
+
+    head.append(teamName, total);
+
+    const progress = document.createElement('div');
+    progress.className = 'board-detail__tracker-progress';
+    progress.setAttribute('role', 'progressbar');
+    progress.setAttribute('aria-label', `${getBoardTeamDisplayName(teamEntry.team)} non-combat XP progress`);
+    progress.setAttribute('aria-valuemin', '0');
+    progress.setAttribute('aria-valuemax', String(teamEntry.target_xp || tracking.target_xp || 0));
+    progress.setAttribute('aria-valuenow', String(teamEntry.total_xp || 0));
+
+    const progressBar = document.createElement('div');
+    progressBar.className = 'board-detail__tracker-progress-bar';
+    const ratio = Math.max(0, Math.min(1, (teamEntry.total_xp || 0) / Math.max(1, teamEntry.target_xp || tracking.target_xp || 0)));
+    progressBar.style.width = formatPercent(ratio);
+    progress.appendChild(progressBar);
+
+    const meta = document.createElement('div');
+    meta.className = 'board-detail__tracker-team-meta';
+    const progressLabel = document.createElement('span');
+    progressLabel.textContent = teamEntry.is_complete
+      ? 'Tile target reached'
+      : `${formatNumber(teamEntry.remaining_xp || 0)} XP remaining`;
+    const shareLabel = document.createElement('span');
+    shareLabel.textContent = formatPercent(ratio);
+    meta.append(progressLabel, shareLabel);
+
+    const playersWrap = document.createElement('div');
+    playersWrap.className = 'board-detail__tracker-players';
+    const players = Array.isArray(teamEntry.players) ? teamEntry.players.filter((player) => (player.total_xp || 0) > 0) : [];
+    players.forEach((player) => {
+      const playerRow = document.createElement('div');
+      playerRow.className = 'board-detail__tracker-player';
+
+      const playerName = document.createElement('span');
+      playerName.className = 'board-detail__tracker-player-name';
+      playerName.textContent = player.username;
+
+      const playerTotal = document.createElement('span');
+      playerTotal.className = 'board-detail__tracker-player-total';
+      playerTotal.textContent = formatNumber(player.total_xp || 0);
+
+      playerRow.append(playerName, playerTotal);
+      playersWrap.appendChild(playerRow);
+    });
+
+    if (!playersWrap.childElementCount) {
+      playersWrap.appendChild(createTrackerText('board-detail__tracker-empty', 'No qualifying XP logged yet.'));
+    }
+
+    teamNode.append(head, progress, meta, playersWrap);
+    teamsWrap.appendChild(teamNode);
+  });
+
+  boardDetail.tracker.appendChild(teamsWrap);
+}
+
+function renderBoardDetailTracker(tile) {
+  const tracking = getBoardTileTracking(tile?.id);
+  if (tile?.id === 'twelve-million-non-combat-xp' && tracking) {
+    renderNonCombatXpTracker(tile, tracking);
+    return;
+  }
+
+  clearBoardDetailTracker();
+}
+
 function renderBoardCompletionNotch(container, completionState, options = {}) {
   if (!container) return;
 
@@ -2645,6 +2774,7 @@ function renderBoardDetailEmpty(message, title = 'Board detail') {
   boardDetail.targets.innerHTML = '';
   boardDetail.requirementsWrap.hidden = true;
   boardDetail.requirements.innerHTML = '';
+  clearBoardDetailTracker();
 }
 
 function renderBoardMeta(boardData) {
@@ -2764,6 +2894,8 @@ function renderBoardTileDetail(tile) {
   requirements.forEach((requirement) => {
     appendBoardRichListItem(boardDetail.requirements, requirement, tile);
   });
+
+  renderBoardDetailTracker(tile);
 
 }
 

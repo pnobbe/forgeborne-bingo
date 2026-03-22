@@ -2290,6 +2290,103 @@ main {
   margin-top: 0;
 }
 
+.board-detail__tracker {
+  display: grid;
+  gap: 12px;
+}
+
+.board-detail__tracker-intro {
+  color: var(--shell-text-muted);
+}
+
+.board-detail__tracker-teams {
+  display: grid;
+  gap: 10px;
+}
+
+.board-detail__tracker-team {
+  display: grid;
+  gap: 10px;
+  padding: 14px 15px;
+  border: 1px solid rgba(240, 219, 146, 0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012)),
+    linear-gradient(180deg, rgba(43, 37, 31, 0.62), rgba(22, 19, 16, 0.68));
+}
+
+.board-detail__tracker-team-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.board-detail__tracker-team-name {
+  color: var(--shell-text-bright);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.board-detail__tracker-team-total {
+  color: var(--shell-gold-bright);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.94rem;
+}
+
+.board-detail__tracker-progress {
+  position: relative;
+  overflow: hidden;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: rgba(10, 9, 7, 0.68);
+  border: 1px solid rgba(240, 219, 146, 0.12);
+}
+
+.board-detail__tracker-progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(177, 137, 61, 0.8), rgba(240, 219, 146, 0.95));
+  box-shadow: 0 0 18px rgba(214, 180, 90, 0.22);
+}
+
+.board-detail__tracker-team-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--shell-text-muted);
+  font-size: 0.94rem;
+}
+
+.board-detail__tracker-players {
+  display: grid;
+  gap: 6px;
+}
+
+.board-detail__tracker-player {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.98rem;
+  color: var(--shell-text);
+}
+
+.board-detail__tracker-player-name {
+  color: var(--shell-text-bright);
+}
+
+.board-detail__tracker-player-total {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--shell-text-muted);
+}
+
+.board-detail__tracker-empty {
+  color: var(--shell-text-muted);
+}
+
 .board-detail__subsection-label {
   margin: 0 0 10px;
   color: var(--shell-gold-bright);

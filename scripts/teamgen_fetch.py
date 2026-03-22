@@ -7,6 +7,8 @@ import requests
 from dateutil.relativedelta import relativedelta
 
 from teamgen_config import (
+    BINGO_EVENT_END,
+    BINGO_EVENT_START,
     OSRS_HISCORES_BASE,
     REQUEST_TIMEOUT,
     RETRY_ATTEMPTS,
@@ -158,11 +160,24 @@ def detect_uim_via_hiscores(username: str) -> bool:
 
 def fetch_raw_player(username: str, cache: Dict) -> Dict | None:
     key = username.lower()
+    now = datetime.now(timezone.utc)
+    event_end = min(now, BINGO_EVENT_END)
+
     if key in cache and is_cache_valid(cache[key]):
         if "player_details" in cache[key] and "gains_3mo" in cache[key]:
             entry = cache[key]
             wom_type = entry["player_details"].get("type")
             dirty = False
+
+            if "gains_event" not in entry:
+                print(
+                    f"  [{username}] Fetching event-window gains (cache hit, not yet cached)..."
+                )
+                entry["gains_event"] = fetch_gains(
+                    username, BINGO_EVENT_START, event_end
+                )
+                dirty = True
+                time.sleep(0.4)
 
             if wom_type == "regular" and "is_gim" not in entry:
                 print(
@@ -208,9 +223,10 @@ def fetch_raw_player(username: str, cache: Dict) -> Dict | None:
     ehb_timeline = fetch_timeline(username, "ehb")
     time.sleep(0.4)
 
-    now = datetime.now(timezone.utc)
     start_date = now - relativedelta(months=SCORE_WINDOW_MONTHS)
     gains_3mo = fetch_gains(username, start_date, now)
+    time.sleep(0.4)
+    gains_event = fetch_gains(username, BINGO_EVENT_START, event_end)
     time.sleep(0.4)
 
     is_gim = False
@@ -234,6 +250,7 @@ def fetch_raw_player(username: str, cache: Dict) -> Dict | None:
         "ehp_timeline": ehp_timeline,
         "ehb_timeline": ehb_timeline,
         "gains_3mo": gains_3mo,
+        "gains_event": gains_event,
         "is_gim": is_gim,
         "is_hcim": is_hcim,
         "is_uim": is_uim,
