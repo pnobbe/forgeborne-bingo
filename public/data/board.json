@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-21T17:23:57Z",
+  "updated_at": "2026-03-22T18:48:13Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -967,6 +967,15 @@
             "status": "verified",
             "completed_at": "2026-03-20T18:40:46Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484501660809039872/image.png?ex=69be7568&is=69bd23e8&hm=640d2b284c23a3325a21ebc1e0ae29e02d095982a564b22362f5fbf88992c92c&=",
+            "note": ""
+          },
+          {
+            "id": "team-3-frogborne",
+            "team": "Team 3",
+            "player": "Frogborne",
+            "status": "verified",
+            "completed_at": "2026-03-22T18:48:13Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1485349349218189352/image.png?ex=69c18ae1&is=69c03961&hm=1d21c1e0d39d785707a2a25287a1f3533667d4a00203920b6e1751d954dd72f2&=&format=webp&quality=lossless",
             "note": ""
           }
         ]
