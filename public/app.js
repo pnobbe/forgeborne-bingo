@@ -1884,7 +1884,6 @@ const BOARD_TILE_RULE_NOTES = {
   ],
   'twelve-million-non-combat-xp': [
     'Attack, Strength, Defence, Hitpoints, Ranged, Prayer, and Magic do not count.',
-    'Sailing counts toward the tracker.',
     'The 12,000,000 XP total may be split across any number of team members.',
   ],
   'yama-oathplate-piece': [

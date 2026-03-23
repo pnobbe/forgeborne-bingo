@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-22T18:48:13Z",
+  "updated_at": "2026-03-23T10:08:10Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -565,7 +565,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-1-elementforge",
+            "team": "Team 1",
+            "player": "ElementForge",
+            "status": "verified",
+            "completed_at": "2026-03-23T10:08:10Z",
+            "proof_url": "https://media.discordapp.net/attachments/1356211965013397701/1485405456531718235/IMG_1737.png?ex=69c1bf22&is=69c06da2&hm=78013fa35188726705744ec6ced810aeeca09a8dbbdef865980d60f2cd8d8bf6&=&format=webp&quality=lossless&width=2512&height=1159",
+            "note": ""
+          }
+        ]
       }
     },
     {
