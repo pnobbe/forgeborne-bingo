@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-24T13:59:16Z",
+  "updated_at": "2026-03-26T22:22:20Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -219,7 +219,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-4-tetsu-luna",
+            "team": "Team 4",
+            "player": "Tetsu Luna",
+            "status": "verified",
+            "completed_at": "2026-03-26T22:20:49Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1486337854757142660/image.png?ex=69c674ff&is=69c5237f&hm=bb81d5709871f6aae85bc97365b4507bebd6d98406be2a018eaed6247178d585&=&format=webp&quality=lossless",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -696,6 +706,15 @@
             "completed_at": "2026-03-23T10:38:02Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1485586394913964052/image.png?ex=69c267a5&is=69c11625&hm=c10ef72dd0346e01b609a07765c23e04c7b65996e567ca9a17352fb1af3d176c&=&format=webp&quality=lossless",
             "note": ""
+          },
+          {
+            "id": "team-3-short-pp",
+            "team": "Team 3",
+            "player": "Short pp",
+            "status": "verified",
+            "completed_at": "2026-03-26T22:18:43Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1486842972333936924/image.png?ex=69c6f9ec&is=69c5a86c&hm=fa2cd04bb85ddc6abab9ccb31e68acf3e938e187448170b83916d5cec188d250&=&format=webp&quality=lossless&width=2016&height=1266",
+            "note": ""
           }
         ]
       }
@@ -911,6 +930,15 @@
             "status": "verified",
             "completed_at": "2026-03-24T11:59:40Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1485865282932183192/image.png?ex=69c36b61&is=69c219e1&hm=7f91cc6a4ce4a0a26aa10f7bde4f7cc4cac03e279068f0cb2fb6678813faecd4&=&format=webp&quality=lossless",
+            "note": ""
+          },
+          {
+            "id": "team-4-lloyd-gross",
+            "team": "Team 4",
+            "player": "Lloyd Gross",
+            "status": "verified",
+            "completed_at": "2026-03-26T22:22:20Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1486025536978423888/image.png?ex=69c6a3a1&is=69c55221&hm=65e3fd94e3e0102094510967abd742e929ab5b78c630b3cc7271bd95ae951151&=&format=webp&quality=lossless",
             "note": ""
           }
         ]
