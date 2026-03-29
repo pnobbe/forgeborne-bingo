@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-26T22:22:20Z",
+  "updated_at": "2026-03-29T11:40:50Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -282,6 +282,15 @@
             "completed_at": "2026-03-19T21:04:27Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484269514798403624/image.png?ex=69bd9d34&is=69bc4bb4&hm=525d9a8fe662ae69d95e2b1ff7ea3377a432ec579e8b36d4b78d4a69c9374238&=",
             "note": ""
+          },
+          {
+            "id": "team-2-mtcaramel",
+            "team": "Team 2",
+            "player": "MtCaramel",
+            "status": "verified",
+            "completed_at": "2026-03-29T11:39:18Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1487156972703842314/image.png?ex=69ca189c&is=69c8c71c&hm=cec2ab0cd20f9b629cf042fd8574bd49705683fe1033f1350c0d3f131448888a&=&format=webp&quality=lossless",
+            "note": ""
           }
         ]
       }
@@ -479,6 +488,15 @@
             "completed_at": "2026-03-21T17:22:23Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484875716704338030/image.png?ex=69bfd1c6&is=69be8046&hm=6177a0f16e0865bc5dba0c0ad4840069be1a84eccc6baf2ed73c752f0df58b12&=&format=webp&quality=lossless&width=1431&height=856",
             "note": ""
+          },
+          {
+            "id": "team-1-dumblezore",
+            "team": "Team 1",
+            "player": "Dumblezore",
+            "status": "verified",
+            "completed_at": "2026-03-29T11:40:50Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1487566973641687181/image.png?ex=69ca44f4&is=69c8f374&hm=2d093f5d33e3144dc01633926d3f20cc670c67e3a9142b3c8c2c08d807c98024&=&format=webp&quality=lossless",
+            "note": ""
           }
         ]
       }
@@ -592,6 +610,15 @@
             "status": "verified",
             "completed_at": "2026-03-24T13:59:16Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1485996928440336424/Screen_Shot_2026-03-24_at_13.40.32_pm.png?ex=69c3e5fc&is=69c2947c&hm=854fa494323cbd6f33d9151380dc2e4dd8391a08f717571b565716cf4e580809&=&format=webp&quality=lossless",
+            "note": ""
+          },
+          {
+            "id": "team-2-sebuoooze",
+            "team": "Team 2",
+            "player": "Sebuoooze",
+            "status": "verified",
+            "completed_at": "2026-03-29T11:39:49Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1487561782661877880/2026-03-28_17-17-16.png?ex=69ca401e&is=69c8ee9e&hm=484e797890fe0e31c0bcaf67cc7a84837d103f8ea59f073a2385e315e9ac2a8b&=&format=webp&quality=lossless",
             "note": ""
           }
         ]
@@ -1316,6 +1343,15 @@
             "status": "verified",
             "completed_at": "2026-03-20T18:39:41Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1484619085072568521/image.png?ex=69bee2c4&is=69bd9144&hm=296b5f93c107b55e6b6715e5d1e8548dacc5ece83101060396ebbaf15fa05523&=",
+            "note": ""
+          },
+          {
+            "id": "team-4-lloyd-gross",
+            "team": "Team 4",
+            "player": "Lloyd Gross",
+            "status": "verified",
+            "completed_at": "2026-03-29T11:38:27Z",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1487087128151195870/image.png?ex=69c9d790&is=69c88610&hm=bda9ce0b00a1b962473bf5e8e0a81794d89494f092fa2d5829b99729e461d55f&=&format=webp&quality=lossless",
             "note": ""
           }
         ]
