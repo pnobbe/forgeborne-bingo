@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-31T13:46:23Z",
+  "updated_at": "2026-03-31T22:10:56Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -682,6 +682,15 @@
             "status": "verified",
             "completed_at": "2026-03-18T21:31:39Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1483922965971337227/image.png?ex=69bc5a75&is=69bb08f5&hm=f3f090b0ff035674cb41fe536a0f386aa4a8cb86d09f7816a832985ed04f31f4&=&format=webp&quality=lossless&width=1346&height=1320",
+            "note": ""
+          },
+          {
+            "id": "team-2-vvonders-windbtw1217",
+            "team": "Team 2",
+            "player": "VVonders & Windbtw1217",
+            "status": "verified",
+            "completed_at": "2026-03-31T22:10:56Z",
+            "proof_url": "",
             "note": ""
           }
         ]
@@ -1483,6 +1492,24 @@
             "player": "Tofsvipan",
             "status": "verified",
             "completed_at": "2026-03-23T18:59:05Z",
+            "proof_url": "",
+            "note": ""
+          },
+          {
+            "id": "team-2-mtcaramel",
+            "team": "Team 2",
+            "player": "MtCaramel",
+            "status": "verified",
+            "completed_at": "2026-03-31T21:53:21Z",
+            "proof_url": "",
+            "note": ""
+          },
+          {
+            "id": "team-4-tetsu-luna",
+            "team": "Team 4",
+            "player": "Tetsu Luna",
+            "status": "verified",
+            "completed_at": "2026-03-31T21:53:42Z",
             "proof_url": "",
             "note": ""
           }
