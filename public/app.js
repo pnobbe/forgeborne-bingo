@@ -524,6 +524,48 @@ function createStatCard(label, value, caption) {
   return card;
 }
 
+function formatOrdinal(value) {
+  const mod10 = value % 10;
+  const mod100 = value % 100;
+  if (mod10 === 1 && mod100 !== 11) return `${value}st`;
+  if (mod10 === 2 && mod100 !== 12) return `${value}nd`;
+  if (mod10 === 3 && mod100 !== 13) return `${value}rd`;
+  return `${value}th`;
+}
+
+function getPlacementTrophyIcon(place) {
+  if (place === 1) return 'assets/icon-trophy-gold.svg';
+  if (place === 2) return 'assets/icon-trophy-silver.svg';
+  if (place === 3) return 'assets/icon-trophy-bronze.svg';
+  return 'assets/icon-trophy-iron.svg';
+}
+
+function getBoardTeamStandings(boardData) {
+  const trackedTeams = boardData?.teams_tracked || [];
+  const tileCounts = new Map(trackedTeams.map((teamName) => [teamName, 0]));
+
+  (boardData?.tiles || []).forEach((tile) => {
+    const state = getBoardTileCompletionState(tile, boardData);
+    state.completedTeams.forEach((teamName) => {
+      if (tileCounts.has(teamName)) {
+        tileCounts.set(teamName, tileCounts.get(teamName) + 1);
+      }
+    });
+  });
+
+  const sorted = [...tileCounts.entries()].sort((left, right) => {
+    if (right[1] !== left[1]) return right[1] - left[1];
+    return left[0].localeCompare(right[0]);
+  });
+
+  return sorted.map(([teamName, tileCount], index) => ({
+    teamName,
+    tileCount,
+    place: index + 1,
+    isWinner: index === 0 && sorted.length > 0,
+  }));
+}
+
 function appendListItem(parent, text) {
   const item = document.createElement('li');
   item.textContent = text;
@@ -2382,7 +2424,7 @@ function setTeamSignet(node, selector, theme, label) {
 }
 
 function applyFavoriteBadges(node, player) {
-  const topBoss = (player.bosses || [])[0];
+  const topBoss = (player.event_bosses || player.bosses || [])[0];
   const bossBadge = qs(node, '.participant-favorite-badge--boss');
   const bossIcon = qs(node, '.participant-favorite-badge__icon--boss');
   if (topBoss) {
@@ -2399,7 +2441,7 @@ function applyFavoriteBadges(node, player) {
     bossIcon.alt = '';
   }
 
-  const topSkill = (player.skills || [])[0];
+  const topSkill = (player.event_skills || player.skills || [])[0];
   const skillBadge = qs(node, '.participant-favorite-badge--skill');
   const skillIcon = qs(node, '.participant-favorite-badge__icon--skill');
   if (topSkill) {
@@ -2966,6 +3008,31 @@ function setBoardTileSelection(tileId, options = {}) {
   }
 }
 
+function renderBoardStandings(boardData) {
+  const standingsEl = document.getElementById('board-standings');
+  if (!standingsEl) return;
+
+  const standings = getBoardTeamStandings(boardData);
+
+  standingsEl.innerHTML = '';
+  standings.forEach(({ teamName, tileCount }, index) => {
+    const fakeTeam = { name: teamName };
+    const theme = getThemeForTeam(fakeTeam, index);
+
+    const entry = document.createElement('div');
+    entry.className = 'board-standings__entry';
+    entry.dataset.godTheme = theme.key;
+    applyThemeVariables(entry, 'board-team', theme);
+    entry.setAttribute('aria-label', `${theme.name}: ${tileCount} tile${tileCount === 1 ? '' : 's'}`);
+
+    entry.innerHTML =
+      `<img class="board-standings__crest" src="${theme.crest}" alt="${theme.name}" width="24" height="24" loading="lazy">` +
+      `<span class="board-standings__count">${tileCount}</span>`;
+
+    standingsEl.appendChild(entry);
+  });
+}
+
 function renderBoard(boardData, teamsData = boardState.teamsData) {
   if (!boardGrid) return;
 
@@ -2977,6 +3044,7 @@ function renderBoard(boardData, teamsData = boardState.teamsData) {
   renderBoardMeta(boardData);
   renderBoardSummary(boardData);
   renderBoardRules(boardData);
+  renderBoardStandings(boardData);
 
   boardGrid.innerHTML = '';
   boardState.tilesById = new Map();
@@ -3091,6 +3159,116 @@ function renderBoardError(message) {
   closeBoardPopover({ restoreFocus: false });
 }
 
+// Hover tooltip for team tile lists
+let teamTileTooltipEl = null;
+function getTeamTileTooltip() {
+  if (!teamTileTooltipEl) {
+    teamTileTooltipEl = document.createElement('div');
+    teamTileTooltipEl.className = 'team-tile-tooltip';
+    teamTileTooltipEl.setAttribute('aria-hidden', 'true');
+    teamTileTooltipEl.innerHTML = '<p class="team-tile-tooltip__label"></p><p class="team-tile-tooltip__date" hidden></p>';
+    document.body.appendChild(teamTileTooltipEl);
+  }
+  return teamTileTooltipEl;
+}
+
+function showTeamTileTooltip(anchorEl, label = '', date = '') {
+  const tooltip = getTeamTileTooltip();
+  const tooltipLabel = tooltip.querySelector('.team-tile-tooltip__label');
+  const tooltipDate = tooltip.querySelector('.team-tile-tooltip__date');
+  tooltipLabel.textContent = label;
+  if (date) {
+    tooltipDate.textContent = date;
+    tooltipDate.hidden = false;
+  } else {
+    tooltipDate.textContent = '';
+    tooltipDate.hidden = true;
+  }
+
+  tooltip.classList.add('is-visible');
+  const rect = anchorEl.getBoundingClientRect();
+  const scrollY = window.scrollY;
+  const scrollX = window.scrollX;
+  // Position to the right of the element; fall back left if not enough space
+  let left = rect.right + scrollX + 10;
+  const tooltipWidth = 340;
+  if (left + tooltipWidth > window.innerWidth + scrollX) {
+    left = rect.left + scrollX - tooltipWidth - 10;
+  }
+  let top = rect.top + scrollY;
+  tooltip.style.left = `${Math.max(8, left)}px`;
+  tooltip.style.top = `${Math.max(8, top)}px`;
+}
+
+function hideTeamTileTooltip() {
+  if (teamTileTooltipEl) {
+    teamTileTooltipEl.classList.remove('is-visible');
+  }
+}
+
+function renderTeamTileLists(teamsData, boardData) {
+  if (!teamsData || !boardData) return;
+
+  const tiles = boardData.tiles || [];
+  const teamCards = teamsGrid.querySelectorAll('.team-card');
+
+  teamsData.teams.forEach((team, index) => {
+    const teamCard = teamCards[index];
+    if (!teamCard) return;
+    const tilesList = teamCard.querySelector('.team-tiles__list');
+    if (!tilesList) return;
+
+    // Find all verified completions for this team, sorted by date
+    const completed = [];
+    tiles.forEach((tile) => {
+      const completions = (tile.competition?.completions || []);
+      const CONFIRMED_STATUSES = new Set(['verified','confirmed','accepted','complete','completed']);
+      const match = completions.find(
+        (c) => c.team === team.name && CONFIRMED_STATUSES.has((c.status || '').toLowerCase())
+      );
+      if (match) {
+        completed.push({ tile, completion: match });
+      }
+    });
+    completed.sort((a, b) => {
+      const da = a.completion.completed_at ? new Date(a.completion.completed_at).getTime() : 0;
+      const db = b.completion.completed_at ? new Date(b.completion.completed_at).getTime() : 0;
+      return da - db;
+    });
+
+    tilesList.innerHTML = '';
+    if (completed.length === 0) {
+      const empty = document.createElement('li');
+      empty.className = 'team-tile-item team-tile-item--empty';
+      empty.textContent = 'No tiles completed.';
+      tilesList.appendChild(empty);
+      return;
+    }
+
+    completed.forEach(({ tile, completion }) => {
+      const li = document.createElement('li');
+      li.className = 'team-tile-item';
+
+      const iconUrl = `${METRIC_ICON_BASE}/${tile.icon?.key}.png`;
+      const dateStr = completion.completed_at
+        ? `Achieved ${new Date(completion.completed_at).toLocaleDateString('en-GB', {
+            day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC',
+          })}`
+        : '';
+
+      li.innerHTML = `<img class="team-tile-item__icon" src="${iconUrl}" alt="" width="18" height="18" loading="lazy">`;
+      li.setAttribute('aria-label', tile.title);
+      li.addEventListener('mouseenter', () => showTeamTileTooltip(li, tile.title, dateStr));
+      li.addEventListener('mouseleave', hideTeamTileTooltip);
+      li.addEventListener('focus', () => showTeamTileTooltip(li, tile.title, dateStr));
+      li.addEventListener('blur', hideTeamTileTooltip);
+      li.setAttribute('tabindex', '0');
+
+      tilesList.appendChild(li);
+    });
+  });
+}
+
 function renderTeams(data) {
   teamsGrid.innerHTML = '';
   if (!data.teams.length) {
@@ -3102,7 +3280,8 @@ function renderTeams(data) {
   }
 
   const allPlayers = data.teams.flatMap(team => team.players);
-  const maxRatingStr = formatNumber(Math.max(...allPlayers.map(player => player.total_rating)));
+  const maxRatingStr = formatNumber(Math.max(...allPlayers.map(player => player.event_rating ?? player.total_rating)));
+  const boardStandingsByTeam = new Map(getBoardTeamStandings(boardState.data).map((entry) => [entry.teamName, entry]));
   teamsGrid.dataset.teamCount = String(data.teams.length);
   teamsGrid.dataset.columns = String(getIdealTeamGridColumns(data.teams.length));
   // Use rem-based widths so ch resolution doesn't depend on font-size differences.
@@ -3119,36 +3298,56 @@ function renderTeams(data) {
     qs(teamNode, '.team-label').textContent = theme.teamLabel;
     qs(teamNode, '.team-name').textContent = theme.title;
     qs(teamNode, '.team-card__flavor').textContent = theme.flavor;
-    qs(teamNode, '.team-total__value').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="13" height="13" loading="lazy">' + formatNumber(team.total_rating);
+    const displayRating = team.event_total_rating ?? team.total_rating;
+    const displayAvg = displayRating / team.player_count;
+    const teamStanding = boardStandingsByTeam.get(team.name);
+    qs(teamNode, '.team-total__value').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="13" height="13" loading="lazy">' + formatNumber(displayRating);
     qs(teamNode, '.team-player-count').textContent = `${team.player_count} members`;
-    qs(teamNode, '.team-average-rating').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="12" height="12" loading="lazy">' + `${formatNumber(team.total_rating / team.player_count)} avg rating`;
+    qs(teamNode, '.team-average-rating').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="12" height="12" loading="lazy">' + `${formatNumber(displayAvg)} avg rating`;
     setTeamSignet(teamNode, '.team-card__crest-icon', theme, theme.name);
 
-    const teamTopBoss = aggregateTopEntry(team.players, 'lifetime_bosses', 'ehb');
-    const teamTopSkill = aggregateTopEntry(team.players, 'lifetime_skills', 'ehp');
+    const placementWrap = qs(teamNode, '.team-placement');
+    const placementBadge = qs(teamNode, '.team-placement__badge');
+    const placementLabel = qs(teamNode, '.team-placement__label');
+    const placementTrophy = qs(teamNode, '.team-placement__trophy');
+    if (teamStanding) {
+      placementWrap.hidden = false;
+      placementBadge.setAttribute('aria-label', `${formatOrdinal(teamStanding.place)} place`);
+      placementLabel.textContent = `${formatOrdinal(teamStanding.place)} Place`;
+      placementTrophy.src = getPlacementTrophyIcon(teamStanding.place);
+      teamNode.dataset.teamPlacement = String(teamStanding.place);
+      teamNode.dataset.teamWinner = teamStanding.isWinner ? 'true' : 'false';
+    } else {
+      placementWrap.hidden = true;
+      delete teamNode.dataset.teamPlacement;
+      delete teamNode.dataset.teamWinner;
+    }
+
+    const teamTopBoss = aggregateTopEntry(team.players, 'event_bosses', 'ehb');
+    const teamTopSkill = aggregateTopEntry(team.players, 'event_skills', 'ehp');
 
     setTeamHighlight(teamNode, 'boss', teamTopBoss
       ? {
           title: teamTopBoss.name,
-          meta: `${formatNumber(teamTopBoss.total)} total lifetime EHB`,
+          meta: `${formatNumber(teamTopBoss.total)} event EHB`,
           iconUrl: `${METRIC_ICON_BASE}/${teamTopBoss.key}.png`,
           iconAlt: `${teamTopBoss.name} icon`,
         }
       : {
           title: 'No boss focus',
-          meta: 'No notable bossing data available',
+          meta: 'No boss kills during the event',
         });
 
     setTeamHighlight(teamNode, 'skill', teamTopSkill
       ? {
           title: teamTopSkill.name,
-          meta: `${formatNumber(teamTopSkill.total)} total lifetime EHP`,
+          meta: `${formatNumber(teamTopSkill.total)} event EHP`,
           iconUrl: `${METRIC_ICON_BASE}/${teamTopSkill.key}.png`,
           iconAlt: `${teamTopSkill.name} icon`,
         }
       : {
           title: 'No skill focus',
-          meta: 'No notable skilling data available',
+          meta: 'No skilling gains during the event',
         });
 
     delete teamNode.dataset.artMode;
@@ -3156,7 +3355,7 @@ function renderTeams(data) {
     const roster = qs(teamNode, '.team-roster');
     roster.style.setProperty('--roster-rating-width', `max(6.3rem, ${ratingWidth})`);
 
-    team.players.forEach((player) => {
+    [...team.players].sort((a, b) => (a.event_rating_rank ?? 999) - (b.event_rating_rank ?? 999)).forEach((player) => {
       const playerNode = playerTemplate.content.firstElementChild.cloneNode(true);
       applyParticipantTheme(playerNode, theme);
 
@@ -3166,19 +3365,13 @@ function renderTeams(data) {
       typeBadge.alt = type;
       applyFavoriteBadges(playerNode, player);
 
-      const topBoss = (player.bosses || [])[0];
-      if (topBoss && !UNAVAILABLE_BOSS_BACKGROUNDS.has(topBoss.key)) {
-        const bgUrl =
-          `${BOSS_BACKGROUND_BASE}/${topBoss.key}.png`;
-        playerNode.style.setProperty('--boss-bg', `url('${bgUrl}')`);
-      }
-
       qs(playerNode, '.player-name').textContent = player.username;
       qs(playerNode, '.metric-overall-rank').textContent = formatRank(
-        player.rating_rank ?? player.overall_rank
+        player.event_rating_rank ?? player.rating_rank ?? player.overall_rank
       );
-      qs(playerNode, '.metric-total').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="12" height="12" loading="lazy">' + formatNumber(player.total_rating);
-      qs(playerNode, '.metric-share').textContent = `${((player.total_rating / team.total_rating) * 100).toFixed(1)}%`;
+      const playerEventRating = player.event_rating ?? player.total_rating;
+      qs(playerNode, '.metric-total').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="12" height="12" loading="lazy">' + formatNumber(playerEventRating);
+      qs(playerNode, '.metric-share').textContent = `${((playerEventRating / displayRating) * 100).toFixed(1)}%`;
 
       roster.appendChild(playerNode);
     });
@@ -3208,36 +3401,30 @@ function renderParticipants(data) {
   }
 
   /*
-   * Build a merged boss/skill row.
-   *   iconKey        — WOM metric key for the icon
-   *   name           — display name
-   *   ltKc           — lifetime kill count / xp (string, already formatted)
-   *   ltVal          — lifetime ehb / ehp (string, already formatted)
-   *   rcKc           — recent gain kc/xp (string with '+' prefix, or null)
-   *   rcVal          — recent gain ehb/ehp (string with '+' prefix, or null)
+   * Build an event-period boss/skill row (single value per column).
+   *   iconKey — WOM metric key for the icon
+   *   name    — display name
+   *   kc      — event kill count / xp (string)
+   *   val     — event ehb / ehp (string)
    */
-  function makeBreakdownItem(iconKey, name, ltKc, ltVal, rcKc, rcVal) {
+  function makeBreakdownItem(iconKey, name, kc, val) {
     const li = document.createElement('li');
     li.className = 'breakdown-item';
-    const iconUrl =
-      `${METRIC_ICON_SMALL_BASE}/${iconKey}.png`;
-
-    const activityClass = rcKc
-      ? 'breakdown-item__activity'
-      : 'breakdown-item__activity breakdown-item__activity--empty';
-    const metricClass = rcVal
-      ? 'breakdown-item__metric'
-      : 'breakdown-item__metric breakdown-item__metric--empty';
-
+    const iconUrl = `${METRIC_ICON_SMALL_BASE}/${iconKey}.png`;
     li.innerHTML =
       `<img class="breakdown-item__icon" src="${iconUrl}" alt="" width="16" height="16" loading="lazy">` +
       `<span class="breakdown-item__name">${name}</span>` +
-      `<span class="${activityClass}"><span class="breakdown-item__lifetime">${ltKc}</span><span class="breakdown-item__recent">${rcKc ?? '—'}</span></span>` +
-      `<span class="${metricClass}"><span class="breakdown-item__lifetime">${ltVal}</span><span class="breakdown-item__recent">${rcVal ?? '—'}</span></span>`;
+      `<span class="breakdown-item__activity">${kc}</span>` +
+      `<span class="breakdown-item__metric">${val}</span>`;
     return li;
   }
 
-  data.participants.forEach((participant) => {
+  // Sort by event rating descending
+  const sorted = [...data.participants].sort(
+    (a, b) => (b.event_rating ?? 0) - (a.event_rating ?? 0)
+  );
+
+  sorted.forEach((participant) => {
     const theme = participantThemeMap.get(participant.team) || getThemeForParticipant(data, participant);
     const participantNode = participantTemplate.content.firstElementChild.cloneNode(true);
     applyParticipantTheme(participantNode, theme);
@@ -3251,74 +3438,48 @@ function renderParticipants(data) {
 
     applyFavoriteBadges(participantNode, participant);
 
-    // Header
+    // Header — event rank and event rating
     qs(participantNode, '.participant-name').textContent = participant.username;
     qs(participantNode, '.participant-overall-rank').textContent = formatRank(
-        participant.rating_rank ?? participant.overall_rank
+        participant.event_rating_rank ?? participant.rating_rank ?? participant.overall_rank
       );
-    qs(participantNode, '.participant-total').innerHTML = '<img src="assets/icon-rating.svg" alt="" width="15" height="15" loading="lazy">' + formatNumber(participant.total_rating);
+    qs(participantNode, '.participant-total').innerHTML =
+      '<img src="assets/icon-rating.svg" alt="" width="15" height="15" loading="lazy">' +
+      formatNumber(participant.event_rating ?? participant.total_rating);
 
-    // Activity score row — EHB/EHP gained (plain, no pill)
-    setMetricValue(participantNode, '.participant-ehb-gained', 'ehb', formatNumber(participant.ehb_gained));
-    setMetricValue(participantNode, '.participant-ehp-gained', 'ehp', formatNumber(participant.ehp_gained));
-    // Lifetime contribution — plain text, no icon
-    qsa(participantNode, '.participant-ehb-bonus').forEach((el) => {
-      el.textContent = formatNumber(participant.ehb_lifetime_bonus);
-    });
-    qsa(participantNode, '.participant-ehp-bonus').forEach((el) => {
-      el.textContent = formatNumber(participant.ehp_lifetime_bonus);
-    });
-    // Per-metric scores — header (no pill), breakdown footer total (pill)
-    setMetricValue(participantNode, '.participant-ehb-score', 'ehb', formatNumber(participant.ehb_score));
-    setMetricValue(participantNode, '.participant-ehp-score', 'ehp', formatNumber(participant.ehp_score));
-    // Lifetime values in formula strip (plain, no pill)
-    setMetricValue(participantNode, '.participant-ehb', 'ehb', formatNumber(participant.ehb));
-    qs(participantNode, '.participant-ehb-rank').textContent = `#${formatRank(participant.ehb_rank)}`;
-    setMetricValue(participantNode, '.participant-ehp', 'ehp', formatNumber(participant.ehp));
-    qs(participantNode, '.participant-ehp-rank').textContent = `#${formatRank(participant.ehp_rank)}`;
+    // Event EHB gained and event EHP gained
+    setMetricValue(participantNode, '.participant-ehb-gained', 'ehb', formatNumber(participant.event_ehb_gained ?? participant.ehb_gained));
+    setMetricValue(participantNode, '.participant-ehp-gained', 'ehp', formatNumber(participant.event_ehp_gained ?? participant.ehp_gained));
+    // Per-metric scores
+    setMetricValue(participantNode, '.participant-ehb-score', 'ehb', formatNumber(participant.event_ehb_score ?? participant.ehb_score));
+    setMetricValue(participantNode, '.participant-ehp-score', 'ehp', formatNumber(participant.event_ehp_score ?? participant.ehp_score));
 
-    // Build merged EHB breakdown (lifetime bosses + recent gains joined by key)
+    // Build EHB breakdown from event_bosses only
     const ehbList = qs(participantNode, '.breakdown-list--ehb');
-    const recentBossMap = new Map((participant.bosses || []).map(b => [b.key, b]));
-    const lifetimeBosses = participant.lifetime_bosses || [];
-    const ehbRows = lifetimeBosses.filter(b => {
-      const rc = recentBossMap.get(b.key);
-      return b.kills > 0 || (rc && rc.kills > 0);
-    });
-    if (ehbRows.length === 0) {
-      ehbList.appendChild(makeEmptyItem('No boss kill data available.'));
+    const eventBosses = participant.event_bosses || [];
+    if (eventBosses.length === 0) {
+      ehbList.appendChild(makeEmptyItem('No boss kills during the event.'));
     } else {
-      ehbRows.forEach((boss) => {
-        const rc = recentBossMap.get(boss.key);
+      eventBosses.forEach((boss) => {
         ehbList.appendChild(makeBreakdownItem(
           boss.key, boss.name,
           formatNumber(boss.kills),
           formatNumber(boss.ehb),
-          rc ? `+${formatNumber(rc.kills)}`  : null,
-          rc ? `+${formatNumber(rc.ehb)}`   : null,
         ));
       });
     }
 
-    // Build merged EHP breakdown (lifetime skills + recent gains joined by key)
+    // Build EHP breakdown from event_skills only
     const ehpList = qs(participantNode, '.breakdown-list--ehp');
-    const recentSkillMap = new Map((participant.skills || []).map(s => [s.key, s]));
-    const lifetimeSkills = participant.lifetime_skills || [];
-    const ehpRows = lifetimeSkills.filter(s => {
-      const rc = recentSkillMap.get(s.key);
-      return s.xp > 0 || (rc && rc.xp > 0);
-    });
-    if (ehpRows.length === 0) {
-      ehpList.appendChild(makeEmptyItem('No skilling data available.'));
+    const eventSkills = participant.event_skills || [];
+    if (eventSkills.length === 0) {
+      ehpList.appendChild(makeEmptyItem('No skilling gains during the event.'));
     } else {
-      ehpRows.forEach((skill) => {
-        const rc = recentSkillMap.get(skill.key);
+      eventSkills.forEach((skill) => {
         ehpList.appendChild(makeBreakdownItem(
           skill.key, skill.name,
           formatXp(skill.xp),
           formatNumber(skill.ehp),
-          rc ? `+${formatXp(rc.xp)}`        : null,
-          rc ? `+${formatNumber(rc.ehp)}`   : null,
         ));
       });
     }
@@ -3508,6 +3669,7 @@ async function loadTeams() {
     renderTeams(data);
     if (boardState.data) {
       renderBoard(boardState.data, data);
+      renderTeamTileLists(data, boardState.data);
     }
     renderParticipants(data);
   } catch (error) {
@@ -3528,6 +3690,10 @@ async function loadBoard() {
 
     const data = await response.json();
     renderBoard(data, boardState.teamsData);
+    if (boardState.teamsData) {
+      renderTeams(boardState.teamsData);
+      renderTeamTileLists(boardState.teamsData, data);
+    }
   } catch (error) {
     console.error('loadBoard failed:', error);
     renderBoardError(error.message);

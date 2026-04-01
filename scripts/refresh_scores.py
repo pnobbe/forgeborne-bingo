@@ -62,6 +62,11 @@ def player_row(player: Dict[str, Any], team_name: str) -> Dict[str, Any]:
         (player["ehp_gained"] + player["ehp_lifetime_bonus"]) / SKILLING_DIVISOR,
         2,
     )
+    event_ehb_gained = round(player.get("event_ehb_gained", 0.0), 2)
+    event_ehp_gained = round(player.get("event_ehp_gained", 0.0), 2)
+    event_ehb_score = event_ehb_gained
+    event_ehp_score = round(event_ehp_gained / SKILLING_DIVISOR, 2)
+    event_rating = round(event_ehb_score + event_ehp_score, 2)
     return {
         "username": player["username"],
         "player_type": player.get("player_type", "unknown"),
@@ -75,16 +80,24 @@ def player_row(player: Dict[str, Any], team_name: str) -> Dict[str, Any]:
         "ehb_rank": round(player["ehb_rank"], 1),
         "overall_rank": player["overall_rank"],
         "rating_rank": None,
+        "event_rating_rank": None,
         "ehb_lifetime_bonus": ehb_lifetime_bonus,
         "ehp_lifetime_bonus": ehp_lifetime_bonus,
         "ehb_score": ehb_score,
         "ehp_score": ehp_score,
         "total_rating": round(player["rating_total"], 2),
+        "event_ehb_gained": event_ehb_gained,
+        "event_ehp_gained": event_ehp_gained,
+        "event_ehb_score": event_ehb_score,
+        "event_ehp_score": event_ehp_score,
+        "event_rating": event_rating,
         "bosses": player.get("bosses", []),
         "skills": player.get("skills", []),
         "lifetime_bosses": player.get("lifetime_bosses", []),
         "lifetime_skills": player.get("lifetime_skills", []),
         "non_combat_xp_progress": player.get("non_combat_xp_progress", {}),
+        "event_bosses": player.get("event_bosses", []),
+        "event_skills": player.get("event_skills", []),
     }
 
 
@@ -174,8 +187,18 @@ def main() -> None:
     for rank, row in enumerate(participant_rows, start=1):
         row["rating_rank"] = rank
 
+    # Assign event_rating_rank separately (sorted by event_rating descending)
+    event_sorted = sorted(
+        participant_rows, key=lambda row: row["event_rating"], reverse=True
+    )
+    for rank, row in enumerate(event_sorted, start=1):
+        row["event_rating_rank"] = rank
+
     rating_rank_by_username = {
         row["username"]: row["rating_rank"] for row in participant_rows
+    }
+    event_rating_rank_by_username = {
+        row["username"]: row["event_rating_rank"] for row in participant_rows
     }
 
     players_by_username = {player["username"]: player for player in player_stats}
@@ -189,14 +212,19 @@ def main() -> None:
             player = players_by_username[username]
             row = player_row(player, team_name)
             row["rating_rank"] = rating_rank_by_username[username]
+            row["event_rating_rank"] = event_rating_rank_by_username[username]
             team_players.append(row)
         team_players.sort(key=player_sort_key)
         total_rating = round(sum(player["total_rating"] for player in team_players), 2)
+        event_total_rating = round(
+            sum(player["event_rating"] for player in team_players), 2
+        )
         team_totals.append(total_rating)
         teams.append(
             {
                 "name": team_name,
                 "total_rating": total_rating,
+                "event_total_rating": event_total_rating,
                 "player_count": len(team_players),
                 "players": team_players,
             }
@@ -212,6 +240,10 @@ def main() -> None:
         "description": (
             f"rating = (EHB_gained + lifetime_EHB/{LIFETIME_DIVISOR:g}) + "
             f"((EHP_gained + lifetime_EHP/{LIFETIME_DIVISOR:g}) / {SKILLING_DIVISOR:g})."
+        ),
+        "event_description": (
+            f"event_rating = event_EHB_gained + (event_EHP_gained / {SKILLING_DIVISOR:g}). "
+            "No lifetime component."
         ),
     }
     data["summary"] = {

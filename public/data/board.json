@@ -4,7 +4,7 @@
   "version": "2026.03.18",
   "title": "Forgeborne Bingo Board",
   "description": "A 5x5 challenge board for Forgeborne Bingo. Open any tile to see the objective, qualifying rewards, proof rules, and which teams have already locked it in.",
-  "updated_at": "2026-03-31T22:10:56Z",
+  "updated_at": "2026-04-01T14:24:37Z",
   "layout": {
     "rows": 5,
     "columns": 5
@@ -183,6 +183,15 @@
             "completed_at": "2026-03-31T13:46:23Z",
             "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1488496930626469938/image.png?ex=69ccfe4b&is=69cbaccb&hm=81cf56428647f2e812abb6a548bb1db85033ea95b4eee8855e91578553800bbf&=&format=webp&quality=lossless",
             "note": ""
+          },
+          {
+            "id": "team-2-vvonderss",
+            "team": "Team 2",
+            "player": "VVonderss",
+            "status": "verified",
+            "completed_at": "2026-04-01T14:24:12Z",
+            "proof_url": "",
+            "note": ""
           }
         ]
       }
@@ -343,7 +352,17 @@
       ],
       "competition": {
         "claim_limit_per_team": 1,
-        "completions": []
+        "completions": [
+          {
+            "id": "team-2-sebuoooze",
+            "team": "Team 2",
+            "player": "Sebuoooze",
+            "status": "verified",
+            "completed_at": "2026-04-01T14:23:40Z",
+            "proof_url": "",
+            "note": ""
+          }
+        ]
       }
     },
     {
@@ -690,7 +709,7 @@
             "player": "VVonders & Windbtw1217",
             "status": "verified",
             "completed_at": "2026-03-31T22:10:56Z",
-            "proof_url": "",
+            "proof_url": "https://media.discordapp.net/attachments/1483760900157472768/1488646163086180422/2026-03-31_15-51-08.png?ex=69cd8946&is=69cc37c6&hm=8cd8344d1c186fa43d77a682c8707c2ee12971fe03a38b1c71d3d8ef7d8af4b3&=&format=webp&quality=lossless",
             "note": ""
           }
         ]
@@ -1510,6 +1529,15 @@
             "player": "Tetsu Luna",
             "status": "verified",
             "completed_at": "2026-03-31T21:53:42Z",
+            "proof_url": "",
+            "note": ""
+          },
+          {
+            "id": "team-1-dumblezore",
+            "team": "Team 1",
+            "player": "Dumblezore",
+            "status": "verified",
+            "completed_at": "2026-04-01T14:24:37Z",
             "proof_url": "",
             "note": ""
           }

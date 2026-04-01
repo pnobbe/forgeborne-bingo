@@ -82,41 +82,44 @@
         </div>
       </section>
 
-      <section class="panel tab-panel panel--section panel--board" id="panel-board" role="tabpanel" aria-labelledby="tab-board" data-panel="board" hidden>
-        <div class="board-shell">
-          <div class="board-main">
-            <header class="board-toolbar">
-              <div class="board-toolbar__meta" aria-label="Board details and tracking">
-                <div class="info-chip board-chip">
-                  <button class="info-chip__button board-chip__button" type="button" aria-label="Board overview">
-                    <img src="assets/icon-board-overview.svg" alt="" />
-                    <span class="sr-only">Board overview</span>
-                  </button>
-                  <div class="info-popover board-info-popover board-info-popover--summary">
-                    <p class="info-popover__label" id="board-title">Forgeborne Bingo Board</p>
-                    <p class="board-info-popover__intro" id="board-description"></p>
-                    <div class="board-info-popover__meta" id="board-meta"></div>
-                    <div class="info-popover__content board-info-popover__summary-grid" id="board-summary"></div>
-                  </div>
-                </div>
+      <div class="board-header-bar" data-panel="board" hidden>
+        <div class="board-standings" id="board-standings" aria-label="Team standings"></div>
+        <header class="board-toolbar">
+          <div class="board-toolbar__meta" aria-label="Board details and tracking">
+            <div class="info-chip board-chip">
+              <button class="info-chip__button board-chip__button" type="button" aria-label="Board overview">
+                <img src="assets/icon-board-overview.svg" alt="" />
+                <span class="sr-only">Board overview</span>
+              </button>
+              <div class="info-popover board-info-popover board-info-popover--summary">
+                <p class="info-popover__label" id="board-title">Forgeborne Bingo Board</p>
+                <p class="board-info-popover__intro" id="board-description"></p>
+                <div class="board-info-popover__meta" id="board-meta"></div>
+                <div class="info-popover__content board-info-popover__summary-grid" id="board-summary"></div>
+              </div>
+            </div>
 
-                <div class="info-chip board-chip">
-                  <button class="info-chip__button board-chip__button" type="button" aria-label="Board guide">
-                    <img src="assets/icon-board-rules.svg" alt="" />
-                    <span class="sr-only">Board guide</span>
-                  </button>
-                  <div class="info-popover board-info-popover board-info-popover--rules">
-                    <p class="info-popover__label">Board Guide</p>
-                    <div class="info-popover__content board-info-popover__content">
-                      <div class="rule-card rule-card--compact board-rule-card">
-                        <ul class="board-rules__list" id="board-rules-list"></ul>
-                      </div>
-                    </div>
+            <div class="info-chip board-chip">
+              <button class="info-chip__button board-chip__button" type="button" aria-label="Board guide">
+                <img src="assets/icon-board-rules.svg" alt="" />
+                <span class="sr-only">Board guide</span>
+              </button>
+              <div class="info-popover board-info-popover board-info-popover--rules">
+                <p class="info-popover__label">Board Guide</p>
+                <div class="info-popover__content board-info-popover__content">
+                  <div class="rule-card rule-card--compact board-rule-card">
+                    <ul class="board-rules__list" id="board-rules-list"></ul>
                   </div>
                 </div>
               </div>
-            </header>
+            </div>
+          </div>
+        </header>
+      </div>
 
+      <section class="panel tab-panel panel--section panel--board" id="panel-board" role="tabpanel" aria-labelledby="tab-board" data-panel="board" hidden>
+        <div class="board-shell">
+          <div class="board-main">
             <div class="board-grid-scroller">
               <div class="board-grid" id="board-grid"></div>
             </div>
@@ -232,7 +235,7 @@
         </div>
         <div class="team-card__meta">
           <div class="team-total">
-            <span class="team-total__label">Total Rating</span>
+            <span class="team-total__label">Event Rating</span>
             <strong class="team-total__value"></strong>
           </div>
           <div class="team-card__badges">
@@ -246,9 +249,17 @@
         </div>
       </div>
 
+      <div class="team-tiles">
+        <div class="team-placement" hidden>
+          <span class="team-placement__badge"><img class="team-placement__trophy" src="assets/icon-trophy.svg" alt="" aria-hidden="true" loading="lazy"><span class="team-placement__label"></span></span>
+        </div>
+        <h4 class="team-tiles__heading">Completed Tiles</h4>
+        <ul class="team-tiles__list"></ul>
+      </div>
+
       <div class="team-card__highlights">
         <div class="team-highlight team-highlight--boss">
-          <span class="team-highlight__eyebrow">Popular Boss</span>
+          <span class="team-highlight__eyebrow">Top Boss</span>
           <div class="team-highlight__body">
             <span class="team-highlight__icon-wrap" hidden>
               <img class="team-highlight__icon team-highlight__icon--boss" src="" alt="" width="18" height="18" loading="lazy">
@@ -261,7 +272,7 @@
         </div>
 
         <div class="team-highlight team-highlight--skill">
-          <span class="team-highlight__eyebrow">Popular Skill</span>
+          <span class="team-highlight__eyebrow">Top Skill</span>
           <div class="team-highlight__body">
             <span class="team-highlight__icon-wrap" hidden>
               <img class="team-highlight__icon team-highlight__icon--skill" src="" alt="" width="18" height="18" loading="lazy">
@@ -348,18 +359,8 @@
                 <span class="participant-ehb-score"></span>
               </button>
               <div class="participant-inline-formula participant-inline-formula--ehb">
-                <div class="participant-inline-formula__segment participant-inline-formula__segment--foundation">
-                  <span class="participant-inline-formula__label">Lifetime Bonus</span>
-                  <div class="participant-inline-formula__value-group">
-                    <span class="participant-ehb"></span>
-                    <span class="score-row__rank participant-ehb-rank"></span>
-                    <span class="participant-inline-formula__op participant-inline-formula__op--inline" aria-hidden="true">/</span>
-                    <strong class="participant-ehb-bonus"></strong>
-                  </div>
-                </div>
-                <span class="participant-inline-formula__op" aria-hidden="true">+</span>
                 <div class="participant-inline-formula__segment participant-inline-formula__segment--recent">
-                  <span class="participant-inline-formula__label">Recent</span>
+                  <span class="participant-inline-formula__label">Event EHB</span>
                   <span class="participant-inline-formula__value participant-ehb-gained"></span>
                 </div>
                 <span class="participant-inline-formula__op participant-inline-formula__op--eq" aria-hidden="true">=</span>
@@ -377,18 +378,8 @@
                 <span class="participant-ehp-score"></span>
               </button>
               <div class="participant-inline-formula participant-inline-formula--ehp">
-                <div class="participant-inline-formula__segment participant-inline-formula__segment--foundation">
-                  <span class="participant-inline-formula__label">Lifetime Bonus / 3</span>
-                  <div class="participant-inline-formula__value-group">
-                    <span class="participant-ehp"></span>
-                    <span class="score-row__rank participant-ehp-rank"></span>
-                    <span class="participant-inline-formula__op participant-inline-formula__op--inline" aria-hidden="true">/</span>
-                    <strong class="participant-ehp-bonus"></strong>
-                  </div>
-                </div>
-                <span class="participant-inline-formula__op" aria-hidden="true">+</span>
                 <div class="participant-inline-formula__segment participant-inline-formula__segment--recent">
-                  <span class="participant-inline-formula__label">Recent</span>
+                  <span class="participant-inline-formula__label">Event EHP / 3</span>
                   <span class="participant-inline-formula__value participant-ehp-gained"></span>
                 </div>
                 <span class="participant-inline-formula__op participant-inline-formula__op--eq" aria-hidden="true">=</span>
@@ -414,8 +405,8 @@
                <img class="metric-icon" src="assets/wom/metrics/combat.png" alt="" width="13" height="13" loading="lazy">
             </span>
             <span class="breakdown-header__name">Boss</span>
-            <span class="breakdown-header__activity">Kills (Lifetime + Recent)</span>
-            <span class="breakdown-header__metric">EHB (Lifetime + Recent)</span>
+            <span class="breakdown-header__activity">Kills (Event)</span>
+            <span class="breakdown-header__metric">EHB (Event)</span>
           </div>
           <ul class="breakdown-list breakdown-list--ehb"></ul>
         </div>
@@ -426,8 +417,8 @@
                <img class="metric-icon" src="assets/wom/metrics/overall.png" alt="" width="13" height="13" loading="lazy">
             </span>
             <span class="breakdown-header__name">Skill</span>
-            <span class="breakdown-header__activity">XP (Lifetime + Recent)</span>
-            <span class="breakdown-header__metric">EHP (Lifetime + Recent)</span>
+            <span class="breakdown-header__activity">XP (Event)</span>
+            <span class="breakdown-header__metric">EHP (Event)</span>
           </div>
           <ul class="breakdown-list breakdown-list--ehp"></ul>
         </div>

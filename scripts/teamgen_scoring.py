@@ -179,6 +179,62 @@ def extract_player_stats(entry: Dict, username: str) -> Dict:
 
     non_combat_xp_progress = extract_non_combat_xp_progress(entry)
 
+    # Event-period gains (fixed window: BINGO_EVENT_START to BINGO_EVENT_END)
+    event_gains = entry.get("gains_event") or {}
+    event_gains_data = event_gains.get("data") or {}
+
+    event_computed_ehb = (
+        (event_gains_data.get("computed") or {})
+        .get("ehb", {})
+        .get("value", {})
+        .get("gained")
+    )
+    event_ehb_gained = (
+        max(0.0, float(event_computed_ehb)) if event_computed_ehb is not None else 0.0
+    )
+
+    event_computed_ehp = (
+        (event_gains_data.get("computed") or {})
+        .get("ehp", {})
+        .get("value", {})
+        .get("gained")
+    )
+    event_ehp_gained = (
+        max(0.0, float(event_computed_ehp)) if event_computed_ehp is not None else 0.0
+    )
+
+    event_bosses = []
+    for boss_key, boss in (event_gains_data.get("bosses") or {}).items():
+        kills_gained = (boss.get("kills") or {}).get("gained", 0) or 0
+        ehb_gained_boss = float((boss.get("ehb") or {}).get("gained", 0) or 0)
+        if kills_gained > 0 and ehb_gained_boss > 0.0:
+            event_bosses.append(
+                {
+                    "name": boss_key.replace("_", " ").title(),
+                    "key": boss_key,
+                    "kills": kills_gained,
+                    "ehb": round(ehb_gained_boss, 4),
+                }
+            )
+    event_bosses.sort(key=lambda boss: boss["ehb"], reverse=True)
+
+    event_skills = []
+    for skill_key, skill in (event_gains_data.get("skills") or {}).items():
+        if skill_key == "overall":
+            continue
+        ehp_gained_skill = float((skill.get("ehp") or {}).get("gained", 0) or 0)
+        xp_gained = int((skill.get("experience") or {}).get("gained", 0) or 0)
+        if ehp_gained_skill > 0.0:
+            event_skills.append(
+                {
+                    "name": skill_key.replace("_", " ").title(),
+                    "key": skill_key,
+                    "xp": xp_gained,
+                    "ehp": round(ehp_gained_skill, 4),
+                }
+            )
+    event_skills.sort(key=lambda skill: skill["ehp"], reverse=True)
+
     return {
         "username": username,
         "player_type": player_type,
@@ -192,6 +248,10 @@ def extract_player_stats(entry: Dict, username: str) -> Dict:
         "lifetime_bosses": lifetime_bosses,
         "lifetime_skills": lifetime_skills,
         "non_combat_xp_progress": non_combat_xp_progress,
+        "event_ehb_gained": event_ehb_gained,
+        "event_ehp_gained": event_ehp_gained,
+        "event_bosses": event_bosses,
+        "event_skills": event_skills,
     }
 
 
