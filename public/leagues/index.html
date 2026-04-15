@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonic Leagues Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leagues-route">
+  <main class="leagues-page">
+    <header class="leagues-header leagues-card">
+      <div class="leagues-header__copy">
+        <p class="leagues-eyebrow">Guide Route</p>
+        <h1 id="guide-title">Loading guide...</h1>
+        <p class="leagues-subtitle" id="guide-subtitle"></p>
+        <p class="leagues-description">
+          Personal browser checklist for Faux's Demonic Pact Leagues route. Progress is saved locally on this browser only.
+        </p>
+      </div>
+
+      <div class="leagues-actions">
+        <a class="leagues-button leagues-button--link" id="guide-video-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Full walkthrough video</a>
+        <button class="leagues-button leagues-button--ghost" id="reset-progress" type="button">Reset progress</button>
+      </div>
+
+      <div class="leagues-progress-grid" aria-live="polite" aria-atomic="true">
+        <article class="leagues-stat">
+          <p class="leagues-stat__label">Overall Progress</p>
+          <strong class="leagues-stat__value" id="progress-ratio">0 / 0</strong>
+          <p class="leagues-stat__caption" id="progress-percent">0%</p>
+        </article>
+
+        <article class="leagues-stat">
+          <p class="leagues-stat__label">Sections Cleared</p>
+          <strong class="leagues-stat__value" id="section-ratio">0 / 0</strong>
+          <p class="leagues-stat__caption">Major route chunks finished</p>
+        </article>
+
+        <article class="leagues-stat leagues-stat--wide">
+          <p class="leagues-stat__label">Next Unchecked Step</p>
+          <strong class="leagues-stat__value leagues-stat__value--next" id="next-step">Everything checked.</strong>
+          <p class="leagues-stat__caption">Keeps the route easy to resume after a refresh.</p>
+        </article>
+      </div>
+    </header>
+
+    <section class="leagues-intro" id="guide-intro"></section>
+    <section class="leagues-sections" id="guide-sections"></section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

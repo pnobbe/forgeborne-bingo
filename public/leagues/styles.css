@@ -1,0 +1,469 @@
+.leagues-route {
+  --leagues-accent: #a63d22;
+  --leagues-accent-strong: #d77a3b;
+  --leagues-accent-soft: rgba(215, 122, 59, 0.18);
+  --leagues-emerald: #7f9d5c;
+  --leagues-emerald-soft: rgba(127, 157, 92, 0.18);
+  --leagues-panel: rgba(35, 29, 24, 0.92);
+  --leagues-panel-strong: rgba(45, 37, 30, 0.97);
+}
+
+.leagues-route::before {
+  background-image:
+    url("../assets/marble-veil.svg"),
+    radial-gradient(circle at 50% 10%, rgba(255, 153, 84, 0.08), transparent 42%);
+  background-position: center top, center top;
+  background-size: cover, 100% 100%;
+  opacity: 0.2;
+}
+
+.leagues-page {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.leagues-page,
+.leagues-page button,
+.leagues-page input,
+.leagues-page a {
+  font-family: "EB Garamond", serif;
+}
+
+.leagues-card,
+.leagues-intro-card,
+.leagues-section,
+.leagues-step,
+.leagues-note {
+  position: relative;
+  border: 1px solid var(--shell-border);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    linear-gradient(180deg, var(--leagues-panel-strong), var(--leagues-panel));
+  box-shadow:
+    var(--shell-shadow-soft),
+    0 0 22px rgba(224, 196, 127, 0.04);
+}
+
+.leagues-card::before,
+.leagues-intro-card::before,
+.leagues-section::before,
+.leagues-step::before,
+.leagues-note::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(255, 245, 214, 0.045);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.leagues-header {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  overflow: hidden;
+}
+
+.leagues-header::after,
+.leagues-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(224, 196, 127, 0.08), transparent 24%),
+    radial-gradient(circle at 82% 0%, rgba(201, 78, 26, 0.08), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 20%);
+}
+
+.leagues-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.leagues-eyebrow,
+.leagues-section__eyebrow,
+.leagues-step__meta,
+.leagues-note__label,
+.leagues-button,
+.leagues-intro-list {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.leagues-eyebrow,
+.leagues-section__eyebrow,
+.leagues-note__label {
+  margin: 0 0 10px;
+  color: var(--shell-gold);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.leagues-header h1,
+.leagues-section__title,
+.leagues-step__text {
+  margin: 0;
+  font-family: "Cinzel", serif;
+}
+
+.leagues-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--shell-text-bright);
+  text-shadow: 0 0 20px rgba(224, 196, 127, 0.1);
+}
+
+.leagues-subtitle,
+.leagues-description,
+.leagues-step__body,
+.leagues-note__body,
+.leagues-section__summary {
+  margin: 0;
+  color: var(--shell-text-muted);
+  line-height: 1.5;
+}
+
+.leagues-subtitle {
+  font-size: 1.12rem;
+  color: var(--shell-gold-bright);
+}
+
+.leagues-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.leagues-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0 16px;
+  border: 1px solid rgba(240, 219, 146, 0.18);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.022)),
+    linear-gradient(180deg, rgba(58, 49, 41, 0.94), rgba(33, 28, 23, 0.96));
+  color: var(--shell-gold-bright);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.leagues-button:hover,
+.leagues-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(240, 219, 146, 0.36);
+  color: #fff0c0;
+}
+
+.leagues-button:focus-visible,
+.leagues-step__checkbox:focus-visible,
+.leagues-step__label:focus-within {
+  outline: 2px solid var(--shell-gold);
+  outline-offset: 2px;
+}
+
+.leagues-button--ghost {
+  color: color-mix(in srgb, var(--shell-text-bright) 88%, #ffffff 12%);
+}
+
+.leagues-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.leagues-stat {
+  padding: 16px;
+  border: 1px solid rgba(240, 219, 146, 0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    rgba(23, 19, 15, 0.68);
+}
+
+.leagues-stat--wide {
+  grid-column: span 1;
+}
+
+.leagues-stat__label {
+  margin: 0 0 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--shell-gold-dim);
+}
+
+.leagues-stat__value {
+  display: block;
+  color: var(--shell-text-bright);
+  font-family: "Cinzel", serif;
+  font-size: 1.72rem;
+}
+
+.leagues-stat__value--next {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.leagues-stat__caption {
+  margin: 6px 0 0;
+  color: var(--shell-text-muted);
+}
+
+.leagues-intro,
+.leagues-sections {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.leagues-intro-card,
+.leagues-section {
+  padding: 22px;
+}
+
+.leagues-intro-card h2,
+.leagues-section__title {
+  margin: 0 0 8px;
+  color: var(--shell-text-bright);
+  font-size: 1.4rem;
+}
+
+.leagues-intro-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leagues-intro-list li {
+  padding: 7px 11px;
+  border: 1px solid rgba(240, 219, 146, 0.14);
+  border-radius: 999px;
+  background: rgba(25, 20, 16, 0.72);
+  color: var(--shell-text);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.leagues-section {
+  display: grid;
+  gap: 16px;
+}
+
+.leagues-section__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.leagues-section__progress {
+  min-width: 108px;
+  text-align: right;
+}
+
+.leagues-section__count {
+  display: block;
+  color: var(--shell-gold-bright);
+  font-family: "Cinzel", serif;
+  font-size: 1.28rem;
+}
+
+.leagues-section__percent {
+  display: block;
+  color: var(--shell-text-muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.leagues-section__items {
+  display: grid;
+  gap: 12px;
+}
+
+.leagues-step,
+.leagues-note {
+  padding: 16px;
+}
+
+.leagues-step {
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.leagues-step.is-checked {
+  border-color: rgba(127, 157, 92, 0.36);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018)),
+    linear-gradient(180deg, rgba(39, 51, 34, 0.95), rgba(23, 31, 20, 0.96));
+  box-shadow:
+    var(--shell-shadow-soft),
+    0 0 24px rgba(127, 157, 92, 0.08);
+}
+
+.leagues-step__label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.leagues-step__checkbox {
+  appearance: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 3px 0 0;
+  border: 1px solid rgba(240, 219, 146, 0.24);
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(21, 17, 14, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 10px rgba(0, 0, 0, 0.18);
+  flex: 0 0 auto;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.leagues-step__checkbox:checked {
+  border-color: rgba(127, 157, 92, 0.58);
+  background:
+    linear-gradient(180deg, rgba(176, 215, 135, 0.26), rgba(127, 157, 92, 0.14)),
+    rgba(23, 31, 20, 0.96);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 0 0 1px rgba(127, 157, 92, 0.12),
+    0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.leagues-step__checkbox:checked::before {
+  content: "";
+  display: block;
+  width: 0.34rem;
+  height: 0.68rem;
+  margin: 0.14rem auto 0;
+  border: solid #eff6df;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.leagues-step__content {
+  min-width: 0;
+}
+
+.leagues-step__meta {
+  margin: 0 0 6px;
+  color: var(--shell-gold-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.leagues-step__text {
+  color: var(--shell-text-bright);
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.leagues-step__body {
+  margin-top: 6px;
+}
+
+.leagues-step.is-checked .leagues-step__text {
+  color: #d7e7c6;
+  text-decoration: line-through;
+  text-decoration-color: rgba(215, 231, 198, 0.42);
+}
+
+.leagues-step.is-next {
+  border-color: rgba(215, 122, 59, 0.34);
+  box-shadow:
+    var(--shell-shadow-soft),
+    0 0 24px rgba(215, 122, 59, 0.08);
+}
+
+.leagues-step.is-next .leagues-step__meta {
+  color: #f0be91;
+}
+
+.leagues-note {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    linear-gradient(180deg, rgba(39, 32, 27, 0.94), rgba(24, 20, 17, 0.95));
+}
+
+.leagues-note__label {
+  color: #e4ab7b;
+}
+
+.leagues-note__body {
+  color: var(--shell-text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .leagues-step:hover {
+    transform: translateY(-2px);
+    border-color: rgba(240, 219, 146, 0.22);
+  }
+}
+
+@media (max-width: 900px) {
+  .leagues-progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leagues-stat--wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .leagues-page {
+    width: min(100%, calc(100% - 16px));
+    padding: 16px 0 48px;
+  }
+
+  .leagues-header,
+  .leagues-intro-card,
+  .leagues-section,
+  .leagues-step,
+  .leagues-note {
+    padding: 18px;
+  }
+
+  .leagues-section__header {
+    flex-direction: column;
+  }
+
+  .leagues-section__progress {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .leagues-header h1 {
+    font-size: 2rem;
+  }
+
+  .leagues-step__label {
+    gap: 12px;
+  }
+}
