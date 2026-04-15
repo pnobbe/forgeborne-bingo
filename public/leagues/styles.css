@@ -166,9 +166,7 @@
   color: #fff0c0;
 }
 
-.leagues-button:focus-visible,
-.leagues-step__checkbox:focus-visible,
-.leagues-step__label:focus-within {
+.leagues-button:focus-visible {
   outline: 2px solid var(--shell-gold);
   outline-offset: 2px;
 }
